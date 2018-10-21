@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="pragma" content="no-cache" charset="utf-8">
+	<title>PlayLine Dash</title>
+	<link rel="icon" href="imgs/playlineicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="navbar">
+		<div class="third" style="width: 33%;"><img src="imgs/hamburger.png" id="menu-button"></div>
+		<div class="third" style="width: 33%;"><img src="imgs/playline.png" id="navbar-logo"></div>
+		<div class="third" style="width: 33%;"><a id="open-login">Log In</a></div>
+		<div id="dropdown" style="margin-left: -279px;">
+			<img src="imgs/X.png" id="menu-button2">
+			<hr id="dropdownhr">
+			<table id="table-menu">
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="home-link">Home</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="artists-link">Artists</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="about-link">About</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="dash-link" style="visibility: hidden;" href="dash.html">Dashboard</a></p></td></tr>
+			</table>
+		</div>
+
+		<div id="login-form" class="login-form" style="margin-top: -380px;">
+			<div class="top-container" id="top-container">
+				<p class="top-form-text" id="top-login-form-text">Log In With Email</p>
+				<img class="close-form" id="close-login-form" src="imgs/X.png">
+			</div>
+			<form>
+				<input type="text" id="email" class="textbox" placeholder="Email"><br>
+				<input type="text" id="password" class="textbox" placeholder="Password"><br>
+				<button type="button" id="login">Log In</button><br>
+			</form>
+			<p id="signup-text2">Don"t have an account? <a id="signup" class="alink">Sign Up</a></p>
+		</div>
+
+		<div id="signup-form" class="signup-form" style="margin-top: -380px;">
+			<div class="top-container" id="top-container-signup">
+				<p class="top-form-text" id="top-signup-form-text">Sign Up With Email</p>
+				<img class="close-form" id="close-signup-form" src="imgs/X.png">
+			</div>
+			<form>
+				<input id="newEmail" type="text" class="textbox" name="email" placeholder="Email"><br>
+				<input id="newPassword" type="text" class="textbox" name="password" placeholder="Password"><br>
+				<input id="first" type="text" class="textbox" name="first" placeholder="First Name"><br>
+				<input id="last" type="text" class="textbox" name="last" placeholder="Last Name"><br>
+				<button type="button" id="signupButton" name="login">Sign Up</button><br>
+			</form>
+			<p id="signup-text">Already have an account? <a id="alreadyHaveAcc" class="alink">Log In</a></p>
+		</div>
+	</div>
+
+	<div id="graystuff" style="display: none;"></div>
+
+	<div id="home" class="main-content">
+		<p id="grabber-text">With over 125 million songs on SoundCloud® you want your music to<br>
+		stand out. But getting your music on major music platforms is hard right? Well<br>
+		with PlayLine you can get your music on major streaming services like<br>
+		Apple Music®, Spotify®, and Google Play® for less than 2 cups of coffee -<br>
+		and keep YOUR money.</p>
+		<a id="goNow">Sign Up Now!</a>
+		<table id="cool-things">
+			<tr class="cool-tr"><td class="cool-td"> - Keep 100% Royalties and Rights</td><td class="cool-td"> - Free UPC Codes</td></tr>
+			<tr class="cool-tr"><td class="cool-td"> - Unlimited Releases</td><td class="cool-td"> - One time fee of only $20</td></tr>
+			<tr class="cool-tr"><td class="cool-td"> - Professional Mastering for $5</td><td class="cool-td"> - 45+ Release Platforms</td></tr>
+			<tr class="cool-tr"><td class="cool-td"> - Free Promotion to Get Your Song Heard</td></tr>
+		</table>
+	</div>
+
+	<div id="footer">
+		<img src="imgs/playline.png" style="height: 50px; width: 50px;">
+		<p id="cpr1">© 2018 PlayLine Records, All rights reserved.</p>
+		<p id="cpr2">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
+	</div>
+<script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="navbar.js"></script>
+</body>
+</html>

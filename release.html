@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="pragma" content="no-cache" charset="utf-8">
+	<title>PlayLine Dash</title>
+	<link rel="icon" href="imgs/playlineicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="navbar">
+		<div class="third" style="width: 33%;"><img src="imgs/hamburger.png" id="menu-button"></div>
+		<div class="third" style="width: 33%;"><img src="imgs/playline.png" id="navbar-logo"></div>
+		<div class="third" style="width: 33%;"><a id="open-login">Log In</a></div>
+		<div id="dropdown" style="margin-left: -279px;">
+			<img src="imgs/X.png" id="menu-button2">
+			<hr id="dropdownhr">
+			<table id="table-menu">
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="home-link">Home</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="artists-link" href="http:/localhost//index2.html">Artists</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="about-link">About</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="dash-link"style="visibility: hidden;">Dashboard</a></p></td></tr>
+			</table>
+		</div>
+
+		<div id="login-form" class="login-form">
+			<div class="top-container" id="top-container">
+				<p class="top-form-text" id="top-login-form-text">Log In With Email</p>
+				<img class="close-form" id="close-login-form" src="imgs/X.png">
+			</div>
+			<form>
+				<input type="text" id="email" class="textbox" placeholder="Email"><br>
+				<input type="text" id="password" class="textbox" placeholder="Password"><br>
+				<button type="button" id="login">Log In</button><br>
+			</form>
+			<p id="signup-text2">Don"t have an account? <a id="signup" class="alink">Sign Up</a></p>
+		</div>
+
+		<div id="signup-form" class="signup-form">
+			<div class="top-container" id="top-container-signup">
+				<p class="top-form-text" id="top-signup-form-text">Sign Up With Email</p>
+				<img class="close-form" id="close-signup-form" src="imgs/X.png">
+			</div>
+			<form>
+				<input id="newEmail" type="text" class="textbox" name="email" placeholder="Email"><br>
+				<input id="newPassword" type="text" class="textbox" name="password" placeholder="Password"><br>
+				<input id="first" type="text" class="textbox" name="first" placeholder="First Name"><br>
+				<input id="last" type="text" class="textbox" name="last" placeholder="Last Name"><br>
+				<button type="button" id="signupButton" name="login">Sign Up</button><br>
+			</form>
+			<p id="signup-text">Already have an account? <a id="alreadyHaveAcc" class="alink">Log In</a></p>
+		</div>
+	</div>
+
+	<div id="graystuff" style="display: none;"></div>
+
+	<div id="release-form-div">
+		<form id="release-form" action="upload.php" method="post" enctype="multipart/form-data">
+			<div id="left-form">
+				<p>Song Name</p>
+				<input type="text" name="songName" placeholder="Song Name"><br><!--Done-->
+
+				<p>Genre</p>
+				<input type="text" name="genre" placeholder="Genre"><br><!--Done-->
+
+				<p>Subgenre</p>
+				<input type="text" name="subgenre" placeholder="Subgenre"><br><!--Done-->
+
+				<p>Primary Artists</p>
+				<input type="text" name="primary" placeholder="Primary Artists"><br><!--Done-->
+
+				<p>Featured Artists</p>
+				<input type="text" name="feat" placeholder="Featured Artists"><br><!--Done-->
+
+				<p>Explicit Content?</p>
+				<div id="explicits"><input type="radio" name="explicit" value="yes"> Explicit
+				<input type="radio" name="explicit" value="no"> Clean</div><br>
+
+				<p>Do you have an ISRC?</p>
+				<div id="isrcs">
+					<input type="radio" name="isrcBool" id="isrcYes" value="yes"> Yes
+					<input type="radio" name="isrcBool" id="isrcNo" value="no"> No
+				</div><br>
+
+				<p id="isrcC" style="display: none;">ISRC Code</p>
+				<input type="text" name="isrcCode" id="isrc" placeholder="ISRC Code" style="display: none;"><br id="isrcBR" style="display: none;">
+				
+				<p>Album Art</p>
+				<input type="file" name="albumArt" accept="image/*"><br>
+
+				<p>Song File</p>
+				<input type="file" name="fileToUpload" accept="audio/*"><br><!--Done-->
+
+				<p>Language of Song Lyrics</p>
+				<select name="language" id="language" size="1">
+					<option value="select">--Please Select--</option>
+					<option value="nolyrics">No lyrics</option>
+					<option value="english">English</option>
+					<option value="spanish">Spanish</option>
+					<option value="french">French</option>
+					<option value="mandarin">Mandarin</option>
+					<option value="other">Other</option>
+				</select>
+
+				<div id="otherLangDiv" style="display: none;">
+					<br>
+					<p>Other Langauge</p>
+					<input type="text" name="otherLang" size="20">
+				</div><br>
+
+				<input type="submit">
+			</div>
+			
+			
+			<!-- Name of Copyright Owner: <input type="text" name="cpOwner" id="cpOwner"><br>
+			Has the song been released before?: <input type="radio" name="releasedBefore" value="yes" id="releasedBeforeYes"> Yes
+			<input type="radio" name="releasedBefore" value="no" id="releasedBeforeNo"> No<br>
+			<div id="releasedBeforeDateDiv" style="display: none;">
+				What Date?: <input type="date" name="releasedBeforeDate" id="releasedBeforeDate"><br>
+			</div>
+			When do you want the song released?: <input type="radio" name="releaseDate" value="asap(2-4 days)" id="releaseDateASAP"> As soon as possible (2-4 Business days)
+			<input type="radio" name="releaseDate" value="specificDate" id="releaseDateSpecific"> A specific date<br>
+			<div id="specificReleaseDateDiv" style="display: none;">
+				Specific Date: <input type="date" name="specificReleaseDate"><br>
+			</div> -->
+		</form>
+	</div>
+
+	<div id="footer">
+		<img src="imgs/playline.png" style="height: 50px; width: 50px;">
+		<p id="cpr1">© 2018 PlayLine Records, All rights reserved.</p>
+		<p id="cpr2">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
+	</div>
+<script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+<script type="text/javascript" src="navbar.js"></script>
+<script type="text/javascript" src="release.js"></script>
+</body>
+</html>
