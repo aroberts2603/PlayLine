@@ -57,24 +57,36 @@
 	<div id="release-form-div">
 		<form id="release-form" action="upload.php" method="post" enctype="multipart/form-data">
 			<div id="left-form">
-				<p>Song Name</p>
-				<input type="text" name="songName" placeholder="Song Name"><br><!--Done-->
+				<div class="form-element">
+					<p>Song Name</p>
+					<input type="text" name="songName" placeholder="Song Name"><br><!--Done-->
+				</div>
 
-				<p>Genre</p>
-				<input type="text" name="genre" placeholder="Genre"><br><!--Done-->
+				<div class="form-element">
+					<p>Genre</p>
+					<input type="text" name="genre" placeholder="Genre"><br><!--Done-->
+				</div>
 
-				<p>Subgenre</p>
-				<input type="text" name="subgenre" placeholder="Subgenre"><br><!--Done-->
+				<div class="form-element">
+					<p>Subgenre</p>
+					<input type="text" name="subgenre" placeholder="Subgenre"><br><!--Done-->
+				</div>
 
-				<p>Primary Artists</p>
-				<input type="text" name="primary" placeholder="Primary Artists"><br><!--Done-->
+				<div class="form-element">
+					<p>Primary Artists</p>
+					<input type="text" name="primary" placeholder="Primary Artists"><br><!--Done-->
+				</div>
 
-				<p>Featured Artists</p>
-				<input type="text" name="feat" placeholder="Featured Artists"><br><!--Done-->
+				<div class="form-element">
+					<p>Featured Artists</p>
+					<input type="text" name="feat" placeholder="Featured Artists"><br><!--Done-->
+				</div>
 
-				<p>Explicit Content?</p>
-				<div id="explicits"><input type="radio" name="explicit" value="yes"> Explicit
-				<input type="radio" name="explicit" value="no"> Clean</div><br>
+				<div class="form-element">
+					<p>Explicit Content?</p>
+					<div id="explicits"><input type="radio" name="explicit" value="yes"> Explicit
+					<input type="radio" name="explicit" value="no"> Clean</div><br>
+				</div>
 
 				<p>Do you have an ISRC?</p>
 				<div id="isrcs">
@@ -83,7 +95,8 @@
 				</div><br>
 
 				<p id="isrcC" style="display: none;">ISRC Code</p>
-				<input type="text" name="isrcCode" id="isrc" placeholder="ISRC Code" style="display: none;"><br id="isrcBR" style="display: none;">
+				<input type="text" name="isrcCode" id="isrc" disabled="disabled" placeholder="ISRC Code" style="display: none;">
+				<br id="isrcBR" style="display: none;">
 				
 				<p>Album Art</p>
 				<input type="file" name="albumArt" accept="image/*"><br>

@@ -475,3 +475,10 @@ td {
 	width: 156px;
 	text-align: left;
 }
+
+.form-element {
+	border: 1px solid grey;
+	padding: 4px;
+	margin: 5px;
+	border-radius: 2px;
+}
