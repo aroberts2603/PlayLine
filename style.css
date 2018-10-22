@@ -36,10 +36,6 @@ a {
 	text-align: center;
 }
 
-input {
-	margin-bottom: 3px;
-}
-
 button {
 	border: none;
 	font-size: 16px;
@@ -478,7 +474,8 @@ td {
 
 .form-element {
 	border: 1px solid grey;
-	padding: 4px;
+	padding: 7px;
 	margin: 5px;
 	border-radius: 2px;
+	/*width: 350px;*/
 }
