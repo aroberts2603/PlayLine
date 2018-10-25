@@ -54,6 +54,8 @@
 		</div>
 	</div>
 
+	<div style="height: 60px;" id="navbar-fill"></div>
+
 	<div id="graystuff" style="display: none;"></div>
 
 	<?php
