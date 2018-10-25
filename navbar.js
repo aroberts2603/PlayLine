@@ -89,6 +89,8 @@ dashLink.onclick = function() {
 	window.location.href = "dash.html";
 }
 
+
+
 firebase.auth().onAuthStateChanged(function(user) {
 	if(user) {
 		getEl("open-login").innerHTML = "My Dash";

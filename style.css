@@ -14,6 +14,11 @@
 	font-weight: 100;
 }
 
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
 #signup-text {
 	font-size: 14px;
 	margin-top: 0px;
@@ -78,6 +83,7 @@ button:hover {
 	height: 60px;
 	display: inline-block;
 	position: fixed;
+	z-index: 1000;s
 }
 
 #navbar-logo {
@@ -302,7 +308,7 @@ h4 {
 }
 
 #dropdown {
-	position: absolute;
+	position: fixed;
 	background-color: #AEAEAE;
 	opacity: 50;
 	top: 0;
@@ -335,7 +341,7 @@ td {
 #graystuff {
 	height: calc(100% - 60px);
 	width: 100%;
-	position: absolute;
+	position: fixed;
 	top: 60px;
 	background-color: rgba(0,0,0,0.7);
 	z-index: 100;
@@ -349,7 +355,6 @@ td {
 
 #footer {
 	background-color: var(--panels);
-	bottom: 0px;
 	width: 100%;
 	text-align: center;
 	padding-top: 5px;
@@ -511,4 +516,11 @@ td {
 #release-form {
 	display: flex;
 	justify-content: center;
+}
+
+#main-grid {
+	display: grid;
+	min-height: calc(100% - 60px);
+	grid-template-rows: 1fr auto;
+	grid-template-columns: 100%;
 }
