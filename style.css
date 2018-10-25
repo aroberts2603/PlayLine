@@ -361,6 +361,7 @@ td {
 	padding-bottom: 5px;
 	filter: none;
 	overflow: hidden;
+	margin-top: 22px;
 }
 
 #cpr1 {
@@ -523,4 +524,12 @@ td {
 	min-height: calc(100% - 60px);
 	grid-template-rows: 1fr auto;
 	grid-template-columns: 100%;
+}
+
+.file-upload {
+	width: 200px;
+}
+
+a[type="radio"] {
+	background-color: blue;
 }

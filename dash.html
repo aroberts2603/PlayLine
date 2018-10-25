@@ -59,25 +59,29 @@
 
 	<div id="graystuff" style="display: none;"></div>
 
-	<div class="grid-container" id="dashboard-grid-container">
-		<div id="left-panel" class="main-panel">
-			<h5 id="total">Earnings</h5>
-			<hr>
-			<p id="money"><span id="moneyMade">$0</span></p>
-			<p id="withdrawl"><a id="awithdrawl">Withdrawl</a></p>
+	<div id="main-grid">
+		<div id="wrapper">
+			<div class="grid-container" id="dashboard-grid-container">
+				<div id="left-panel" class="main-panel">
+					<h5 id="total">Earnings</h5>
+					<hr>
+					<p id="money"><span id="moneyMade">$0</span></p>
+					<p id="withdrawl"><a id="awithdrawl">Withdrawl</a></p>
+				</div>
+				<div id="right-panel" class="main-panel">
+					<h5>Released</h5>
+					<hr>
+					<div id="releases-container"></div>
+				<div id="release-button"><p class="no-underline" id="release-button-text"><a class="no-underline" href="release.html">Release</a></p></div>
+				</div>
+			</div>
 		</div>
-		<div id="right-panel" class="main-panel">
-			<h5>Released</h5>
-			<hr>
-			<div id="releases-container"></div>
-		<div id="release-button"><p class="no-underline" id="release-button-text"><a class="no-underline" href="release.html">Release</a></p></div>
-		</div>
-	</div>
 
-	<div id="footer">
-		<img src="imgs/playline.png" style="height: 50px; width: 50px;">
-		<p id="cpr1">© 2018 PlayLine Records, All rights reserved.</p>
-		<p id="cpr2">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
+		<div id="footer">
+			<img src="imgs/playline.png" style="height: 50px; width: 50px;">
+			<p id="cpr1">© 2018 PlayLine Records, All rights reserved.</p>
+			<p id="cpr2">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
+		</div>
 	</div>
 <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 <script type="text/javascript" src="dash.js"></script>

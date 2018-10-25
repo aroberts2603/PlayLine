@@ -2,38 +2,50 @@ function el(ele) {
 	return document.getElementById(ele);
 }
 
-document.getElementById("isrcYes").onclick = function() {
-	document.getElementById("isrcBR").style.display = "inline";
-	document.getElementById("isrcC").style.display = "inline";
-	document.getElementById("isrc").style.display = "inline";
+el("haveISRC").onclick = function() {
+	if(el("haveISRC").checked == true) {
+		el("isrc").disabled = false;
+	} else {
+		el("isrc").disabled = true;
+		el("isrc").value = "";
+	}
 }
 
-document.getElementById("isrcNo").onclick = function() {
-	document.getElementById("isrcBR").style.display = "none";
-	document.getElementById("isrcC").style.display = "none";
-	document.getElementById("isrc").style.display = "none";
-}
+var Actor = "";
+var Arranger = "";
+var Choir = "";
+var Composer = "";
+var Conductor = "";
+var Engineer = "";
+var Ensamble = "";
+var Lyricist = "";
+var Mixer = "";
+var Orchestra = "";
+var Remixer = "";
+var Soloist = "";
 
-document.getElementById("releasedBeforeYes").onclick = function() {
-	document.getElementById("releasedBeforeDateDiv").style.display = "inline";
-}
+// document.getElementById("releasedBeforeYes").onclick = function() {
+// 	document.getElementById("releasedBeforeDateDiv").style.display = "inline";
+// }
 
-document.getElementById("releasedBeforeNo").onclick = function() {
-	document.getElementById("releasedBeforeDateDiv").style.display = "none";
-}
+// document.getElementById("releasedBeforeNo").onclick = function() {
+// 	document.getElementById("releasedBeforeDateDiv").style.display = "none";
+// }
 
-document.getElementById("releaseDateASAP").onclick = function() {
-	document.getElementById("specificReleaseDateDiv").style.display = "none";
-}
+// document.getElementById("releaseDateASAP").onclick = function() {
+// 	document.getElementById("specificReleaseDateDiv").style.display = "none";
+// }
 
-document.getElementById("releaseDateSpecific").onclick = function() {
-	document.getElementById("specificReleaseDateDiv").style.display = "inline";
-}
+// document.getElementById("releaseDateSpecific").onclick = function() {
+// 	document.getElementById("specificReleaseDateDiv").style.display = "inline";
+// }
 
 el("language").onchange = function() {
 	if(el("language").value == "other") {
 		el("otherLangDiv").style.display = "inline";
+		el("language").style.marginBottom = "5px";
 	} else {
 		el("otherLangDiv").style.display = "none";
+		el("language").style.marginBottom = "0px";
 	}
 }
