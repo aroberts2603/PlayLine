@@ -57,104 +57,110 @@
 
 	<div id="graystuff" style="display: none;"></div>
 
-	<div id="release-form-div">
-		<form id="release-form" action="upload.php" method="post" enctype="multipart/form-data">
-			<div id="left-form">
-				<div class="form-element">
-					<p>Song Name</p>
-					<input type="text" name="songName" placeholder="Song Name"><br><!--Done-->
-				</div>
+	<div id="release-form-div">		
+		<!-- <div></div> -->
+		<div>
+			<form id="release-form" action="upload.php" method="post" enctype="multipart/form-data">
+				<div id="left-form">
+					<div class="form-element">
+						<p>Song Name</p>
+						<input type="text" name="songName" placeholder="Song Name"><br><!--Done-->
+					</div>
 
-				<div class="form-element">
-					<p>Genre</p>
-					<input type="text" name="genre" placeholder="Genre"><br><!--Done-->
-				</div>
+					<div class="form-element">
+						<p>Genre</p>
+						<input type="text" name="genre" placeholder="Genre"><br><!--Done-->
+					</div>
 
-				<div class="form-element">
-					<p>Subgenre</p>
-					<input type="text" name="subgenre" placeholder="Subgenre"><br><!--Done-->
-				</div>
+					<div class="form-element">
+						<p>Subgenre</p>
+						<input type="text" name="subgenre" placeholder="Subgenre"><br><!--Done-->
+					</div>
 
-				<div class="form-element">
-					<p>Primary Artists</p>
-					<input type="text" name="primary" placeholder="Primary Artists"><br><!--Done-->
-				</div>
+					<div class="form-element">
+						<p>Primary Artists</p>
+						<input type="text" name="primary" placeholder="Primary Artists"><br><!--Done-->
+					</div>
 
-				<div class="form-element">
-					<p>Featured Artists</p>
-					<input type="text" name="feat" placeholder="Featured Artists"><br><!--Done-->
-				</div>
+					<div class="form-element">
+						<p>Featured Artists</p>
+						<input type="text" name="feat" placeholder="Featured Artists"><br><!--Done-->
+					</div>
 
-				<div class="form-element">
-					<p>Producer(s)</p>
-					<input type="text" name="producers" placeholder="Producers">
-				</div>
+					<div class="form-element">
+						<p>Producer(s)</p>
+						<input type="text" name="producers" placeholder="Producers">
+					</div>
 
-				<div class="form-element">
-					<p>Explicit Content?</p>
-					<div id="explicits"><input type="radio" name="explicit" value="yes"> Explicit
-					<input type="radio" name="explicit" value="no"> Clean</div><br>
-				</div>
+					<div class="form-element">
+						<p>Explicit Content?</p>
+						<div id="explicits"><input type="radio" name="explicit" value="yes"> Explicit
+						<input type="radio" name="explicit" value="no"> Clean</div><br>
+					</div>
 
-				<div class="form-element">
-					<p>Do you have an ISRC?</p>
-					<div id="isrcs">
-						<input type="radio" name="isrcBool" id="isrcYes" value="yes"> Yes
-						<input type="radio" name="isrcBool" id="isrcNo" value="no"> No
-					</div><br>
+					<div class="form-element">
+						<p>Do you have an ISRC?</p>
+						<div id="isrcs">
+							<input type="radio" name="isrcBool" id="isrcYes" value="yes"> Yes
+							<input type="radio" name="isrcBool" id="isrcNo" value="no"> No
+						</div><br>
 
-					<p id="isrcC" style="display: none;">ISRC Code</p>
-					<input type="text" name="isrcCode" id="isrc" disabled="disabled" placeholder="ISRC Code" style="display: none;">
-					<br id="isrcBR" style="display: none;">
+						<p id="isrcC" style="display: none;">ISRC Code</p>
+						<input type="text" name="isrcCode" id="isrc" disabled="disabled" placeholder="ISRC Code" style="display: none;">
+						<br id="isrcBR" style="display: none;">
+					</div>
+					
+					<div class="form-element">
+						<p>Album Art</p>
+						<input type="file" name="albumArt" accept="image/*"><br>
+					</div>
+
+					<div class="form-element">
+						<p>Song File</p>
+						<input type="file" name="fileToUpload" accept="audio/*"><br><!--Done-->
+					</div>
+
+					<div class="form-element">
+						<p>Language of Song Lyrics</p>
+						<select name="language" id="language" size="1">
+							<option value="select">--Please Select--</option>
+							<option value="nolyrics">No lyrics</option>
+							<option value="english">English</option>
+							<option value="spanish">Spanish</option>
+							<option value="french">French</option>
+							<option value="mandarin">Mandarin</option>
+							<option value="other">Other</option>
+						</select>
+
+						<div id="otherLangDiv" style="display: none;">
+							<br>
+							<p>Other Langauge</p>
+							<input type="text" name="otherLang" size="20">
+						</div><br>
+
+					</div>
+					<div class="form-element" style="border: none;">
+						<input type="submit" id="release-submit">
+					</div>
+
+					<div id="footer-filler" style="height: 91px;"></div>
 				</div>
 				
-				<div class="form-element">
-					<p>Album Art</p>
-					<input type="file" name="albumArt" accept="image/*"><br>
+				
+				<!-- Name of Copyright Owner: <input type="text" name="cpOwner" id="cpOwner"><br>
+				Has the song been released before?: <input type="radio" name="releasedBefore" value="yes" id="releasedBeforeYes"> Yes
+				<input type="radio" name="releasedBefore" value="no" id="releasedBeforeNo"> No<br>
+				<div id="releasedBeforeDateDiv" style="display: none;">
+					What Date?: <input type="date" name="releasedBeforeDate" id="releasedBeforeDate"><br>
 				</div>
-
-				<div class="form-element">
-					<p>Song File</p>
-					<input type="file" name="fileToUpload" accept="audio/*"><br><!--Done-->
-				</div>
-
-				<div class="form-element">
-					<p>Language of Song Lyrics</p>
-					<select name="language" id="language" size="1">
-						<option value="select">--Please Select--</option>
-						<option value="nolyrics">No lyrics</option>
-						<option value="english">English</option>
-						<option value="spanish">Spanish</option>
-						<option value="french">French</option>
-						<option value="mandarin">Mandarin</option>
-						<option value="other">Other</option>
-					</select>
-
-					<div id="otherLangDiv" style="display: none;">
-						<br>
-						<p>Other Langauge</p>
-						<input type="text" name="otherLang" size="20">
-					</div><br>
-				</div>
-
-				<input type="submit">
-
-				<div id="footer-filler" style="height: 91px;"></div>
-			</div>
-			
-			
-			<!-- Name of Copyright Owner: <input type="text" name="cpOwner" id="cpOwner"><br>
-			Has the song been released before?: <input type="radio" name="releasedBefore" value="yes" id="releasedBeforeYes"> Yes
-			<input type="radio" name="releasedBefore" value="no" id="releasedBeforeNo"> No<br>
-			<div id="releasedBeforeDateDiv" style="display: none;">
-				What Date?: <input type="date" name="releasedBeforeDate" id="releasedBeforeDate"><br>
-			</div>
-			When do you want the song released?: <input type="radio" name="releaseDate" value="asap(2-4 days)" id="releaseDateASAP"> As soon as possible (2-4 Business days)
-			<input type="radio" name="releaseDate" value="specificDate" id="releaseDateSpecific"> A specific date<br>
-			<div id="specificReleaseDateDiv" style="display: none;">
-				Specific Date: <input type="date" name="specificReleaseDate"><br>
-			</div> -->
-		</form>
+				When do you want the song released?: <input type="radio" name="releaseDate" value="asap(2-4 days)" id="releaseDateASAP"> As soon as possible (2-4 Business days)
+				<input type="radio" name="releaseDate" value="specificDate" id="releaseDateSpecific"> A specific date<br>
+				<div id="specificReleaseDateDiv" style="display: none;">
+					Specific Date: <input type="date" name="specificReleaseDate"><br>
+				</div> -->
+			</form>
+		</div>
+		<!-- <div></div> -->
 	</div>
 
 	<div id="footer">

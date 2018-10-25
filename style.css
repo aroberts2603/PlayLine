@@ -451,6 +451,12 @@ td {
 	grid-template-columns: 1fr 1fr;
 }
 
+@media (max-width: 800px) {
+	#left-form {
+		grid-template-columns: 1fr;
+	}
+}
+
 #explicits {
 	display: inline-block;
 	width: 156px;
@@ -500,4 +506,9 @@ td {
 	#right-panel {
 		margin-left: var(--div-padding);
 	}
+}
+
+#release-form {
+	display: flex;
+	justify-content: center;
 }
