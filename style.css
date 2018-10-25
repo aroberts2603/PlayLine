@@ -4,6 +4,7 @@
 	--buttons-hover: #7CAEFF;
 	--text: #585A5D;
 	--orange: #F69982;
+	--div-padding: 5%;
 }
 
 * {
@@ -57,17 +58,12 @@ button:hover {
 	margin-bottom: 5px;
 }
 
-.third {
-	display: inline-block;
-	width: 33%;
-	margin-top: 0px;
-	padding-top: 0px;
-}
-
 #open-login {
 	float: right;
+	font-size: 20px;
 	margin-right: 20px;
 	margin-bottom: 17.5px;
+	margin-top: 16px;
 	cursor: pointer;
 	color: black;
 }
@@ -87,11 +83,9 @@ button:hover {
 	width: 54px;
 	height: 54px;
 	margin-top: 3px;
-	margin-left: calc(50% - 27px);
 }
 
 .main-panel {
-	width: 42%;
 	margin-top: 3%;
 	border-radius: 15px;
 	background-color: var(--panels);
@@ -99,9 +93,9 @@ button:hover {
 }
 
 #left-panel {
-	margin-left: 4%;
-	float: left;
 	text-align: center;
+	margin-left: var(--div-padding);
+	margin-right: 0%;
 }
 
 h5 {
@@ -137,8 +131,8 @@ h5 {
 
 #right-panel {
 	position: relative;
-	margin-right: 4%;
-	float: right;
+	margin-right: var(--div-padding);
+	margin-left: 0%;
 	text-align: center;
 	padding-bottom: 56px;
 }
@@ -291,9 +285,10 @@ h4 {
 #menu-button {
 	width: 40px;
 	height: 40px;
-	margin-left: 20px;
+	float: left;
+	margin-left: 15px;
 	cursor: pointer;
-	margin-bottom: 6px;
+	margin-top: 10px;
 }
 
 #menu-button2 {
@@ -337,7 +332,7 @@ td {
 }
 
 #graystuff {
-	height: calc(100% - 61px);
+	height: calc(100% - 60px);
 	width: 100%;
 	position: absolute;
 	top: 60px;
@@ -445,11 +440,6 @@ td {
 	font-size: 17px;
 }
 
-.form-element-container {
-	/*text-align: center;*/
-	display: inline-block;
-}
-
 #left-form p {
 	display: inline;
 	margin-right: 8px;
@@ -457,7 +447,8 @@ td {
 
 #left-form {
 	text-align: right;
-	float: left;
+	display: inline-grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 #explicits {
@@ -473,9 +464,40 @@ td {
 }
 
 .form-element {
-	border: 1px solid grey;
+	border: 2px solid rgba(150, 150, 150, 0.8);
 	padding: 7px;
 	margin: 5px;
-	border-radius: 2px;
+	border-radius: 4px;
 	/*width: 350px;*/
+}
+
+#navbar-grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 0px;
+}
+
+.grid-item {
+	text-align: center;
+}
+
+#dashboard-grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: var(--div-padding);
+}
+
+@media (max-width: 600px) { /* 600 or less */
+	#dashboard-grid-container {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	#left-panel {
+		margin-right: var(--div-padding);
+	}
+
+	#right-panel {
+		margin-left: var(--div-padding);
+	}
 }
