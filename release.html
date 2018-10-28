@@ -63,13 +63,15 @@
 			<!-- <div></div> -->
 			<div>
 				<form id="release-form" action="upload.php" method="post" enctype="multipart/form-data">
-					<div id="left-form">
-						<div class="form-element">
+					<div id="first-form">
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
 							<p>Song Name</p>
 							<input type="text" name="songName" placeholder="Song Name"><br><!--Done-->
 						</div>
 
-						<div class="form-element">
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
 							<p>Genre</p>
 							<input type="text" name="genre" placeholder="Genre"><br><!--Done-->
 						</div>
@@ -79,7 +81,8 @@
 							<input type="text" name="subgenre" placeholder="Subgenre"><br><!--Done-->
 						</div>
 
-						<div class="form-element">
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
 							<p>Primary Artists</p>
 							<input type="text" name="primary" placeholder="Primary Artists"><br><!--Done-->
 						</div>
@@ -94,35 +97,41 @@
 							<input type="text" name="producers" placeholder="Producers">
 						</div>
 
-						<div class="form-element">
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
 							<p>Explicit Content?</p>
-							<div id="explicits"><input type="radio" name="explicit" value="yes"> Fuck yes
-							<input type="radio" name="explicit" value="no"> Heck no</div><br>
+							<div id="explicits"><input type="radio" name="explicit" value="yes"> Yes
+							<input type="radio" name="explicit" value="no"> No</div><br>
 						</div>
 
-						<div class="form-element">
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
 							<p>Preview Start Time</p>
 							<input type="text" name="previewStart">
 						</div>
 
-						<div class="form-element">
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
 							<p>I have an ISRC</p>
 							<input id="haveISRC" type="checkbox" name="haveISRC" style="margin-right: 10px;">
 
 							<input type="text" name="isrcCode" id="isrc" placeholder="ISRC Code" disabled="true">
 						</div>
 						
-						<div class="form-element">
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
 							<p>Album Art</p>
 							<input class="file-upload" type="file" name="albumArt" accept="image/*"><br>
 						</div>
 
-						<div class="form-element">
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
 							<p>Song File</p>
 							<input class="file-upload" type="file" name="fileToUpload" accept="audio/*"><br><!--Done-->
 						</div>
 
-						<div class="form-element">
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
 							<p>Language of Song Lyrics</p>
 							<select name="language" id="language" size="1" style="margin-bottom: 0px;">
 								<option value="select">--Please Select--</option>
@@ -145,22 +154,22 @@
 						<div class="form-element">
 							<p>Contributors</p>
 							<select name="contributorTitle" id="contributorTitle" size="1" style="margin-bottom: 5px;">
-									<option value="Actor">Actor</option>
-									<option value="Arranger">Arranger</option>
-									<option value="Choir">Choir</option>
-									<option value="Composer">Composer</option>
-									<option value="Conductor">Conductor</option>
-									<option value="Engineer">Engineer</option>
-									<option value="Ensamble">Ensamble</option>
-									<option value="Lyricist">Lyricist</option>
-									<option value="Mixer">Mixer</option>
-									<option value="Orchestra">Orchestra</option>
-									<option value="Remixer">Remixer</option>
-									<option value="Soloist">Soloist</option>
+									<option value=0>Actor</option>
+									<option value=1>Arranger</option>
+									<option value=2>Choir</option>
+									<option value=3>Composer</option>
+									<option value=4>Conductor</option>
+									<option value=5>Engineer</option>
+									<option value=6>Ensamble</option>
+									<option value=7>Lyricist</option>
+									<option value=8>Mixer</option>
+									<option value=9>Orchestra</option>
+									<option value=10>Remixer</option>
+									<option value=11>Soloist</option>
 							</select><br>
 
 							<p>Name of Contributor</p>
-							<input type="textbox" name="name" placeholder="Name">
+							<input id="contributorName" type="textbox" name="name" placeholder="Name">
 						</div>
 
 						<div class="form-element" style="border: none;">

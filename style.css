@@ -11,7 +11,7 @@
 	font-family: "Roboto", sans-serif;
 	margin: 0px;
 	padding: 0px;
-	font-weight: 100;
+	font-weight: 400;
 }
 
 html, body {
@@ -446,19 +446,19 @@ td {
 	font-size: 17px;
 }
 
-#left-form p {
+#first-form p {
 	display: inline;
 	margin-right: 8px;
 }
 
-#left-form {
+#first-form {
 	text-align: right;
 	display: inline-grid;
 	grid-template-columns: 1fr 1fr;
 }
 
 @media (max-width: 800px) {
-	#left-form {
+	#first-form {
 		grid-template-columns: 1fr;
 	}
 }
@@ -529,6 +529,10 @@ td {
 	width: 200px;
 }
 
-a[type="radio"] {
-	background-color: blue;
+.required-asterisk {
+	color: red;
+	display: inline;
+	float: left;
+	margin-right: 7px;
+	margin-top: -4px;
 }

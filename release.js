@@ -11,18 +11,29 @@ el("haveISRC").onclick = function() {
 	}
 }
 
-var Actor = "";
-var Arranger = "";
-var Choir = "";
-var Composer = "";
-var Conductor = "";
-var Engineer = "";
-var Ensamble = "";
-var Lyricist = "";
-var Mixer = "";
-var Orchestra = "";
-var Remixer = "";
-var Soloist = "";
+el("contributorTitle").onchange = function() {
+	el("contributorName").value = contributorNameArray[el("contributorTitle").value];
+}
+
+el("contributorName").onchange = function() {
+	contributorNameArray[el("contributorTitle").value] = el("contributorName").value;
+}
+
+var contributorTitleArray = ["Actor","Arranger","Choir","Composer","Conductor","Engineer","Ensamble","Lyricist","Mixer","Orchestra","Remixer","Soloist"];
+var contributorNameArray = ["","","","","","","","","","","",""];
+
+// var Actor = "";
+// var Arranger = "";
+// var Choir = "";
+// var Composer = "";
+// var Conductor = "";
+// var Engineer = "";
+// var Ensamble = "";
+// var Lyricist = "";
+// var Mixer = "";
+// var Orchestra = "";
+// var Remixer = "";
+// var Soloist = "";
 
 // document.getElementById("releasedBeforeYes").onclick = function() {
 // 	document.getElementById("releasedBeforeDateDiv").style.display = "inline";
