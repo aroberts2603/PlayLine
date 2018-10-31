@@ -20,6 +20,7 @@ function forceDataUpdate() {
 	firebase.database().ref().once("value").then(function(snapshot){
 		var total = snapshot.child("users/"+firebase.auth().currentUser.uid+"/money").val();
 		document.getElementById("moneyMade").innerHTML = "$"+total;
+		document.getElementById("main-grid").style.display = "grid";
 	});
 }
 
