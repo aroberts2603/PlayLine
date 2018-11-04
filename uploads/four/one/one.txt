@@ -1,7 +1,0 @@
-Primary Artist: four
-Featured Artists: five
-Genre: two
-Subgenre: three
-ISRC: eight
-Explicit: yes
-Lyrics: nine
