@@ -13,6 +13,7 @@ if(!firebase.apps.length) {
 }
 
 var signedIn = false;
+var menuOpen = false;
 
 var dropButton = document.getElementById("menu-button");
 var dropButton2 = document.getElementById("menu-button2");
@@ -31,15 +32,32 @@ function getEl(name) {
 
 //the side bar button on the taskbar
 dropButton.onclick = function() {
-	document.getElementById("dropdown").style.marginLeft = "0px";
-	document.getElementById("graystuff").style.display = "block";
+	if(menuOpen == false) {
+		document.getElementById("dropdown").style.marginLeft = "0px";
+		document.getElementById("graystuff").style.display = "block";
+		setTimeout(function() {
+			getEl("third-of-hamburger1").style.transform = "rotate(45deg)";
+			getEl("third-of-hamburger2").style.transform = "rotate(45deg)";
+			getEl("third-of-hamburger3").style.transform = "rotate(-45deg)";
+		}, 150);
+		getEl("third-of-hamburger1").style.top = "28px";
+		getEl("third-of-hamburger3").style.top = "28px";
+		menuOpen = true;
+	} else {
+		document.getElementById("dropdown").style.marginLeft = "-279px";
+		document.getElementById("graystuff").style.display = "none";
+		setTimeout(function() {
+			getEl("third-of-hamburger1").style.top = "12px";
+			getEl("third-of-hamburger3").style.top = "44px";
+		}, 150);
+		getEl("third-of-hamburger1").style.transform = "rotate(0deg)";
+		getEl("third-of-hamburger2").style.transform = "rotate(0deg)";
+		getEl("third-of-hamburger3").style.transform = "rotate(0deg)";
+		menuOpen = false;
+	}
 }
 
 //the side bar button on the side bar
-dropButton2.onclick = function() {
-	document.getElementById("dropdown").style.marginLeft = "-279px";
-	document.getElementById("graystuff").style.display = "none";
-}
 
 //this opens up the login
 openLogin.onclick = function() {

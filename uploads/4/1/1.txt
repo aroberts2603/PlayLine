@@ -1,0 +1,10 @@
+Primary Artist: 4
+Featured Artists: 5
+Genre: 2
+Subgenre: 3
+ISRC: 
+Explicit: yes
+Producers: 6
+Preview Start: 7:89
+contributor1 
+Lyrics: 11

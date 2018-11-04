@@ -12,28 +12,17 @@ el("haveISRC").onclick = function() {
 }
 
 el("contributorTitle").onchange = function() {
-	el("contributorName").value = contributorNameArray[el("contributorTitle").value];
+	indexToUse = el("contributorTitle").value.split(":");
+	el("contributorName").value = indexToUse[1];
 }
 
 el("contributorName").onchange = function() {
-	contributorNameArray[el("contributorTitle").value] = el("contributorName").value;
+	indexToUse = el("contributorTitle").value.split(":");
+	indexToUse[1] = el("contributorName").value;
+	var selectOptionToEditValueOf = "contributor" + indexToUse[0];
+	el(selectOptionToEditValueOf).value = indexToUse.join(":");
 }
 
-var contributorTitleArray = ["Actor","Arranger","Choir","Composer","Conductor","Engineer","Ensamble","Lyricist","Mixer","Orchestra","Remixer","Soloist"];
-var contributorNameArray = ["","","","","","","","","","","",""];
-
-// var Actor = "";
-// var Arranger = "";
-// var Choir = "";
-// var Composer = "";
-// var Conductor = "";
-// var Engineer = "";
-// var Ensamble = "";
-// var Lyricist = "";
-// var Mixer = "";
-// var Orchestra = "";
-// var Remixer = "";
-// var Soloist = "";
 
 // document.getElementById("releasedBeforeYes").onclick = function() {
 // 	document.getElementById("releasedBeforeDateDiv").style.display = "inline";

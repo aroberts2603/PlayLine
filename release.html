@@ -5,19 +5,25 @@
 	<title>PlayLine Dash</title>
 	<link rel="icon" href="imgs/playlineicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body id="release">
 	<div id="navbar">
 		<div id="navbar-grid-container" class="grid-container">
-			<div class="grid-item"><img src="imgs/hamburger.png" id="menu-button"></div>
-			<div class="grid-item"><img src="imgs/playline.png" id="navbar-logo"></div>
+			<div class="grid-item">
+				<div id="menu-button">
+					<div class="third-of-hamburger" id="third-of-hamburger1"></div>
+					<div class="third-of-hamburger" id="third-of-hamburger2"></div>
+					<div class="third-of-hamburger" id="third-of-hamburger3"></div>
+				</div>
+			</div>
+			<div class="grid-item"><img src="imgs/PlayLineCoral.png" id="navbar-logo"></div>
 			<div class="grid-item"><a id="open-login">Log In</a></div>
 		</div>
 
 		<div id="dropdown" style="margin-left: -279px;">
-			<img src="imgs/X.png" id="menu-button2">
-			<hr id="dropdownhr">
 			<table id="table-menu">
 				<tr><td class="menu-item"><p class="menu-item-p"><a id="home-link">Home</a></p></td></tr>
 				<tr><td class="menu-item"><p class="menu-item-p"><a id="artists-link" href="http:/localhost//index2.html">Artists</a></p></td></tr>
@@ -60,80 +66,80 @@
 	<div id="graystuff" style="display: none;"></div>
 	<div id="main-grid">
 		<div id="release-form-div">		
-			<!-- <div></div> -->
 			<div>
 				<form id="release-form" action="upload.php" method="post" enctype="multipart/form-data">
 					<div id="first-form">
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Song Name</p>
-							<input type="text" name="songName" placeholder="Song Name"><br><!--Done-->
+							<input type="text" name="songName" placeholder="Song Name"><br><!--songName-->
 						</div>
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Genre</p>
-							<input type="text" name="genre" placeholder="Genre"><br><!--Done-->
+							<input type="text" name="genre" placeholder="Genre"><br><!--genre-->
 						</div>
 
 						<div class="form-element">
 							<p>Subgenre</p>
-							<input type="text" name="subgenre" placeholder="Subgenre"><br><!--Done-->
+							<input type="text" name="subgenre" placeholder="Subgenre"><br><!--subgenre-->
 						</div>
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Primary Artists</p>
-							<input type="text" name="primary" placeholder="Primary Artists"><br><!--Done-->
+							<input type="text" name="primary" placeholder="Primary Artists"><br><!--primary-->
 						</div>
 
 						<div class="form-element">
 							<p>Featured Artists</p>
-							<input type="text" name="feat" placeholder="Featured Artists"><br><!--Done-->
+							<input type="text" name="feat" placeholder="Featured Artists"><br><!--feat-->
 						</div>
 
 						<div class="form-element">
 							<p>Producer(s)</p>
-							<input type="text" name="producers" placeholder="Producers">
+							<input type="text" name="producers" placeholder="Producers"><!--producers-->
 						</div>
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Explicit Content?</p>
-							<div id="explicits"><input type="radio" name="explicit" value="yes"> Yes
-							<input type="radio" name="explicit" value="no"> No</div><br>
+							<div id="explicits">
+								<input type="radio" name="explicit" value="yes"> Yes<!--explicit-->
+								<input type="radio" name="explicit" value="no"> No
+							</div><br>
 						</div>
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Preview Start Time</p>
-							<input type="text" name="previewStart">
+							<input type="text" name="previewStart"><!--previewStart-->
 						</div>
 
-						<div class="form-element required">
-							<div class="required-asterisk">*</div>
+						<div class="form-element">
 							<p>I have an ISRC</p>
-							<input id="haveISRC" type="checkbox" name="haveISRC" style="margin-right: 10px;">
+							<input id="haveISRC" type="checkbox" name="haveISRC" style="margin-right: 10px;"><!--haveISRC-->
 
-							<input type="text" name="isrcCode" id="isrc" placeholder="ISRC Code" disabled="true">
+							<input type="text" name="isrcCode" id="isrc" placeholder="ISRC Code" disabled="true"><!--isrcCode-->
 						</div>
 						
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Album Art</p>
-							<input class="file-upload" type="file" name="albumArt" accept="image/*"><br>
+							<input class="file-upload" type="file" name="albumArt" accept="image/*"><br><!--albumArt-->
 						</div>
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Song File</p>
-							<input class="file-upload" type="file" name="fileToUpload" accept="audio/*"><br><!--Done-->
+							<input class="file-upload" type="file" name="fileToUpload" accept="audio/*"><br><!--fileToUpload-->
 						</div>
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Language of Song Lyrics</p>
-							<select name="language" id="language" size="1" style="margin-bottom: 0px;">
+							<select name="language" id="language" size="1" style="margin-bottom: 0px;"><!--language-->
 								<option value="select">--Please Select--</option>
 								<option value="nolyrics">No lyrics</option>
 								<option value="english">English</option>
@@ -146,30 +152,32 @@
 							<div id="otherLangDiv" style="display: none;">
 								<br>
 								<p>Other Langauge</p>
-								<input type="text" name="otherLang" size="20">
+								<input type="text" name="otherLang" size="20"><!--otherLang-->
 							</div><br>
 
 						</div>
 
 						<div class="form-element">
 							<p>Contributors</p>
-							<select name="contributorTitle" id="contributorTitle" size="1" style="margin-bottom: 5px;">
-									<option value=0>Actor</option>
-									<option value=1>Arranger</option>
-									<option value=2>Choir</option>
-									<option value=3>Composer</option>
-									<option value=4>Conductor</option>
-									<option value=5>Engineer</option>
-									<option value=6>Ensamble</option>
-									<option value=7>Lyricist</option>
-									<option value=8>Mixer</option>
-									<option value=9>Orchestra</option>
-									<option value=10>Remixer</option>
-									<option value=11>Soloist</option>
+							<select name="contributorTitle" id="contributorTitle" size="1" style="margin-bottom: 5px;"><!--contributorTitle-->
+									<option name="contributor0" id="contributor0" value="0:">Actor</option>
+									<option name="contributor1" id="contributor1" value="1:">Arranger</option>
+									<option name="contributor2" id="contributor2" value="2:">Choir</option>
+									<option name="contributor3" id="contributor3" value="3:">Composer</option>
+									<option name="contributor4" id="contributor4" value="4:">Conductor</option>
+									<option name="contributor5" id="contributor5" value="5:">Engineer</option>
+									<option name="contributor6" id="contributor6" value="6:">Ensamble</option>
+									<option name="contributor7" id="contributor7" value="7:">Lyricist</option>
+									<option name="contributor8" id="contributor8" value="8:">Mixer</option>
+									<option name="contributor9" id="contributor9" value="9:">Orchestra</option>
+									<option name="contributor10" id="contributor10" value="10:">Remixer</option>
+									<option name="contributor11" id="contributor11" value="11:">Soloist</option>
 							</select><br>
 
+							<input type="text" name="contributors" value="" style="display: none;">
+
 							<p>Name of Contributor</p>
-							<input id="contributorName" type="textbox" name="name" placeholder="Name">
+							<input id="contributorName" type="textbox" name="contributorName" placeholder="Name"><!--contributorName-->
 						</div>
 
 						<div class="form-element" style="border: none;">
@@ -191,13 +199,18 @@
 					</div> -->
 				</form>
 			</div>
-			<!-- <div></div> -->
 		</div>
 
 		<div id="footer">
-			<img src="imgs/playline.png" style="height: 50px; width: 50px;">
-			<p id="cpr1">© 2018 PlayLine Records, All rights reserved.</p>
-			<p id="cpr2">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
+			<div></div>
+			<div>
+				<img src="imgs/PlayLineCoral.png" style="height: 50px; width: 50px; margin-right: 30px;">
+			</div>
+			<div style="margin-top: 15px;">
+				<p id="cpr1" style="font-weight: 900;">© 2018 PlayLine Records, All rights reserved.</p>
+				<p id="cpr2" style="font-weight: 900;">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
+			</div>
+			<div></div>
 		</div>
 	</div>
 <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>

@@ -1,15 +1,20 @@
 :root {
-	--navbar: #454545;
+	--queen-blue: #456990;
 	--panels: #E6E6E6;
 	--buttons: #5998ff;
 	--buttons-hover: #7CAEFF;
 	--text: #585A5D;
 	--orange: #F69982;
 	--div-padding: 5%;
+	--coral: #FF3F3F;
+	--queen-blue: #456990;
 }
 
 * {
-	font-family: "Roboto", sans-serif;
+	/*font-family: "Roboto", sans-serif;*/
+	/*font-family: 'Fjalla One', sans-serif;*/
+	font-family: 'Nunito Sans', sans-serif;
+	/*font-family: sans-serif;*/
 	margin: 0px;
 	padding: 0px;
 	font-weight: 400;
@@ -19,6 +24,144 @@ html, body {
 	width: 100%;
 	height: 100%;
 }
+
+
+/*========================================================================*/
+/*============                   Navbar                     ==============*/
+/*========================================================================*/
+
+#navbar {
+	background-color: var(--queen-blue);
+	width: 100%;
+	height: 60px;
+	display: inline-block;
+	position: fixed;
+	z-index: 1000;
+	/*box-shadow: grey 0px 3px 4px;*/
+}
+
+#navbar-logo {
+	width: 48px;
+	height: 48px;
+	margin-top: 6px;
+}
+
+#navbar-grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 0px;
+	height: 60px;
+}
+
+.grid-item {
+	text-align: center;
+}
+
+#menu-button {
+	width: 40px;
+	height: 40px;
+	float: left;
+	margin-left: 15px;
+	cursor: pointer;
+	margin-top: 10px;
+	z-index: 100000;
+}
+
+.third-of-hamburger {
+	background-color: #ff3f3f;
+	height: 4px;
+	width: 40px;
+	border-radius: 2px;
+	position: fixed;
+	/*transition-property: top, transform;*/
+	/*transition-duration: 0.3s;*/
+	transition:
+		top 0.15s,
+		transform 0.15s;
+	z-index: 100000;
+}
+
+#third-of-hamburger1 {
+	top: 12px;
+	/*transition: [transition-property] [transition-duration] [transition-timing-function] [transition-delay];*/
+	/*top: 28px;*/
+	/*transform: rotate(45deg);*/
+}
+
+#third-of-hamburger2 {
+	top: 28px;
+	/*transform: rotate(45deg);*/
+}
+
+#third-of-hamburger3 {
+	top: 44px;
+	/*top: 28px;*/
+	/*transform: rotate(-45deg);*/
+}
+
+
+
+/*========================================================================*/
+/*============                   Navbar                     ==============*/
+/*========================================================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #signup-text {
 	font-size: 14px;
@@ -41,6 +184,7 @@ a {
 	text-decoration: none;
 	color: white;
 	text-align: center;
+	font-weight: 400;
 }
 
 button {
@@ -71,28 +215,14 @@ button:hover {
 	margin-bottom: 17.5px;
 	margin-top: 16px;
 	cursor: pointer;
-	color: black;
+	color: var(--coral);
 }
 
 #open-login:hover {
 	color: #737373;
 }
 
-#navbar {
-	background-color: var(--panels);
-	width: 100%;
-	height: 60px;
-	display: inline-block;
-	position: fixed;
-	z-index: 1000;
-	/*box-shadow: grey 0px 3px 4px;*/
-}
 
-#navbar-logo {
-	width: 54px;
-	height: 54px;
-	margin-top: 3px;
-}
 
 .main-panel {
 	margin-top: 3%;
@@ -187,15 +317,10 @@ body {
 }
 
 input.textbox {
-	font-size: 18px;
-	border-radius: 8px;
-	border: 0.75px solid #C9C9C9;
-	padding-left: 6px;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	outline: none;
-	margin-top: 4px;
+	
 }
+
+
 
 #release-button {
 	padding: 6px 23px 6px 23px;
@@ -266,7 +391,7 @@ button {
 	background-color: var(--buttons-hover);
 }
 
-#releaseNewSongForm {
+/*#releaseNewSongForm {
 	background-color: #9B9B9B;
 	padding: 10px 20px 10px 20px;
 	border-radius: 8px;
@@ -275,7 +400,7 @@ button {
 	top: 20%;
 	text-align: center;
 	width: 220px;
-}
+}*/
 
 h4 {
 	font-size: 26px;
@@ -291,31 +416,15 @@ h4 {
 	color: white;
 }
 
-#menu-button {
-	width: 40px;
-	height: 40px;
-	float: left;
-	margin-left: 15px;
-	cursor: pointer;
-	margin-top: 10px;
-}
 
-#menu-button2 {
-	width: 45px;
-	height: 45px;
-	margin-top: 7px;
-	margin-left: 15px;
-	margin-bottom: 5px;
-	cursor: pointer;
-}
 
 #dropdown {
 	position: fixed;
-	background-color: #AEAEAE;
+	background-color: var(--coral);
 	opacity: 50;
 	top: 0;
-	height: 100%;
-	color: white;
+	height: calc(100% - 60px);
+	margin-top: 60px;
 	z-index: 1000;
 	margin-left: -279px;
 	transition-property: margin-left;
@@ -356,14 +465,16 @@ td {
 }
 
 #footer {
-	background-color: var(--panels);
-	width: 100%;
-	text-align: center;
+	background-color: var(--queen-blue);
+	/*width: 100%;*/
 	padding-top: 5px;
 	padding-bottom: 5px;
 	filter: none;
 	overflow: hidden;
-	margin-top: 22px;
+	/*margin-top: 22px;*/
+	color: var(--coral);
+	display: grid;
+	grid-template-columns: 1fr auto auto 1fr;
 }
 
 #cpr1 {
@@ -456,7 +567,7 @@ td {
 #first-form {
 	text-align: right;
 	display: inline-grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 }
 
 @media (max-width: 800px) {
@@ -477,22 +588,14 @@ td {
 }
 
 .form-element {
-	border: 2px solid rgba(150, 150, 150, 0.8);
-	padding: 7px;
+	border: 2px solid var(--queen-blue);
+	padding: 12px;/*7*/
 	margin: 5px;
-	border-radius: 4px;
-	/*width: 350px;*/
+	font-size: 18px;
+	border-radius: 9px;
 	text-align: center;
-}
-
-#navbar-grid-container {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: 0px;
-}
-
-.grid-item {
-	text-align: center;
+	font-weight: 400;
+	color: rgb(70,70,70);
 }
 
 #dashboard-grid-container {
@@ -533,9 +636,97 @@ td {
 }
 
 .required-asterisk {
-	color: red;
+	color: var(--coral);
 	display: inline;
 	float: left;
 	margin-right: 7px;
 	margin-top: -4px;
+}
+
+#release {
+	/*background-image: url("imgs/record-background.png");*/
+	background-image: url("imgs/record-background-with-rings1.png");
+	background-size: 60vw 60vw;
+	background-repeat: no-repeat;
+	background-position: 0px 50px;
+	background-attachment: fixed;
+}
+
+#menu-button {
+	width: 40px;
+	height: 40px;
+	margin-top: 12px;
+}
+
+.hamburger-filler {
+	height: 12px;
+}
+
+input[type="text"] {
+	background-color: rgba(0,0,0,0);
+	font-size: 18px;
+	border-radius: 8px;
+	border: 0.75px solid #C9C9C9;
+	padding-left: 6px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	outline: none;
+	/*font-family: "Roboto", sans-serif;*/
+	font-family: 'Nunito Sans', sans-serif;
+}
+
+#first-home-div {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-gap: 0px;
+}
+
+#landing-page-image {
+	width: 33vw;
+	margin-bottom: -5px;
+}
+
+#upload-your-music {
+	width: 60vw;
+}
+
+#first-home-div p {
+	/*color: #e8e8e8;*/
+	color: black;
+}
+
+#first-grabber {
+	background-color: #e0e0e0;
+}
+
+#second-home-div {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-gap: 0px;
+}
+
+#mastering-image {
+	width: 33vw;
+	margin-bottom: -6px;
+}
+
+#easy-distribution {
+	width: 40vw;
+}
+
+
+#third-home-div {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-gap: 0px;
+}
+
+#third-grabber {
+	background-color: #e0e0e0;
+}
+
+.home-jump-to {
+	color: var(--queen-blue);
+	text-decoration: underline;
+	cursor: pointer;
 }

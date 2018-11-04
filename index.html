@@ -2,27 +2,33 @@
 <html>
 <head>
 	<meta http-equiv="pragma" content="no-cache" charset="utf-8">
-	<title>PlayLine Dash</title>
-	<link rel="icon" href="imgs/playlineicon.ico">
+	<title>PlayLine Records</title>
+	<link rel="icon" href="imgs/PlayLineCoral.png">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<div id="navbar">
 		<div id="navbar-grid-container" class="grid-container">
-			<div class="grid-item"><img src="imgs/hamburger.png" id="menu-button"></div>
-			<div class="grid-item"><img src="imgs/playline.png" id="navbar-logo"></div>
+			<div class="grid-item">
+				<div id="menu-button">
+					<div class="third-of-hamburger" id="third-of-hamburger1"></div>
+					<div class="third-of-hamburger" id="third-of-hamburger2"></div>
+					<div class="third-of-hamburger" id="third-of-hamburger3"></div>
+				</div>
+			</div>
+			<div class="grid-item"><img src="imgs/PlayLineCoral.png" id="navbar-logo"></div>
 			<div class="grid-item"><a id="open-login">Log In</a></div>
 		</div>
-		
+
 		<div id="dropdown" style="margin-left: -279px;">
-			<img src="imgs/X.png" id="menu-button2">
-			<hr id="dropdownhr">
 			<table id="table-menu">
 				<tr><td class="menu-item"><p class="menu-item-p"><a id="home-link">Home</a></p></td></tr>
-				<tr><td class="menu-item"><p class="menu-item-p"><a id="artists-link">Artists</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="artists-link" href="http:/localhost//index2.html">Artists</a></p></td></tr>
 				<tr><td class="menu-item"><p class="menu-item-p"><a id="about-link">About</a></p></td></tr>
-				<tr><td class="menu-item"><p class="menu-item-p"><a id="dash-link" style="visibility: hidden;" href="dash.html">Dashboard</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="dash-link"style="visibility: hidden;">Dashboard</a></p></td></tr>
 			</table>
 		</div>
 
@@ -59,29 +65,70 @@
 
 	<div id="graystuff" style="display: none;"></div>
 	<div id="main-grid">
-		<div id="home" class="main-content">
-			<p id="grabber-text">With over 125 million songs on SoundCloud® you want your music to<br>
-			stand out. But getting your music on major music platforms is hard right? Well<br>
-			with PlayLine you can get your music on major streaming services like<br>
-			Apple Music®, Spotify®, and Google Play® for less than 2 cups of coffee -<br>
-			and keep YOUR money.</p>
-			<a id="goNow">Sign Up Now!</a>
-			<table id="cool-things">
-				<tr class="cool-tr"><td class="cool-td"> - Keep 100% Royalties and Rights</td><td class="cool-td"> - Free UPC Codes</td></tr>
-				<tr class="cool-tr"><td class="cool-td"> - Unlimited Releases</td><td class="cool-td"> - One time fee of only $20</td></tr>
-				<tr class="cool-tr"><td class="cool-td"> - Professional Mastering for $5</td><td class="cool-td"> - 45+ Release Platforms</td></tr>
-				<tr class="cool-tr"><td class="cool-td"> - Free Promotion to Get Your Song Heard</td></tr>
-			</table>
+		<div id="hero-container">
+			<div id="first-home-div">
+				<div>
+					<img src="imgs/landing-page.png" id="landing-page-image">
+				</div>
+				<div id="first-grabber">
+					<div style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
+						<div></div>
+						<div style="text-align: center; margin-top: 62px;">
+							<img src="imgs/upload-your-music.png" id="upload-your-music">
+							<p style="margin-top: 20px; font-size: 16pt; color: #333;">The site to <a class="home-jump-to">distribute</a>, <a class="home-jump-to">master</a>, and <a class="home-jump-to">promote</a> your music.</p>
+						</div>
+						<div></div>
+					</div>
+				</div>
+			</div>
+
+			<div id="second-home-div">
+				<div id="second-grabber">
+					<div style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
+						<div></div>
+						<div style="margin-top: 28px;">
+							<img src="imgs/easy-distribution.png" id="easy-distribution">
+							<p style="text-align: center; font-size: 115%; color: #333; margin-top: 18px;">We distribute to over 200 streaming services including<br> Apple Music and Spotify. Your music is live in 2-3 days<br> and you keep all your royalties, rights and sole.</p>
+						</div>
+						<div></div>
+					</div>
+				</div>
+				<div>
+					<img src="imgs/mastering.png" id="mastering-image">
+				</div>
+			</div>
+
+			<div id="third-home-div">
+				<div>
+					<img src="imgs/mastering.png" id="mastering-image">
+				</div>
+				<div id="third-grabber">
+					<div style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
+						<div></div>
+						<div>
+							<img src="imgs/easy-distribution.png" id="easy-distribution">
+							<p style="text-align: center; font-size: 115%; color: #333; margin-top: 18px;">Check one box and your music is sent through the air right into an advanced A.I system. A.I powered mastering is the future of music - and it's yours for free.</p>
+						</div>
+						<div></div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div id="footer">
-			<img src="imgs/playline.png" style="height: 50px; width: 50px;">
-			<p id="cpr1">© 2018 PlayLine Records, All rights reserved.</p>
-			<p id="cpr2">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
+			<div></div>
+			<div>
+				<img src="imgs/PlayLineCoral.png" style="height: 50px; width: 50px; margin-right: 30px;">
+			</div>
+			<div style="margin-top: 15px;">
+				<p id="cpr1">© 2018 PlayLine Records, All rights reserved.</p>
+				<p id="cpr2">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
+			</div>
+			<div></div>
 		</div>
 	</div>
 <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
-<script type="text/javascript" src="main.js"></script>
 <script type="text/javascript" src="navbar.js"></script>
+<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
