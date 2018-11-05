@@ -6,7 +6,9 @@
 	--text: #585A5D;
 	--orange: #F69982;
 	--div-padding: 5%;
+	--persian-red: #cc3333;
 	--coral: #FF3F3F;
+	--coral-hover: #FF5F5F;
 	--queen-blue: #456990;
 }
 
@@ -83,23 +85,51 @@ html, body {
 
 #third-of-hamburger1 {
 	top: 12px;
-	/*transition: [transition-property] [transition-duration] [transition-timing-function] [transition-delay];*/
-	/*top: 28px;*/
-	/*transform: rotate(45deg);*/
 }
 
 #third-of-hamburger2 {
 	top: 28px;
-	/*transform: rotate(45deg);*/
 }
 
 #third-of-hamburger3 {
 	top: 44px;
-	/*top: 28px;*/
-	/*transform: rotate(-45deg);*/
 }
 
+#login {
+	width: 100%;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	cursor: pointer;
+	margin-top: 4px;
+	border-radius: 8px;
+	margin-bottom: 5px;
+}
 
+#open-login {
+	float: right;
+	font-size: 20px;
+	margin-right: 20px;
+	margin-bottom: 17.5px;
+	margin-top: 16px;
+	cursor: pointer;
+	color: var(--coral);
+}
+
+#open-login:hover {
+	color: #ff5f5f;
+}
+
+#signup-text {
+	font-size: 14px;
+	margin-top: 0px;
+	cursor: pointer;
+}
+
+#signup-text2 {
+	font-size: 14px;
+	margin-top: 0px;
+	cursor: pointer;
+}
 
 /*========================================================================*/
 /*============                   Navbar                     ==============*/
@@ -163,17 +193,7 @@ html, body {
 
 
 
-#signup-text {
-	font-size: 14px;
-	margin-top: 0px;
-	cursor: pointer;
-}
 
-#signup-text2 {
-	font-size: 14px;
-	margin-top: 0px;
-	cursor: pointer;
-}
 
 a.alink {
 	text-decoration: underline;
@@ -191,36 +211,14 @@ button {
 	border: none;
 	font-size: 16px;
 	color: white;
-	background-color: var(--buttons);
+	background-color: var(--coral);
 }
 
 button:hover {
-	background-color: var(--buttons-hover);
+	background-color: var(--coral-hover);
 }
 
-#login {
-	width: 100%;
-	padding-top: 4px;
-	padding-bottom: 4px;
-	cursor: pointer;
-	margin-top: 4px;
-	border-radius: 8px;
-	margin-bottom: 5px;
-}
 
-#open-login {
-	float: right;
-	font-size: 20px;
-	margin-right: 20px;
-	margin-bottom: 17.5px;
-	margin-top: 16px;
-	cursor: pointer;
-	color: var(--coral);
-}
-
-#open-login:hover {
-	color: #737373;
-}
 
 
 
@@ -251,7 +249,7 @@ h5 {
 }
 
 #awithdrawl {
-	background-color: var(--buttons);
+	background-color: var(--coral);
 	color: white;
 	font-size: 24px;
 	padding: 6px 20px 6px 20px;
@@ -260,7 +258,7 @@ h5 {
 }
 
 #awithdrawl:hover {
-	background-color: var(--buttons-hover);
+	background-color: var(--coral-hover);
 }
 
 #withdrawl {
@@ -289,7 +287,7 @@ body {
 }
 
 #signup-form {
-	background-color: #AEAEAE;
+	background-color: #777;
 	text-align: center;
 	position: absolute;
 	margin-top: -380px;
@@ -300,10 +298,11 @@ body {
 	transition-duration: 0.5s;
 	z-index: 1000;
 	color: white;
+	border-radius: 8px;
 }
 
 #login-form {
-	background-color: #AEAEAE;
+	background-color: #777;
 	text-align: center;
 	position: absolute;
 	margin-top: -380px;
@@ -314,6 +313,7 @@ body {
 	transition-duration: 0.5s;
 	z-index: 1000;
 	color: white;
+	border-radius: 8px;
 }
 
 input.textbox {
@@ -324,7 +324,7 @@ input.textbox {
 
 #release-button {
 	padding: 6px 23px 6px 23px;
-	background-color: var(--buttons);
+	background-color: var(--coral);
 	position: absolute;
 	margin-left: calc(50% - 64.41px);
 	bottom: 8px;
@@ -334,7 +334,7 @@ input.textbox {
 }
 
 #release-button:hover {
-	background-color: var(--buttons-hover);
+	background-color: var(--coral-hover);
 }
 
 #release-button-text {
@@ -629,6 +629,8 @@ td {
 	min-height: calc(100% - 60px);
 	grid-template-rows: 1fr auto;
 	grid-template-columns: 100%;
+	transition-property: filter;
+	transition-duration: 0.1s;
 }
 
 .file-upload {
@@ -671,7 +673,6 @@ input[type="text"] {
 	padding-top: 3px;
 	padding-bottom: 3px;
 	outline: none;
-	/*font-family: "Roboto", sans-serif;*/
 	font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -714,6 +715,10 @@ input[type="text"] {
 	width: 40vw;
 }
 
+#pro-mastering {
+	width: 40vw;
+	margin-top: 25px;
+}
 
 #third-home-div {
 	display: grid;
@@ -729,4 +734,33 @@ input[type="text"] {
 	color: var(--queen-blue);
 	text-decoration: underline;
 	cursor: pointer;
+}
+
+h2 {
+	font-weight: 900;
+	color: var(--coral);
+	font-size: 50pt;
+	/*font-family: 'Fira Sans', sans-serif;*/
+}
+
+#hero-image {
+	background-image: url("imgs/full-record-background-gray.png");
+	min-height: 500px;
+	background-repeat: no-repeat;
+	background-size: 90vw 90vw;
+	background-position: 5vw -25.5vw;
+	text-align: center;
+}
+
+#hero-image h1 {
+	color: var(--coral);
+	font-size: 110pt;
+	font-weight: 900;
+	text-shadow: 8px 8px 3px var(--queen-blue);
+}
+
+#hero-image h3 {
+	color: var(--queen-blue);
+	font-weight: 900;
+	font-size: 42pt;
 }
