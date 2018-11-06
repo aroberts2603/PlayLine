@@ -13,10 +13,7 @@
 }
 
 * {
-	/*font-family: "Roboto", sans-serif;*/
-	/*font-family: 'Fjalla One', sans-serif;*/
 	font-family: 'Nunito Sans', sans-serif;
-	/*font-family: sans-serif;*/
 	margin: 0px;
 	padding: 0px;
 	font-weight: 400;
@@ -29,7 +26,7 @@ html, body {
 
 
 /*========================================================================*/
-/*============                   Navbar                     ==============*/
+/*============    End of Universal  |||  Start of Navbar    ==============*/
 /*========================================================================*/
 
 #navbar {
@@ -95,6 +92,36 @@ html, body {
 	top: 44px;
 }
 
+#signup-form {
+	background-color: #777;
+	text-align: center;
+	position: absolute;
+	margin-top: -380px;
+	top: 120px;
+	right: calc(50% - 110.75px);
+	padding: 8px 10px 10px 10px;
+	transition-property: margin-top;
+	transition-duration: 0.5s;
+	z-index: 1000;
+	color: white;
+	border-radius: 8px;
+}
+
+#login-form {
+	background-color: #777;
+	text-align: center;
+	position: absolute;
+	margin-top: -380px;
+	top: 120px;
+	right: calc(50% - 110.75px);
+	padding: 8px 10px 10px 10px;
+	transition-property: margin-top;
+	transition-duration: 0.5s;
+	z-index: 1000;
+	color: white;
+	border-radius: 8px;
+}
+
 #login {
 	width: 100%;
 	padding-top: 4px;
@@ -131,69 +158,160 @@ html, body {
 	cursor: pointer;
 }
 
+#dropdown {
+	position: fixed;
+	background-color: var(--coral);
+	opacity: 50;
+	top: 0;
+	height: calc(100% - 60px);
+	margin-top: 60px;
+	z-index: 1000;
+	margin-left: -279px;
+	transition-property: margin-left;
+	transition-duration: 0.3s;
+	width: 279px;
+}
+
 /*========================================================================*/
-/*============                   Navbar                     ==============*/
+/*============      End of Navbar  |||  Start of Home       ==============*/
 /*========================================================================*/
 
+#first-home-div {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-gap: 0px;
+}
 
+#landing-page-image {
+	width: 33vw;
+	margin-bottom: -5px;
+}
 
+#upload-your-music {
+	width: 60vw;
+}
 
+#first-home-div p {
+	/*color: #e8e8e8;*/
+	color: black;
+}
 
+#first-grabber {
+	background-color: #e0e0e0;
+}
 
+#second-home-div {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-gap: 0px;
+}
 
+#spotify-image {
+	width: 33vw;
+	margin-bottom: -6px;
+}
 
+#mastering-image {
+	width: 33vw;
+	height: 100%;
+	/*height: 100vh;*/
+	margin-bottom: -6px;
+}
 
+#mastering-div {
+	background-image: url("imgs/mastering.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
 
+#easy-distribution {
+	width: 40vw;
+}
 
+#pro-mastering {
+	width: 40vw;
+	margin-top: 25px;
+}
 
+#third-home-div {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-gap: 0px;
+}
 
+#third-grabber {
+	background-color: #e0e0e0;
+}
 
+.home-jump-to {
+	color: var(--queen-blue);
+	text-decoration: underline;
+	cursor: pointer;
+}
 
+h2 {
+	font-weight: 900;
+	color: var(--coral);
+	font-size: 50pt;
+}
 
+#hero-image {
+	background-image: url("imgs/full-record-background-gray-blur.png");
+	min-height: 500px;
+	background-repeat: no-repeat;
+	background-size: 100vw 100vw;
+	text-align: center;
+	padding-top: 40px;
+}
 
+#hero-image h1 {
+	color: var(--coral);
+	font-size: 110pt;
+	font-weight: 900;
+	text-shadow: 8px 8px 3px var(--queen-blue);
+	margin-top: 60px;
+}
 
+#hero-image-h3-div h3 {
+	color: var(--coral);
+	/*color: #34BACC;*/
+	font-weight: 900;
+	font-size: 42pt;
+}
 
+#hero-image-h3-div {
+	display: inline-block;
+	padding-left: 17px;
+	padding-right: 17px;
+}
 
+@media (max-width: 600px) {
+	#first-home-div {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+	}
 
+	#landing-page-image {
+		width: 100%;
+	}
 
+	#upload-your-music{
+		width: 90vw;
+	}
 
+	#hero-image h1 {
+		font-size: 45pt;
+	}
+}
 
+/*========================================================================*/
+/*============       End of Home  |||  Start of Dash        ==============*/
+/*========================================================================*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+body {
+	background-color: #f1f1f1;
+	/*overflow: hidden;*/
+}
 
 a.alink {
 	text-decoration: underline;
@@ -281,47 +399,6 @@ hr {
 	box-shadow: none;
 }
 
-body {
-	background-color: #f1f1f1;
-	/*overflow: hidden;*/
-}
-
-#signup-form {
-	background-color: #777;
-	text-align: center;
-	position: absolute;
-	margin-top: -380px;
-	top: 120px;
-	right: calc(50% - 110.75px);
-	padding: 8px 10px 10px 10px;
-	transition-property: margin-top;
-	transition-duration: 0.5s;
-	z-index: 1000;
-	color: white;
-	border-radius: 8px;
-}
-
-#login-form {
-	background-color: #777;
-	text-align: center;
-	position: absolute;
-	margin-top: -380px;
-	top: 120px;
-	right: calc(50% - 110.75px);
-	padding: 8px 10px 10px 10px;
-	transition-property: margin-top;
-	transition-duration: 0.5s;
-	z-index: 1000;
-	color: white;
-	border-radius: 8px;
-}
-
-input.textbox {
-	
-}
-
-
-
 #release-button {
 	padding: 6px 23px 6px 23px;
 	background-color: var(--coral);
@@ -391,17 +468,6 @@ button {
 	background-color: var(--buttons-hover);
 }
 
-/*#releaseNewSongForm {
-	background-color: #9B9B9B;
-	padding: 10px 20px 10px 20px;
-	border-radius: 8px;
-	position: absolute;
-	left: calc(50% - 130px);
-	top: 20%;
-	text-align: center;
-	width: 220px;
-}*/
-
 h4 {
 	font-size: 26px;
 }
@@ -416,22 +482,6 @@ h4 {
 	color: white;
 }
 
-
-
-#dropdown {
-	position: fixed;
-	background-color: var(--coral);
-	opacity: 50;
-	top: 0;
-	height: calc(100% - 60px);
-	margin-top: 60px;
-	z-index: 1000;
-	margin-left: -279px;
-	transition-property: margin-left;
-	transition-duration: 0.3s;
-	width: 279px;
-}
-
 td {
 	font-size: 22px;
 	padding: 10px 0 10px 0;
@@ -440,13 +490,6 @@ td {
 
 .menu-item {
 	cursor: pointer;
-}
-
-#dropdownhr {
-	border-color: white;
-	color: white;
-	background-color: white;
-	margin-top: -2px;
 }
 
 #graystuff {
@@ -466,12 +509,10 @@ td {
 
 #footer {
 	background-color: var(--queen-blue);
-	/*width: 100%;*/
 	padding-top: 5px;
 	padding-bottom: 5px;
 	filter: none;
 	overflow: hidden;
-	/*margin-top: 22px;*/
 	color: var(--coral);
 	display: grid;
 	grid-template-columns: 1fr auto auto 1fr;
@@ -519,13 +560,6 @@ td {
 #grabber-text {
 	margin-bottom: 7px;
 	font-size: 20px;
-}
-
-#goNow {
-	color: var(--orange);
-	text-decoration: underline;
-	cursor: pointer;
-	font-size: 22px;
 }
 
 .menu-item-p {
@@ -646,9 +680,8 @@ td {
 }
 
 #release {
-	/*background-image: url("imgs/record-background.png");*/
-	background-image: url("imgs/record-background-with-rings1.png");
-	background-size: 60vw 60vw;
+	background-image: url("imgs/record-background-with-rings-blur.png");
+	background-size: 110vh 110vh;
 	background-repeat: no-repeat;
 	background-position: 0px 50px;
 	background-attachment: fixed;
@@ -676,91 +709,3 @@ input[type="text"] {
 	font-family: 'Nunito Sans', sans-serif;
 }
 
-#first-home-div {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	grid-gap: 0px;
-}
-
-#landing-page-image {
-	width: 33vw;
-	margin-bottom: -5px;
-}
-
-#upload-your-music {
-	width: 60vw;
-}
-
-#first-home-div p {
-	/*color: #e8e8e8;*/
-	color: black;
-}
-
-#first-grabber {
-	background-color: #e0e0e0;
-}
-
-#second-home-div {
-	display: grid;
-	grid-template-columns: 1fr auto;
-	grid-gap: 0px;
-}
-
-#mastering-image {
-	width: 33vw;
-	margin-bottom: -6px;
-}
-
-#easy-distribution {
-	width: 40vw;
-}
-
-#pro-mastering {
-	width: 40vw;
-	margin-top: 25px;
-}
-
-#third-home-div {
-	display: grid;
-	grid-template-columns: 1fr auto;
-	grid-gap: 0px;
-}
-
-#third-grabber {
-	background-color: #e0e0e0;
-}
-
-.home-jump-to {
-	color: var(--queen-blue);
-	text-decoration: underline;
-	cursor: pointer;
-}
-
-h2 {
-	font-weight: 900;
-	color: var(--coral);
-	font-size: 50pt;
-	/*font-family: 'Fira Sans', sans-serif;*/
-}
-
-#hero-image {
-	background-image: url("imgs/full-record-background-gray.png");
-	min-height: 500px;
-	background-repeat: no-repeat;
-	background-size: 90vw 90vw;
-	background-position: 5vw -25.5vw;
-	text-align: center;
-}
-
-#hero-image h1 {
-	color: var(--coral);
-	font-size: 110pt;
-	font-weight: 900;
-	text-shadow: 8px 8px 3px var(--queen-blue);
-}
-
-#hero-image h3 {
-	color: var(--queen-blue);
-	font-weight: 900;
-	font-size: 42pt;
-}
