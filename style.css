@@ -31,6 +31,7 @@ html, body {
 
 #navbar {
 	background-color: var(--queen-blue);
+	/*background-color: #999;*/
 	width: 100%;
 	height: 60px;
 	display: inline-block;
@@ -72,8 +73,6 @@ html, body {
 	width: 40px;
 	border-radius: 2px;
 	position: fixed;
-	/*transition-property: top, transform;*/
-	/*transition-duration: 0.3s;*/
 	transition:
 		top 0.15s,
 		transform 0.15s;
@@ -176,6 +175,12 @@ html, body {
 /*============      End of Navbar  |||  Start of Home       ==============*/
 /*========================================================================*/
 
+.home-div {
+	margin: 15px;
+	box-shadow: 6px 6px 13px #777;
+	margin-bottom: 30px;
+}
+
 #first-home-div {
 	display: grid;
 	grid-template-columns: 1fr 2fr;
@@ -192,7 +197,6 @@ html, body {
 }
 
 #first-home-div p {
-	/*color: #e8e8e8;*/
 	color: black;
 }
 
@@ -204,6 +208,10 @@ html, body {
 	display: grid;
 	grid-template-columns: 1fr auto;
 	grid-gap: 0px;
+}
+
+#second-grabber {
+	background-color: #c3c3c3;
 }
 
 #spotify-image {
@@ -255,8 +263,27 @@ h2 {
 	font-size: 50pt;
 }
 
+#learn-more-button {
+	width: 150px;
+	height: 40px;
+	border-radius: 10px;
+	background-color: var(--coral);
+	color: white;
+	font-size: 14pt;
+	cursor: pointer;
+}
+
+#learn-more-button:hover {
+	background-color: var(--coral-hover);
+}
+
+#learn-more-button p {
+	margin-top: 7px;
+}
+
 #hero-image {
-	background-image: url("imgs/full-record-background-gray-blur.png");
+	/*background-image: url("imgs/full-record-background-gray-blur.png");*/
+	background-image: url("imgs/landing-page.jpeg");
 	min-height: 500px;
 	background-repeat: no-repeat;
 	background-size: 100vw 100vw;
@@ -266,17 +293,16 @@ h2 {
 
 #hero-image h1 {
 	color: var(--coral);
-	font-size: 110pt;
+	font-size: 70pt;
 	font-weight: 900;
-	text-shadow: 8px 8px 3px var(--queen-blue);
+	/*text-shadow: 8px 8px 3px var(--queen-blue);*/
 	margin-top: 60px;
 }
 
 #hero-image-h3-div h3 {
 	color: var(--coral);
-	/*color: #34BACC;*/
 	font-weight: 900;
-	font-size: 42pt;
+	font-size: 24pt;
 }
 
 #hero-image-h3-div {
@@ -309,7 +335,7 @@ h2 {
 /*========================================================================*/
 
 body {
-	background-color: #f1f1f1;
+	background-color: #f5f5f5;
 	/*overflow: hidden;*/
 }
 
@@ -680,7 +706,7 @@ td {
 }
 
 #release {
-	background-image: url("imgs/record-background-with-rings-blur.png");
+	background-image: url("imgs/record-background-with-rings1.png");
 	background-size: 110vh 110vh;
 	background-repeat: no-repeat;
 	background-position: 0px 50px;
