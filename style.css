@@ -57,8 +57,8 @@ html, body {
 }
 
 #menu-button {
-	width: 40px;
-	height: 40px;
+	/*width: 40px;*/
+	/*height: 40px;*/
 	float: left;
 	margin-left: 15px;
 	cursor: pointer;
