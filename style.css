@@ -12,6 +12,11 @@
 	--queen-blue: #456990;
 }
 
+@font-face {
+	font-family: "Vonique64";
+	src: url("font/Vonique64.ttf");
+}
+
 * {
 	font-family: 'Nunito Sans', sans-serif;
 	margin: 0px;
@@ -24,71 +29,41 @@ html, body {
 	height: 100%;
 }
 
+#home {
+	background-image: url("imgs/faders.png");
+	background-repeat: no-repeat;
+}
 
 /*========================================================================*/
 /*============    End of Universal  |||  Start of Navbar    ==============*/
 /*========================================================================*/
 
 #navbar {
-	background-color: var(--queen-blue);
-	/*background-color: #999;*/
+	background-color:  rgba(255, 255, 255, 0.85);
 	width: 100%;
 	height: 60px;
-	display: inline-block;
 	position: fixed;
 	z-index: 1000;
-	/*box-shadow: grey 0px 3px 4px;*/
+	display: grid;
+	grid-template-columns: auto 1fr auto;
 }
 
 #navbar-logo {
-	width: 48px;
-	height: 48px;
-	margin-top: 6px;
-}
-
-#navbar-grid-container {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: 0px;
-	height: 60px;
-}
-
-.grid-item {
-	text-align: center;
-}
-
-#menu-button {
-	width: 40px;
-	height: 40px;
+	width: 46px;
+	height: 46px;
+	margin-top: 7px;
+	margin-left: 10px;
 	float: left;
-	margin-left: 15px;
-	cursor: pointer;
-	margin-top: 10px;
-	z-index: 100000;
 }
 
-.third-of-hamburger {
-	background-color: #ff3f3f;
-	height: 4px;
-	width: 40px;
-	border-radius: 2px;
-	position: fixed;
-	transition:
-		top 0.15s,
-		transform 0.15s;
-	z-index: 100000;
-}
-
-#third-of-hamburger1 {
-	top: 12px;
-}
-
-#third-of-hamburger2 {
-	top: 28px;
-}
-
-#third-of-hamburger3 {
-	top: 44px;
+#navbar-logo-text {
+	font-family: "Vonique64";
+	color: var(--coral);
+	font-size: 20pt;
+	display: inline-block;
+	font-weight: 900;
+	margin-top: 12px;
+	margin-left: 10px;
 }
 
 #signup-form {
@@ -157,187 +132,50 @@ html, body {
 	cursor: pointer;
 }
 
-#dropdown {
-	position: fixed;
-	background-color: var(--coral);
-	opacity: 50;
-	top: 0;
-	height: calc(100% - 60px);
-	margin-top: 60px;
-	z-index: 1000;
-	margin-left: -279px;
-	transition-property: margin-left;
-	transition-duration: 0.3s;
-	width: 279px;
+#navbar-links a {
+	color: var(--coral);
 }
 
 /*========================================================================*/
 /*============      End of Navbar  |||  Start of Home       ==============*/
 /*========================================================================*/
 
-.home-div {
-	margin: 15px;
-	box-shadow: 6px 6px 13px #777;
-	margin-bottom: 30px;
-}
-
-#first-home-div {
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-	grid-gap: 0px;
-}
-
-#landing-page-image {
-	width: 33vw;
-	margin-bottom: -5px;
-}
-
-#upload-your-music {
-	width: 60vw;
-}
-
-#first-home-div p {
-	color: black;
-}
-
-#first-grabber {
-	background-color: #e0e0e0;
-}
-
-#second-home-div {
-	display: grid;
-	grid-template-columns: 1fr auto;
-	grid-gap: 0px;
-}
-
-#second-grabber {
-	background-color: #c3c3c3;
-}
-
-#spotify-image {
-	width: 33vw;
-	margin-bottom: -6px;
-}
-
-#mastering-image {
-	width: 33vw;
-	height: 100%;
-	/*height: 100vh;*/
-	margin-bottom: -6px;
-}
-
-#mastering-div {
-	background-image: url("imgs/mastering.png");
-	background-size: 100%;
-	background-repeat: no-repeat;
-}
-
-#easy-distribution {
-	width: 40vw;
-}
-
-#pro-mastering {
-	width: 40vw;
-	margin-top: 25px;
-}
-
-#third-home-div {
-	display: grid;
-	grid-template-columns: 1fr auto;
-	grid-gap: 0px;
-}
-
-#third-grabber {
-	background-color: #e0e0e0;
-}
-
-.home-jump-to {
-	color: var(--queen-blue);
-	text-decoration: underline;
-	cursor: pointer;
-}
-
-h2 {
-	font-weight: 900;
-	color: var(--coral);
-	font-size: 50pt;
-}
-
-#learn-more-button {
-	width: 150px;
-	height: 40px;
-	border-radius: 10px;
-	background-color: var(--coral);
-	color: white;
-	font-size: 14pt;
-	cursor: pointer;
-}
-
-#learn-more-button:hover {
-	background-color: var(--coral-hover);
-}
-
-#learn-more-button p {
-	margin-top: 7px;
-}
-
-#hero-image {
-	/*background-image: url("imgs/full-record-background-gray-blur.png");*/
-	background-image: url("imgs/landing-page.jpeg");
-	min-height: 500px;
-	background-repeat: no-repeat;
-	background-size: 100vw 100vw;
+#hero-container {
 	text-align: center;
-	padding-top: 40px;
 }
 
-#hero-image h1 {
+#home-title {
 	color: var(--coral);
-	font-size: 70pt;
-	font-weight: 900;
-	/*text-shadow: 8px 8px 3px var(--queen-blue);*/
-	margin-top: 60px;
+	font-size: 65pt;
+	margin-top: 110px;
+	text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.85);
+	font-family: "Vonique64";
 }
 
-#hero-image-h3-div h3 {
+#home-subtitle {
 	color: var(--coral);
-	font-weight: 900;
-	font-size: 24pt;
+	font-size: 20pt;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.85);
 }
 
-#hero-image-h3-div {
+#learn-more-container {
+	background-color: var(--coral);
 	display: inline-block;
-	padding-left: 17px;
-	padding-right: 17px;
+	padding: 7px 15px 7px 15px;
+	border-radius: 8px;
+	text-align: center;
+	cursor: pointer;
+	color: white;
+	margin-top: 17px;
 }
 
-@media (max-width: 600px) {
-	#first-home-div {
-		grid-template-columns: 1fr;
-		grid-template-rows: auto auto;
-	}
-
-	#landing-page-image {
-		width: 100%;
-	}
-
-	#upload-your-music{
-		width: 90vw;
-	}
-
-	#hero-image h1 {
-		font-size: 45pt;
-	}
+#learn-more-container:hover {
+	background-color: var(--coral-hover);
 }
 
 /*========================================================================*/
 /*============       End of Home  |||  Start of Dash        ==============*/
 /*========================================================================*/
-
-body {
-	background-color: #f5f5f5;
-	/*overflow: hidden;*/
-}
 
 a.alink {
 	text-decoration: underline;
@@ -508,33 +346,7 @@ h4 {
 	color: white;
 }
 
-td {
-	font-size: 22px;
-	padding: 10px 0 10px 0;
-	text-align: center;
-}
-
-.menu-item {
-	cursor: pointer;
-}
-
-#graystuff {
-	height: calc(100% - 60px);
-	width: 100%;
-	position: fixed;
-	top: 60px;
-	background-color: rgba(0,0,0,0.7);
-	z-index: 100;
-}
-
-#table-menu {
-	margin-top: 10px;
-	text-align: center;
-	margin-left: calc(50% - 55px);
-}
-
 #footer {
-	background-color: var(--queen-blue);
 	padding-top: 5px;
 	padding-bottom: 5px;
 	filter: none;
@@ -575,14 +387,6 @@ td {
 	margin: -3px;
 }
 
-#home {
-	margin-top: 40px;
-	text-align: center;
-	font-weight: 900;
-	color: var(--text);
-	font-size: 18px;
-}
-
 #grabber-text {
 	margin-bottom: 7px;
 	font-size: 20px;
@@ -590,11 +394,6 @@ td {
 
 .menu-item-p {
 	text-align: center;
-}
-
-#dashboard {
-	filter: none;
-	overflow: hidden;
 }
 
 #img1 {
