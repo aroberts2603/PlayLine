@@ -31,92 +31,92 @@ function getEl(name) {
 }
 
 //the side bar button on the taskbar
-dropButton.onclick = function() {
-	if(menuOpen == false) {
-		document.getElementById("dropdown").style.marginLeft = "0px";
-		document.getElementById("graystuff").style.display = "block";
-		setTimeout(function() {
-			getEl("third-of-hamburger1").style.transform = "rotate(45deg)";
-			getEl("third-of-hamburger2").style.transform = "rotate(45deg)";
-			getEl("third-of-hamburger3").style.transform = "rotate(-45deg)";
-		}, 150);
-		getEl("third-of-hamburger1").style.top = "28px";
-		getEl("third-of-hamburger3").style.top = "28px";
-		menuOpen = true;
-	} else {
-		document.getElementById("dropdown").style.marginLeft = "-279px";
-		document.getElementById("graystuff").style.display = "none";
-		setTimeout(function() {
-			getEl("third-of-hamburger1").style.top = "12px";
-			getEl("third-of-hamburger3").style.top = "44px";
-		}, 150);
-		getEl("third-of-hamburger1").style.transform = "rotate(0deg)";
-		getEl("third-of-hamburger2").style.transform = "rotate(0deg)";
-		getEl("third-of-hamburger3").style.transform = "rotate(0deg)";
-		menuOpen = false;
-	}
-}
+// dropButton.onclick = function() {
+// 	if(menuOpen == false) {
+// 		document.getElementById("dropdown").style.marginLeft = "0px";
+// 		document.getElementById("graystuff").style.display = "block";
+// 		setTimeout(function() {
+// 			getEl("third-of-hamburger1").style.transform = "rotate(45deg)";
+// 			getEl("third-of-hamburger2").style.transform = "rotate(45deg)";
+// 			getEl("third-of-hamburger3").style.transform = "rotate(-45deg)";
+// 		}, 150);
+// 		getEl("third-of-hamburger1").style.top = "28px";
+// 		getEl("third-of-hamburger3").style.top = "28px";
+// 		menuOpen = true;
+// 	} else {
+// 		document.getElementById("dropdown").style.marginLeft = "-279px";
+// 		document.getElementById("graystuff").style.display = "none";
+// 		setTimeout(function() {
+// 			getEl("third-of-hamburger1").style.top = "12px";
+// 			getEl("third-of-hamburger3").style.top = "44px";
+// 		}, 150);
+// 		getEl("third-of-hamburger1").style.transform = "rotate(0deg)";
+// 		getEl("third-of-hamburger2").style.transform = "rotate(0deg)";
+// 		getEl("third-of-hamburger3").style.transform = "rotate(0deg)";
+// 		menuOpen = false;
+// 	}
+// }
 
 //the side bar button on the side bar
 
 //this opens up the login
-openLogin.onclick = function() {
-	if(signedIn == false) {
-		document.getElementById("home").style.filter = "blur(10px)";
-		document.getElementById("footer").style.filter = "blur(10px)";
-		document.getElementById("login-form").style.marginTop = "0px";
-	} else {
-		document.getElementById("open-login").href = "dash.html";
-	}
-}
+// openLogin.onclick = function() {
+// 	if(signedIn == false) {
+// 		document.getElementById("home").style.filter = "blur(10px)";
+// 		document.getElementById("footer").style.filter = "blur(10px)";
+// 		document.getElementById("login-form").style.marginTop = "0px";
+// 	} else {
+// 		document.getElementById("open-login").href = "dash.html";
+// 	}
+// }
 
 //close the login form that drops down
-closeLogin.onclick = function() {
-	document.getElementById("login-form").style.marginTop = "-380px";
-	document.getElementById("home").style.filter = "none";
-	document.getElementById("footer").style.filter = "none";
-}
+// closeLogin.onclick = function() {
+// 	document.getElementById("login-form").style.marginTop = "-380px";
+// 	document.getElementById("home").style.filter = "none";
+// 	document.getElementById("footer").style.filter = "none";
+// }
 
-changeToSignup.onclick = function() {
-	document.getElementById("login-form").style.marginTop = "-380px";
-	document.getElementById("signup-form").style.marginTop = "0px";
-}
+// changeToSignup.onclick = function() {
+// 	document.getElementById("login-form").style.marginTop = "-380px";
+// 	document.getElementById("signup-form").style.marginTop = "0px";
+// }
 
-closeSignup.onclick = function() {
-	document.getElementById("signup-form").style.marginTop = "-380px";
-	document.getElementById("home").style.filter = "none";
-	document.getElementById("footer").style.filter = "none";
-}
+// closeSignup.onclick = function() {
+// 	document.getElementById("signup-form").style.marginTop = "-380px";
+// 	document.getElementById("home").style.filter = "none";
+// 	document.getElementById("footer").style.filter = "none";
+// }
 
-changeToLogin.onclick = function() {
-	document.getElementById("login-form").style.marginTop = "0px";
-	document.getElementById("signup-form").style.marginTop = "-380px";
-}
+// changeToLogin.onclick = function() {
+// 	document.getElementById("login-form").style.marginTop = "0px";
+// 	document.getElementById("signup-form").style.marginTop = "-380px";
+// }
 
-homeLink.onclick = function() {
-	window.location.href = "index.html";
-}
+// homeLink.onclick = function() {
+// 	window.location.href = "index.html";
+// }
 
-loginButton.onclick = function() {
-	var em = document.getElementById("email").value;
-	var pass = document.getElementById("password").value;
-	firebase.auth().signInWithEmailAndPassword(em,pass);
-}
+// loginButton.onclick = function() {
+// 	var em = document.getElementById("email").value;
+// 	var pass = document.getElementById("password").value;
+// 	firebase.auth().signInWithEmailAndPassword(em,pass);
+// }
 
-dashLink.onclick = function() {
-	window.location.href = "dash.html";
-}
+// dashLink.onclick = function() {
+// 	window.location.href = "dash.html";
+// }
 
 
 
-firebase.auth().onAuthStateChanged(function(user) {
-	if(user) {
-		getEl("open-login").innerHTML = "My Dash";
-		dashLink.style.visibility = "visible";
-		signedIn = true;
-	} else {
-		getEl("open-login").innerHTML = "Log In";
-		dashLink.style.visibility = "hidden";
-		signedIn = false;
-	}
-})
+// firebase.auth().onAuthStateChanged(function(user) {
+// 	if(user) {
+// 		getEl("open-login").innerHTML = "My Dash";
+// 		dashLink.style.visibility = "visible";
+// 		signedIn = true;
+// 	} else {
+// 		getEl("open-login").innerHTML = "Log In";
+// 		dashLink.style.visibility = "hidden";
+// 		signedIn = false;
+// 	}
+// })

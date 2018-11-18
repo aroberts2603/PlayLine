@@ -1,0 +1,394 @@
+
+
+#signup-form {
+	background-color: #777;
+	text-align: center;
+	position: absolute;
+	margin-top: -380px;
+	top: 120px;
+	right: calc(50% - 110.75px);
+	padding: 8px 10px 10px 10px;
+	transition-property: margin-top;
+	transition-duration: 0.5s;
+	z-index: 1000;
+	color: white;
+	border-radius: 8px;
+}
+
+#login-form {
+	background-color: #777;
+	text-align: center;
+	position: absolute;
+	margin-top: -380px;
+	top: 120px;
+	right: calc(50% - 110.75px);
+	padding: 8px 10px 10px 10px;
+	transition-property: margin-top;
+	transition-duration: 0.5s;
+	z-index: 1000;
+	color: white;
+	border-radius: 8px;
+}
+
+#login {
+	width: 100%;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	cursor: pointer;
+	margin-top: 4px;
+	border-radius: 8px;
+	margin-bottom: 5px;
+}
+
+#open-login {
+	float: right;
+	font-size: 20px;
+	margin-right: 20px;
+	margin-bottom: 17.5px;
+	margin-top: 16px;
+	cursor: pointer;
+	color: var(--coral);
+}
+
+#open-login:hover {
+	color: #ff5f5f;
+}
+
+#signup-text {
+	font-size: 14px;
+	margin-top: 0px;
+	cursor: pointer;
+}
+
+#signup-text2 {
+	font-size: 14px;
+	margin-top: 0px;
+	cursor: pointer;
+}
+
+
+
+/*========================================================================*/
+/*============      End of Navbar  |||  Start of Home       ==============*/
+/*========================================================================*/
+
+
+
+/*========================================================================*/
+/*============       End of Home  |||  Start of Dash        ==============*/
+/*========================================================================*/
+
+button {
+	border: none;
+	font-size: 16px;
+	color: white;
+	background-color: var(--coral);
+}
+
+button:hover {
+	background-color: var(--coral-hover);
+}
+
+
+
+
+
+.main-panel {
+	margin-top: 3%;
+	border-radius: 15px;
+	background-color: var(--panels);
+	z-index: 1;
+}
+
+#left-panel {
+	text-align: center;
+	margin-left: var(--div-padding);
+	margin-right: 0%;
+}
+
+h5 {
+	font-size: 30px;
+	padding-top: 10px;
+	padding-bottom: 8px;
+}
+
+#money {
+	font-size: 72px;
+	padding-top: 10px;
+	margin-top: 10px;
+	margin-bottom: 12px;
+}
+
+#awithdrawl {
+	background-color: var(--coral);
+	color: white;
+	font-size: 24px;
+	padding: 6px 20px 6px 20px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+#awithdrawl:hover {
+	background-color: var(--coral-hover);
+}
+
+#withdrawl {
+	margin-top: 22px;
+	margin-bottom: 14px;
+}
+
+#right-panel {
+	position: relative;
+	margin-right: var(--div-padding);
+	margin-left: 0%;
+	text-align: center;
+	padding-bottom: 56px;
+}
+
+hr {
+	width: 96%;
+	margin-left: 2%;
+	border-color: #6E6E6E;
+	box-shadow: none;
+}
+
+#release-button {
+	padding: 6px 23px 6px 23px;
+	background-color: var(--coral);
+	position: absolute;
+	margin-left: calc(50% - 64.41px);
+	bottom: 8px;
+	border-radius: 8px;
+	cursor: pointer;
+	text-align: center;
+}
+
+#release-button:hover {
+	background-color: var(--coral-hover);
+}
+
+#release-button-text {
+	font-size: 24px;
+	color: white;
+}
+
+button {
+	outline: none;
+}
+
+#signupButton {
+	width: 100%;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	cursor: pointer;
+	margin-top: 4px;
+	border-radius: 8px;
+	margin-bottom: 5px;
+}
+
+#releases-container {
+	padding-top: 5px;
+}
+
+.songDiv {
+	display: inline-block;
+	width: 100%;
+}
+
+.songNameP {
+	float: left;
+	font-size: 22px;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.pauseP {
+	float: right;
+	margin-right: 10px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.pauseA {
+	background-color: var(--buttons);
+	padding: 4px 13px 4px 13px;
+	cursor: pointer;
+	border-radius: 6px;
+	color: white;
+}
+
+.pauseA:hover {
+	background-color: var(--buttons-hover);
+}
+
+h4 {
+	font-size: 26px;
+}
+
+.no-underline:visited {
+	text-decoration: none;
+	color: white;
+}
+
+.no-underline {
+	text-decoration: none;
+	color: white;
+}
+
+
+
+
+.top-container {
+	display: inline-block;
+	width: 100%;
+}
+
+.top-form-text {
+	float: left;
+}
+
+.close-form {
+	float: right;
+	height: 17px;
+	width: 17px;
+	cursor: pointer;
+}
+
+.close-form:hover {
+	background-color: #D1D1D1;
+	border-radius: 50%;
+	padding: 3px;
+	margin: -3px;
+}
+
+#grabber-text {
+	margin-bottom: 7px;
+	font-size: 20px;
+}
+
+.menu-item-p {
+	text-align: center;
+}
+
+#img1 {
+	height: 30px;
+	width: 30px;
+}
+
+#cool-things {
+	width: 60%;
+	margin-left: 20%;
+	color: var(--text);
+	margin-top: 15px;
+}
+
+.cool-tr {
+	padding: 0px;
+}
+
+.cool-td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 17px;
+}
+
+#first-form p {
+	display: inline;
+	margin-right: 8px;
+}
+
+#first-form {
+	text-align: right;
+	display: inline-grid;
+	grid-template-columns: 1fr;
+}
+
+@media (max-width: 800px) {
+	#first-form {
+		grid-template-columns: 1fr;
+	}
+}
+
+#explicits {
+	display: inline-block;
+	text-align: left;
+}
+
+#isrcs {
+	display: inline-block;
+	width: 156px;
+	text-align: left;
+}
+
+.form-element {
+	border: 2px solid var(--queen-blue);
+	padding: 12px;/*7*/
+	margin: 5px;
+	font-size: 18px;
+	border-radius: 9px;
+	text-align: center;
+	font-weight: 400;
+	color: rgb(70,70,70);
+}
+
+#dashboard-grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: var(--div-padding);
+}
+
+#release-form {
+	display: flex;
+	justify-content: center;
+}
+
+#main-grid {
+	display: grid;
+	min-height: calc(100% - 60px);
+	grid-template-rows: 1fr auto;
+	grid-template-columns: 100%;
+	transition-property: filter;
+	transition-duration: 0.1s;
+}
+
+.file-upload {
+	width: 200px;
+}
+
+.required-asterisk {
+	color: var(--coral);
+	display: inline;
+	float: left;
+	margin-right: 7px;
+	margin-top: -4px;
+}
+
+#release {
+	background-image: url("imgs/record-background-with-rings1.png");
+	background-size: 110vh 110vh;
+	background-repeat: no-repeat;
+	background-position: 0px 50px;
+	background-attachment: fixed;
+}
+
+#menu-button {
+	width: 40px;
+	height: 40px;
+	margin-top: 12px;
+}
+
+.hamburger-filler {
+	height: 12px;
+}
+
+input[type="text"] {
+	background-color: rgba(0,0,0,0);
+	font-size: 18px;
+	border-radius: 8px;
+	border: 0.75px solid #C9C9C9;
+	padding-left: 6px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	outline: none;
+	font-family: 'Nunito Sans', sans-serif;
+}

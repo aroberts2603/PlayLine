@@ -4,23 +4,49 @@
 	<meta http-equiv="pragma" content="no-cache" charset="utf-8">
 	<title>PlayLine Records</title>
 	<link rel="icon" href="imgs/PlayLineCoral.png">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width">
 </head>
 <body id="home">
 	<div id="navbar">
-		<div><img src="imgs/PlayLineCoral.png" id="navbar-logo"><p id="navbar-logo-text">PLAYLINE</p></div>
+		<div>
+			<img src="imgs/PlayLineCoral.png" id="navbar-logo">
+			<p id="navbar-logo-text">PLAYLINE</p>
+		</div>
 		<div></div>
 		<div id="navbar-links">
 			<p><a href="index.html">Home</a></p>
 			<p><a href="artists.html">Artists</a></p>
 			<p><a href="about.html">About</a></p>
 			<div id="profile-photo"></div>
-			<div><img src="imgs/dropdown-arrow.png" id="dropdown-arrow"></div>
+			<div>
+				<svg version="1.1" id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
+					<polygon id="dropdown-arrow-poly" points="0,250 1000,250 500,750 "/>
+				</svg>
+			</div>
+			<!-- <div id="account-dropdown">
+				<p><a class="account-dropdown-links" href="dash.html">Dashboard</a><br></p>
+				<p><a class="account-dropdown-links">Account Settings</a><br></p>
+				<p><a class="account-dropdown-links">Log Out</a></p>
+			</div> -->
 		</div>
 	</div>
+	<div  id="mobile-navbar">
+		<div id="menu-button">
+			<div class="third-of-hamburger" id="third-of-hamburger1"></div>
+			<div class="third-of-hamburger" id="third-of-hamburger2"></div>
+			<div class="third-of-hamburger" id="third-of-hamburger3"></div>
+		</div>
+
+		<div id="dropdown" style="margin-left: -279px;">
+			<table id="table-menu">
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="home-link">Home</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="artists-link" href="http:/localhost//index2.html">Artists</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="about-link">About</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="dash-link"style="visibility: hidden;">Dashboard</a></p></td></tr>
+			</table>
+		</div>
 	</div>
 
 	<div style="height: 50px;" id="navbar-fill"></div>
@@ -29,11 +55,37 @@
 	<div id="main-grid">
 		<div id="hero-container">
 			<div id="home-title">UPLOAD YOUR MUSIC<br>AND WE'LL DO THE REST</div>
-			<div id="home-subtitle">A record label for the digital age</div>
-			<div id="learn-more-container">Learn More</div>
+			<div id="learn-more-container"><a>Learn More</a></div>
 		</div>
 
-		<!-- <div id="footer">
+		<div id="main-content-for-page">
+			<div class="main-content-box">
+				<h1 class="main-content-h1">EASY DISTRIBUTION</h1>
+				<p style="font-size: 16pt;">We distribute to more than 200 streaming services including Apple Music and Spotify. Your music is live in 2-3 days and you keep all royalties and rights.</p>
+				<div id="store-logos">
+					<img id="amazon" src="imgs/stores/amazon.svg">
+					<img id="deezer" src="imgs/stores/deezer.svg">
+					<img id="googleplay" src="imgs/stores/googleplay.svg">
+					<img id="iheartradio" src="imgs/stores/iheartradio.svg">
+					<img id="itunes-applemusic" src="imgs/stores/itunes-applemusic.svg" style="grid-row: 1 / span 2">
+					<img id="pandora" src="imgs/stores/pandora.svg">
+					<img id="spotify" src="imgs/stores/spotify.svg">
+					<img id="youtubemusic" src="imgs/stores/youtubemusic.svg">
+					<img id="tidal" src="imgs/stores/tidal.svg">
+				</div>
+				<p style="font-size: 12pt; margin-top: 20px;">Get your music heard on these services and many more.</p>
+			</div>
+
+			<div class="main-content-box">
+				<h1 class="main-content-h1">PRO MASTERING</h1>
+				<p style="font-size: 14pt; padding: 0px 30px 0px 30px;">Check one box and your music is sent through the air right into an advanced A.I system to master your music. A.I powered mastering is the future of music production - and it's yours to use on any track, completely free.</p>
+			</div>
+		</div>
+
+		<div id="second-black-white-div">
+		</div>
+
+		<div id="footer">
 			<div></div>
 			<div>
 				<img src="imgs/PlayLineCoral.png" style="height: 50px; width: 50px; margin-right: 30px;">
@@ -43,7 +95,7 @@
 				<p id="cpr2">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
 			</div>
 			<div></div>
-		</div> -->
+		</div>
 	</div>
 <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 <script type="text/javascript" src="navbar.js"></script>
