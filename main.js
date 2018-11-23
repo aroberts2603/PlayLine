@@ -1,4 +1,3 @@
-// Initialize Firebase
 var config = {
     apiKey: "AIzaSyAlPoBmT7p6M0XQp-DRWB9hgqLlxDBx3qY",
     authDomain: "rough-dash.firebaseapp.com",
@@ -20,10 +19,6 @@ function show(element) {
 	element.style.display = "block";
 }
 
-function getEl(name) {
-	return document.getElementById(name);
-}
-
 var openLogin = true;
 
 var accountDropdownHidden = true;
@@ -33,70 +28,53 @@ var dash = document.getElementById("dashboard");
 var home = document.getElementById("home");
 
 
-var openLogin = document.getElementById("open-login");
+var openLogin = document.getElementById("open-login-form");
 var closeLogin = document.getElementById("close-login-form");
-var changeToSignup = document.getElementById("signup");
+var changeToSignup = document.getElementById("switch-to-signup");
+var openSignup = document.getElementById("open-signup-form");
 var closeSignup = document.getElementById("close-signup-form");
-var changeToLogin = document.getElementById("alreadyHaveAcc");
-var loginButton = document.getElementById("login");
-var homeLink = document.getElementById("home-link");
-var dashLink = document.getElementById("dash-link");
+var changeToLogin = document.getElementById("switch-to-login");
 
 var learnMore = document.getElementById("learn-more-container");
 
-//this opens up the login
-// openLogin.onclick = function() {
-// 	if(openLogin == true) {
-// 		document.getElementById("main-grid").style.filter = "blur(10px)";
-// 		document.getElementById("login-form").style.marginTop = "0px";
-// 	} else {
-// 		window.location.href = "dash.html";
-// 	}
-// }
-
-//close the login form that drops down
-// closeLogin.onclick = function() {
-// 	document.getElementById("login-form").style.marginTop = "-380px";
-// 	document.getElementById("main-grid").style.filter = "none";
-// }
-
-// changeToSignup.onclick = function() {
-// 	document.getElementById("login-form").style.marginTop = "-380px";
-// 	document.getElementById("signup-form").style.marginTop = "0px";
-// }
-
-// closeSignup.onclick = function() {
-// 	document.getElementById("signup-form").style.marginTop = "-380px";
-// 	document.getElementById("main-grid").style.filter = "none";
-// }
-
-// changeToLogin.onclick = function() {
-// 	document.getElementById("login-form").style.marginTop = "0px";
-// 	document.getElementById("signup-form").style.marginTop = "-380px";
-// }
-
-// homeLink.onclick = function() {
-// 	window.location.href = "index.html";
-// }
-
-// dashLink.onclick = function() {
-// 	window.location.href = "dash.html";
-// }
-
-// loginButton.onclick = function() {
-// 	var em = document.getElementById("email").value;
-// 	var pass = document.getElementById("password").value;
-// 	firebase.auth().signInWithEmailAndPassword(em,pass);
-// }
-
-learnMore.onclick = function() {
-	scrollOptions = {
-		left: "0px",
-		top: "528px",
-		behavior: 'smooth'
-	}
-	window.scrollTo(0,528, "smooth");
+openLogin.onclick = function() {
+	document.getElementById("main-grid").style.filter = "blur(10px)";
+	document.getElementById("login-form").style.top = "0px";
 }
+
+closeLogin.onclick = function() {
+	document.getElementById("login-form").style.top = "-290px";
+	document.getElementById("main-grid").style.filter = "none";
+}
+
+changeToSignup.onclick = function() {
+	document.getElementById("login-form").style.top = "-290px";
+	document.getElementById("signup-form").style.top = "0px";
+}
+
+openSignup.onclick = function() {
+	document.getElementById("main-grid").style.filter = "blur(10px)";
+	document.getElementById("signup-form").style.top = "0px";
+}
+
+closeSignup.onclick = function() {
+	document.getElementById("signup-form").style.top = "-290px";
+	document.getElementById("main-grid").style.filter = "none";
+}
+
+changeToLogin.onclick = function() {
+	document.getElementById("login-form").style.top = "0px";
+	document.getElementById("signup-form").style.top = "-290px";
+}
+
+// learnMore.onclick = function() {
+// 	scrollOptions = {
+// 		left: "0px",
+// 		top: "528px",
+// 		behavior: 'smooth'
+// 	}
+// 	window.scrollTo(0,528, "smooth");
+// }
 
 
 
@@ -153,12 +131,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 		var uid = user.uid;
 		var providerData = user.providerData;
 
-		// getEl("open-login").innerHTML = "My Dash";
-		// dashLink.style.visibility = "visible";
 		openLogin = false;
 
 	} else {
-		getEl("open-login").innerHTML = "Log In";
+		document.getElementById("open-login").innerHTML = "Log In";
 		dashLink.style.visibility = "hidden";
 		openLogin = true;
 	}
@@ -178,7 +154,7 @@ window.onscroll = function() {
 
 function updateParallax() {
 	sTop = document.documentElement.scrollTop;
-	document.getElementById("hero-container").style.backgroundPosition = "0px " + sTop/-4.0 + "px";
+	document.getElementById("hero-container").style.backgroundPosition = "0px " + sTop/4.0 + "px";
 	if(sTop < 400) {
 		document.getElementById("navbar").style.backgroundColor = "rgba(0,0,0,0.55)";
 	} else if(sTop >= 400 && sTop <= 460) {

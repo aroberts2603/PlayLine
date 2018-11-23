@@ -19,13 +19,18 @@
 			<p><a href="index.html">Home</a></p>
 			<p><a href="artists.html">Artists</a></p>
 			<p><a href="about.html">About</a></p>
-			<div id="profile-photo"></div>
-			<div>
+			<div class="open-auth-form" id="open-login-form">Log In</div>
+			<div class="open-auth-form" id="open-signup-form">Sign Up</div>
+			
+			<div id="profile-photo" style="display: none;"></div>
+
+			<div style="display: none;">
 				<svg version="1.1" id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
 					<polygon id="dropdown-arrow-poly" points="0,250 1000,250 500,750 "/>
 				</svg>
 			</div>
-			<div id="account-dropdown">
+			
+			<div id="account-dropdown" style="display: none;">
 				<p><a class="account-dropdown-links" href="dash.html">Dashboard</a><br></p>
 				<p><a class="account-dropdown-links">Account Settings</a><br></p>
 				<p><a class="account-dropdown-links">Log Out</a></p>
@@ -63,7 +68,7 @@
 				<button type="button" id="login-button">Log In</button><br>
 			</form>
 
-			<p class="bottom-auth-text">Don't have an account? <a id="switchToSignup" class="alink">Sign Up</a></p>
+			<p class="bottom-auth-text">Don't have an account? <a id="switch-to-signup" class="alink">Sign Up</a></p>
 		</div>
 
 		<div id="signup-form" class="auth-form" style="top: -290px;">
@@ -82,7 +87,7 @@
 				<button type="button" id="signup-button">Sign Up</button><br>
 			</form>
 
-			<p class="bottom-auth-text">Already have an account? <a id="switchToLogin" class="alink">Log In</a></p>
+			<p class="bottom-auth-text">Already have an account? <a id="switch-to-login" class="alink">Log In</a></p>
 		</div>
 	</div>
 
