@@ -26,6 +26,8 @@ function getEl(name) {
 
 var openLogin = true;
 
+var accountDropdownHidden = true;
+
 
 var dash = document.getElementById("dashboard");
 var home = document.getElementById("home");
@@ -166,7 +168,7 @@ var sTop = 0;
 var alpha = 0;
 
 window.onload = function() {
-	document.getElementById("home").style.backgroundPosition = "0px 0px";
+	document.getElementById("hero-container").style.backgroundPosition = "0px 0px";
 	updateParallax();
 }
 
@@ -176,7 +178,7 @@ window.onscroll = function() {
 
 function updateParallax() {
 	sTop = document.documentElement.scrollTop;
-	document.getElementById("home").style.backgroundPosition = "0px " + sTop/-4.0 + "px";
+	document.getElementById("hero-container").style.backgroundPosition = "0px " + sTop/-4.0 + "px";
 	if(sTop < 400) {
 		document.getElementById("navbar").style.backgroundColor = "rgba(0,0,0,0.55)";
 	} else if(sTop >= 400 && sTop <= 460) {
@@ -186,5 +188,15 @@ function updateParallax() {
 		console.log(alpha);
 	} else if(sTop > 460) {
 		document.getElementById("navbar").style.backgroundColor = "rgba(0,0,0,0.85)";
+	}
+}
+
+document.getElementById("dropdown-arrow").onclick = function() {
+	if(accountDropdownHidden) {
+		document.getElementById("account-dropdown").style.height = "168px";
+		accountDropdownHidden = false;
+	} else {
+		document.getElementById("account-dropdown").style.height = "0px";
+		accountDropdownHidden = true;
 	}
 }
