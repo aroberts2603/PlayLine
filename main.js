@@ -37,10 +37,10 @@ var changeToLogin = document.getElementById("switch-to-login");
 
 var learnMore = document.getElementById("learn-more-container");
 
-openLogin.onclick = function() {
-	document.getElementById("main-grid").style.filter = "blur(10px)";
-	document.getElementById("login-form").style.top = "0px";
-}
+// openLogin.onclick = function() {
+// 	document.getElementById("main-grid").style.filter = "blur(10px)";
+// 	document.getElementById("login-form").style.top = "0px";
+// }
 
 closeLogin.onclick = function() {
 	document.getElementById("login-form").style.top = "-290px";
@@ -52,10 +52,10 @@ changeToSignup.onclick = function() {
 	document.getElementById("signup-form").style.top = "0px";
 }
 
-openSignup.onclick = function() {
-	document.getElementById("main-grid").style.filter = "blur(10px)";
-	document.getElementById("signup-form").style.top = "0px";
-}
+// openSignup.onclick = function() {
+// 	document.getElementById("main-grid").style.filter = "blur(10px)";
+// 	document.getElementById("signup-form").style.top = "0px";
+// }
 
 closeSignup.onclick = function() {
 	document.getElementById("signup-form").style.top = "-290px";
