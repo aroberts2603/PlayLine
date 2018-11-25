@@ -65,10 +65,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 		var uid = user.uid;
 		var providerData = user.providerData;
 
-		getEl("open-login").innerHTML = "My Dash";
-		openLogin = false;
-		getEl("dash-link").style.visibility = "visible";
-
 		forceDataUpdate();
 
 		firebase.database().ref("users/"+uid+"/songs").on("value", function(snapshot) {

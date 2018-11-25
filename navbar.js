@@ -15,18 +15,27 @@ if(!firebase.apps.length) {
 var signedIn = false;
 var menuOpen = false;
 
+var openLogin = true;
+
+var loginFormDown = false;
+var signupFormDown = false
+
+var accountDropdownHidden = true;
+
+var openLogin = document.getElementById("open-login-form");
+var closeLogin = document.getElementById("close-login-form");
+var changeToSignup = document.getElementById("switch-to-signup");
+var openSignup = document.getElementById("open-signup-form");
+var closeSignup = document.getElementById("close-signup-form");
+var changeToLogin = document.getElementById("switch-to-login");
+
+var login = document.getElementById("login-button");
+var signup = document.getElementById("signup-button");
+
 var dropButton = document.getElementById("menu-button");
 var dropButton2 = document.getElementById("menu-button2");
-var openLogin = document.getElementById("open-login");
-var closeLogin = document.getElementById("close-login-form");
-var changeToSignup = document.getElementById("signup");
-var closeSignup = document.getElementById("close-signup-form");
-var changeToLogin = document.getElementById("alreadyHaveAcc");
-var loginButton = document.getElementById("login");
-var homeLink = document.getElementById("home-link");
-var dashLink = document.getElementById("dash-link");
 
-function getEl(name) {
+function getElm(name) {
 	return document.getElementById(name);
 }
 
@@ -36,87 +45,110 @@ function getEl(name) {
 // 		document.getElementById("dropdown").style.marginLeft = "0px";
 // 		document.getElementById("graystuff").style.display = "block";
 // 		setTimeout(function() {
-// 			getEl("third-of-hamburger1").style.transform = "rotate(45deg)";
-// 			getEl("third-of-hamburger2").style.transform = "rotate(45deg)";
-// 			getEl("third-of-hamburger3").style.transform = "rotate(-45deg)";
+// 			getElm("third-of-hamburger1").style.transform = "rotate(45deg)";
+// 			getElm("third-of-hamburger2").style.transform = "rotate(45deg)";
+// 			getElm("third-of-hamburger3").style.transform = "rotate(-45deg)";
 // 		}, 150);
-// 		getEl("third-of-hamburger1").style.top = "28px";
-// 		getEl("third-of-hamburger3").style.top = "28px";
+// 		getElm("third-of-hamburger1").style.top = "28px";
+// 		getElm("third-of-hamburger3").style.top = "28px";
 // 		menuOpen = true;
 // 	} else {
 // 		document.getElementById("dropdown").style.marginLeft = "-279px";
 // 		document.getElementById("graystuff").style.display = "none";
 // 		setTimeout(function() {
-// 			getEl("third-of-hamburger1").style.top = "12px";
-// 			getEl("third-of-hamburger3").style.top = "44px";
+// 			getElm("third-of-hamburger1").style.top = "12px";
+// 			getElm("third-of-hamburger3").style.top = "44px";
 // 		}, 150);
-// 		getEl("third-of-hamburger1").style.transform = "rotate(0deg)";
-// 		getEl("third-of-hamburger2").style.transform = "rotate(0deg)";
-// 		getEl("third-of-hamburger3").style.transform = "rotate(0deg)";
+// 		getElm("third-of-hamburger1").style.transform = "rotate(0deg)";
+// 		getElm("third-of-hamburger2").style.transform = "rotate(0deg)";
+// 		getElm("third-of-hamburger3").style.transform = "rotate(0deg)";
 // 		menuOpen = false;
 // 	}
 // }
 
-//the side bar button on the side bar
+openLogin.onclick = function() {
+	document.getElementById("signup-form").style.top = "-290px";
+	document.getElementById("login-form").style.top = "calc(50% - 200px)";
+	document.getElementById("graystuff").style.display = "block";
+}
 
-//this opens up the login
-// openLogin.onclick = function() {
-// 	if(signedIn == false) {
-// 		document.getElementById("home").style.filter = "blur(10px)";
-// 		document.getElementById("footer").style.filter = "blur(10px)";
-// 		document.getElementById("login-form").style.marginTop = "0px";
-// 	} else {
-// 		document.getElementById("open-login").href = "dash.html";
-// 	}
-// }
+closeLogin.onclick = function() {
+	document.getElementById("login-form").style.top = "-290px";
+	document.getElementById("graystuff").style.display = "none";
+}
 
-//close the login form that drops down
-// closeLogin.onclick = function() {
-// 	document.getElementById("login-form").style.marginTop = "-380px";
-// 	document.getElementById("home").style.filter = "none";
-// 	document.getElementById("footer").style.filter = "none";
-// }
+changeToSignup.onclick = function() {
+	document.getElementById("login-form").style.top = "-290px";
+	document.getElementById("signup-form").style.top = "calc(50% - 200px)";
+}
 
-// changeToSignup.onclick = function() {
-// 	document.getElementById("login-form").style.marginTop = "-380px";
-// 	document.getElementById("signup-form").style.marginTop = "0px";
-// }
+openSignup.onclick = function() {
+	document.getElementById("login-form").style.top = "-290px";
+	document.getElementById("signup-form").style.top = "calc(50% - 200px)";
+	document.getElementById("graystuff").style.display = "block";
+}
 
-// closeSignup.onclick = function() {
-// 	document.getElementById("signup-form").style.marginTop = "-380px";
-// 	document.getElementById("home").style.filter = "none";
-// 	document.getElementById("footer").style.filter = "none";
-// }
+closeSignup.onclick = function() {
+	document.getElementById("signup-form").style.top = "-290px";
+	document.getElementById("graystuff").style.display = "none";
+}
 
-// changeToLogin.onclick = function() {
-// 	document.getElementById("login-form").style.marginTop = "0px";
-// 	document.getElementById("signup-form").style.marginTop = "-380px";
-// }
+changeToLogin.onclick = function() {
+	document.getElementById("login-form").style.top = "calc(50% - 200px)";
+	document.getElementById("signup-form").style.top = "-290px";
+}
 
-// homeLink.onclick = function() {
-// 	window.location.href = "index.html";
-// }
+login.onclick = function() {
+	firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value,document.getElementById("password").value)
+}
 
-// loginButton.onclick = function() {
-// 	var em = document.getElementById("email").value;
-// 	var pass = document.getElementById("password").value;
-// 	firebase.auth().signInWithEmailAndPassword(em,pass);
-// }
+document.getElementById("logout").onclick = function() {
+	firebase.auth().signOut();
+	document.getElementById("dropdown-arrow").onclick();
+	window.location.href = "index.html";
+}
 
-// dashLink.onclick = function() {
-// 	window.location.href = "dash.html";
-// }
+document.getElementById("dropdown-arrow").onclick = function() {
+	if(accountDropdownHidden) {
+		document.getElementById("account-dropdown").style.height = "160px";
+		accountDropdownHidden = false;
+	} else {
+		document.getElementById("account-dropdown").style.height = "0px";
+		accountDropdownHidden = true;
+	}
+}
 
+firebase.auth().onAuthStateChanged(function(user) {
+	if (user) {
 
+		closeLogin.onclick();
+		closeSignup.onclick();
 
-// firebase.auth().onAuthStateChanged(function(user) {
-// 	if(user) {
-// 		getEl("open-login").innerHTML = "My Dash";
-// 		dashLink.style.visibility = "visible";
-// 		signedIn = true;
-// 	} else {
-// 		getEl("open-login").innerHTML = "Log In";
-// 		dashLink.style.visibility = "hidden";
-// 		signedIn = false;
-// 	}
-// })
+		var displayName = user.displayName;
+		var email = user.email;
+		var emailVerified = user.emailVerified;
+		var photoURL = user.photoURL;
+		var isAnonymous = user.isAnonymous;
+		var uid = user.uid;
+		var providerData = user.providerData;
+
+		openLogin = false;
+
+		document.getElementById("profile-photo").style.display = "inline";
+		document.getElementById("dropdown-arrow-container").style.display = "inline";
+		document.getElementById("account-dropdown").style.display = "block";
+
+		document.getElementById("open-login-form").style.display = "none";
+		document.getElementById("open-signup-form").style.display = "none";
+
+	} else {
+		openLogin = true;
+
+		document.getElementById("profile-photo").style.display = "none";
+		document.getElementById("dropdown-arrow-container").style.display = "none";
+		document.getElementById("account-dropdown").style.display = "none";
+
+		document.getElementById("open-login-form").style.display = "inline-block";
+		document.getElementById("open-signup-form").style.display = "inline-block";
+	}
+});

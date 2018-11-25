@@ -26,11 +26,6 @@ var signupFormDown = false
 
 var accountDropdownHidden = true;
 
-
-var dash = document.getElementById("dashboard");
-var home = document.getElementById("home");
-
-
 var openLogin = document.getElementById("open-login-form");
 var closeLogin = document.getElementById("close-login-form");
 var changeToSignup = document.getElementById("switch-to-signup");
@@ -38,43 +33,10 @@ var openSignup = document.getElementById("open-signup-form");
 var closeSignup = document.getElementById("close-signup-form");
 var changeToLogin = document.getElementById("switch-to-login");
 
+var login = document.getElementById("login-button");
+var signup = document.getElementById("signup-button");
+
 var learnMore = document.getElementById("learn-more-container");
-
-openLogin.onclick = function() {
-	document.getElementById("signup-form").style.top = "-290px";
-	document.getElementById("login-form").style.top = "calc(50% - 175px)";
-	document.getElementById("graystuff").style.display = "block";
-}
-
-closeLogin.onclick = function() {
-	document.getElementById("login-form").style.top = "-290px";
-	document.getElementById("graystuff").style.display = "none";
-}
-
-changeToSignup.onclick = function() {
-	document.getElementById("login-form").style.top = "-290px";
-	document.getElementById("signup-form").style.top = "calc(50% - 175px)";
-}
-
-openSignup.onclick = function() {
-	document.getElementById("login-form").style.top = "-290px";
-	document.getElementById("signup-form").style.top = "calc(50% - 175px)";
-	document.getElementById("graystuff").style.display = "block";
-}
-
-closeSignup.onclick = function() {
-	document.getElementById("signup-form").style.top = "-290px";
-	document.getElementById("graystuff").style.display = "none";
-}
-
-changeToLogin.onclick = function() {
-	document.getElementById("login-form").style.top = "calc(50% - 175px)";
-	document.getElementById("signup-form").style.top = "-290px";
-}
-
-document.getElementById("logout").onclick = function() {
-	firebase.auth().signOut();
-}
 
 learnMore.onclick = function() {
 	scrollOptions = {
@@ -82,11 +44,9 @@ learnMore.onclick = function() {
 		top: "528px",
 		behavior: 'smooth'
 	}
-	window.scrollTo(0,528, "smooth");
+	var y = document.getElementById("main-content-for-page").offsetTop;
+	window.scrollTo(0,y-50, "smooth");
 }
-
-
-
 
 function forceDataUpdate() {
 	firebase.database().ref().once("value").then(function(snapshot){
@@ -127,7 +87,6 @@ function displaySong(givenSongName, status) {
 
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
-
 		var displayName = user.displayName;
 		var email = user.email;
 		var emailVerified = user.emailVerified;
@@ -136,24 +95,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 		var uid = user.uid;
 		var providerData = user.providerData;
 
-		openLogin = false;
-
-		document.getElementById("profile-photo").style.display = "inline";
-		document.getElementById("dropdown-arrow-container").style.display = "inline";
-		document.getElementById("account-dropdown").style.display = "block";
-
-		document.getElementById("open-login-form").style.display = "none";
-		document.getElementById("open-signup-form").style.display = "none";
-
 	} else {
-		openLogin = true;
 
-		document.getElementById("profile-photo").style.display = "none";
-		document.getElementById("dropdown-arrow-container").style.display = "none";
-		document.getElementById("account-dropdown").style.display = "none";
-
-		document.getElementById("open-login-form").style.display = "inline-block";
-		document.getElementById("open-signup-form").style.display = "inline-block";
 	}
 });
 
@@ -178,18 +121,7 @@ function updateParallax() {
 		alpha = (sTop - 400)/200;
 		alpha += 0.55;
 		document.getElementById("navbar").style.backgroundColor = "rgba(0,0,0," + alpha + ")";
-		console.log(alpha);
 	} else if(sTop > 460) {
 		document.getElementById("navbar").style.backgroundColor = "rgba(0,0,0,0.85)";
-	}
-}
-
-document.getElementById("dropdown-arrow").onclick = function() {
-	if(accountDropdownHidden) {
-		document.getElementById("account-dropdown").style.height = "168px";
-		accountDropdownHidden = false;
-	} else {
-		document.getElementById("account-dropdown").style.height = "0px";
-		accountDropdownHidden = true;
 	}
 }

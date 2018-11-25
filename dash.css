@@ -1,0 +1,160 @@
+@import url("global.css");
+
+#dashboard-grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: var(--div-padding);
+}
+
+button {
+	border: none;
+	font-size: 16px;
+	color: white;
+	background-color: var(--coral);
+}
+
+button:hover {
+	background-color: var(--coral-hover);
+}
+
+.main-panel {
+	margin-top: 3%;
+	border-radius: 15px;
+	background-color: var(--panels);
+	z-index: 1;
+}
+
+#left-panel {
+	text-align: center;
+	margin-left: var(--div-padding);
+	margin-right: 0%;
+}
+
+h5 {
+	font-size: 30px;
+	padding-top: 10px;
+	padding-bottom: 8px;
+}
+
+#money {
+	font-size: 72px;
+	padding-top: 10px;
+	margin-top: 10px;
+	margin-bottom: 12px;
+}
+
+#awithdrawl {
+	background-color: var(--coral);
+	color: white;
+	font-size: 24px;
+	padding: 6px 20px 6px 20px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+#awithdrawl:hover {
+	background-color: var(--coral-hover);
+}
+
+#withdrawl {
+	margin-top: 22px;
+	margin-bottom: 14px;
+}
+
+#right-panel {
+	position: relative;
+	margin-right: var(--div-padding);
+	margin-left: 0%;
+	text-align: center;
+	padding-bottom: 56px;
+}
+
+hr {
+	width: 96%;
+	margin-left: 2%;
+	border-color: #6E6E6E;
+	box-shadow: none;
+}
+
+#release-button {
+	padding: 6px 23px 6px 23px;
+	background-color: var(--coral);
+	position: absolute;
+	margin-left: calc(50% - 64.41px);
+	bottom: 8px;
+	border-radius: 8px;
+	cursor: pointer;
+	text-align: center;
+}
+
+#release-button:hover {
+	background-color: var(--coral-hover);
+}
+
+#release-button-text {
+	font-size: 24px;
+	color: white;
+}
+
+button {
+	outline: none;
+}
+
+#signupButton {
+	width: 100%;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	cursor: pointer;
+	margin-top: 4px;
+	border-radius: 8px;
+	margin-bottom: 5px;
+}
+
+#releases-container {
+	padding-top: 5px;
+}
+
+.songDiv {
+	display: inline-block;
+	width: 100%;
+}
+
+.songNameP {
+	float: left;
+	font-size: 22px;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.pauseP {
+	float: right;
+	margin-right: 10px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.pauseA {
+	background-color: var(--buttons);
+	padding: 4px 13px 4px 13px;
+	cursor: pointer;
+	border-radius: 6px;
+	color: white;
+}
+
+.pauseA:hover {
+	background-color: var(--buttons-hover);
+}
+
+h4 {
+	font-size: 26px;
+}
+
+.no-underline:visited {
+	text-decoration: none;
+	color: white;
+}
+
+.no-underline {
+	text-decoration: none;
+	color: white;
+}
