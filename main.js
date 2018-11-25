@@ -21,6 +21,9 @@ function show(element) {
 
 var openLogin = true;
 
+var loginFormDown = false;
+var signupFormDown = false
+
 var accountDropdownHidden = true;
 
 
@@ -37,44 +40,50 @@ var changeToLogin = document.getElementById("switch-to-login");
 
 var learnMore = document.getElementById("learn-more-container");
 
-// openLogin.onclick = function() {
-// 	document.getElementById("main-grid").style.filter = "blur(10px)";
-// 	document.getElementById("login-form").style.top = "0px";
-// }
+openLogin.onclick = function() {
+	document.getElementById("signup-form").style.top = "-290px";
+	document.getElementById("login-form").style.top = "calc(50% - 175px)";
+	document.getElementById("graystuff").style.display = "block";
+}
 
 closeLogin.onclick = function() {
 	document.getElementById("login-form").style.top = "-290px";
-	document.getElementById("main-grid").style.filter = "none";
+	document.getElementById("graystuff").style.display = "none";
 }
 
 changeToSignup.onclick = function() {
 	document.getElementById("login-form").style.top = "-290px";
-	document.getElementById("signup-form").style.top = "0px";
+	document.getElementById("signup-form").style.top = "calc(50% - 175px)";
 }
 
-// openSignup.onclick = function() {
-// 	document.getElementById("main-grid").style.filter = "blur(10px)";
-// 	document.getElementById("signup-form").style.top = "0px";
-// }
+openSignup.onclick = function() {
+	document.getElementById("login-form").style.top = "-290px";
+	document.getElementById("signup-form").style.top = "calc(50% - 175px)";
+	document.getElementById("graystuff").style.display = "block";
+}
 
 closeSignup.onclick = function() {
 	document.getElementById("signup-form").style.top = "-290px";
-	document.getElementById("main-grid").style.filter = "none";
+	document.getElementById("graystuff").style.display = "none";
 }
 
 changeToLogin.onclick = function() {
-	document.getElementById("login-form").style.top = "0px";
+	document.getElementById("login-form").style.top = "calc(50% - 175px)";
 	document.getElementById("signup-form").style.top = "-290px";
 }
 
-// learnMore.onclick = function() {
-// 	scrollOptions = {
-// 		left: "0px",
-// 		top: "528px",
-// 		behavior: 'smooth'
-// 	}
-// 	window.scrollTo(0,528, "smooth");
-// }
+document.getElementById("logout").onclick = function() {
+	firebase.auth().signOut();
+}
+
+learnMore.onclick = function() {
+	scrollOptions = {
+		left: "0px",
+		top: "528px",
+		behavior: 'smooth'
+	}
+	window.scrollTo(0,528, "smooth");
+}
 
 
 
@@ -118,11 +127,7 @@ function displaySong(givenSongName, status) {
 
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
-		// document.getElementById("footer").style.filter = "none";
-		// document.getElementById("login-form").style.marginTop = "-380px";
-		// document.getElementById("signup-form").style.marginTop = "-380px";
 
-		// User is signed in.
 		var displayName = user.displayName;
 		var email = user.email;
 		var emailVerified = user.emailVerified;
@@ -133,10 +138,22 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 		openLogin = false;
 
+		document.getElementById("profile-photo").style.display = "inline";
+		document.getElementById("dropdown-arrow-container").style.display = "inline";
+		document.getElementById("account-dropdown").style.display = "block";
+
+		document.getElementById("open-login-form").style.display = "none";
+		document.getElementById("open-signup-form").style.display = "none";
+
 	} else {
-		document.getElementById("open-login").innerHTML = "Log In";
-		dashLink.style.visibility = "hidden";
 		openLogin = true;
+
+		document.getElementById("profile-photo").style.display = "none";
+		document.getElementById("dropdown-arrow-container").style.display = "none";
+		document.getElementById("account-dropdown").style.display = "none";
+
+		document.getElementById("open-login-form").style.display = "inline-block";
+		document.getElementById("open-signup-form").style.display = "inline-block";
 	}
 });
 

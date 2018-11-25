@@ -177,7 +177,7 @@ html, body {
 	display: inline-block;
 }*/
 
-#navbar-links p {
+.navbar-p {
 	display: inline-block;
 	margin-top: 11px;
 	margin-right: 18px;
@@ -198,11 +198,13 @@ html, body {
 }
 
 
-#second-black-white-div {
-	background-image: url("imgs/chipo.png");
-	width: 100%;
-	height: 700px;
-	background-repeat: no-repeat;
+#second-main-div {
+	padding: 5px 80px 5px 80px;
+}
+
+#comparison-chart {
+	width: 50vw;
+	height: 37.5vw;
 }
 
 #main-content-for-page {
@@ -339,7 +341,7 @@ html, body {
 #home-title {
 	color: var(--coral);
 	font-size: 50pt;
-	padding-top: 35vh;
+	padding-top: 29vh;
 	text-shadow: 0px 0px 23px rgba(0, 0, 0, 1);
 	font-family: "Vonique64";
 	font-weight: 900;
@@ -438,7 +440,7 @@ a {
 	padding: 10px 12px 10px 12px;
 	border-radius: 10px;
 	transition-property: top;
-	transition-duration: 0.4s;
+	transition-duration: 0.5s;
 	z-index: 10000;
 }
 
@@ -497,15 +499,38 @@ a {
 
 .open-auth-form {
 	font-size: 15pt;
-	margin-top: 11px;
+	font-weight: 900;
+	margin-bottom: 13px;
+	margin-top: 8px;
+	padding: 3px;
+	cursor: pointer;
 }
 
 #open-login-form {
 	color: var(--coral);
 }
 
+#open-login-form:hover {
+	color: var(--coral-hover);
+}
+
 #open-signup-form {
 	color: white;
 	background-color: var(--coral);
 	display: inline-block;
+}
+
+#open-signup-form:hover {
+	background-color: var(--coral-hover);
+}
+
+#graystuff {
+	background-color: rgba(50, 50, 50, 0.6);
+	height: 110%;
+	width: 110%;
+	margin-top: -5%;
+	margin-left: -5%;
+	filter: blur(10px);
+	position: fixed;
+	overflow: hidden;
 }
