@@ -57,63 +57,62 @@
 	<div style="height: 60px;" id="navbar-fill"></div>
 
 	<div id="graystuff" style="display: none;"></div>
+	<div id="main-grid">
+		<?php
 
-	<?php
+			if(file_exists("uploads/" . $_POST["primary"]) == false) { //if the directory does not exist, then make the dir
+				mkdir("uploads/" . $_POST["primary"]);
+			}
+			if(file_exists("uploads/" . $_POST["primary"] . "/" . $_POST["songName"]) == false) { //if the file does not exist, then make it
+				mkdir("uploads/" . $_POST["primary"] . "/" . $_POST["songName"]);
+			}
+			$target_dir = "uploads/" . $_POST["primary"] . "/" . $_POST["songName"] . "/";
+			$target_file = $target_dir . $_POST["songName"];
+			$ending = explode(".", $_FILES["fileToUpload"]["name"]);
+			if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file . "." . end($ending))) {
+				$uploadStat = "Song uploaded successfully.";
+			} else {
+				$uploadStat = "Song not uploaded successfully, try again.";
+			}
+			$info_file = fopen($target_file . ".txt", "w"); //creates a text file to write the information into
+			fwrite($info_file, "Primary Artist: " . $_POST["primary"] . "\n");
+			fwrite($info_file, "Featured Artists: " . $_POST["feat"] . "\n");
+			fwrite($info_file, "Genre: " . $_POST["genre"] . "\n");
+			fwrite($info_file, "Subgenre: " . $_POST["subgenre"] . "\n");
+			fwrite($info_file, "ISRC: " . $_POST["isrcCode"] . "\n");
+			fwrite($info_file, "Explicit: " . $_POST["explicit"] . "\n");
+			fwrite($info_file, "Producers: " . $_POST["producers"] . "\n");
+			fwrite($info_file, "Preview Start: " . $_POST["previewStart"] . "\n");
+			fwrite($info_file, "contributor1 " . $_POST["contributor1"] . "\n");
+			if($_POST["language"] == "other") {  //if the language is "other language"
+				$lang = $_POST["otherLang"];	//use what is in that field
+			} else {							//otherwise
+				$lang = $_POST["language"];		//use just what language it is
+			}
+			fwrite($info_file, "Lyrics: " . $lang . "\n"); //finally writes the language to the file
+			// fwrite($info_file, "Copyright Owner: " . $_POST["cpOwner"] . "\n"); //adds copyright owner
+			// if($_POST["releasedBefore"] == "no") {
+			// 	$releasedB4 = "not-released-before";
+			// } else {
+			// 	$releasedB4 = $_POST["releasedBeforeDate"];
+			// }
+			// fwrite($info_file, "Released Before: " . $releasedB4 . "(formatted yyyy-mm-dd)" . "\n");
+			// if($_POST["releaseDate"] == "asap(2-4 days)") {
+			// 	$releaseDate = "asap(2-4 days)";
+			// } else {
+			// 	$releaseDate = $_POST["specificReleaseDate"];
+			// }
+			// fwrite($info_file, "Release Date: " . $releaseDate . "\n");
+			fclose($info_file); //closes file
+			echo $uploadStat;
 
-		if(file_exists("uploads/" . $_POST["primary"]) == false) {
-			mkdir("uploads/" . $_POST["primary"]);
-		}
-		if(file_exists("uploads/" . $_POST["primary"] . "/" . $_POST["songName"]) == false) {
-			mkdir("uploads/" . $_POST["primary"] . "/" . $_POST["songName"]);
-		}
-		$target_dir = "uploads/" . $_POST["primary"] . "/" . $_POST["songName"] . "/";
-		$target_file = $target_dir . $_POST["songName"];
-		$ending = explode(".", $_FILES["fileToUpload"]["name"]);
-		if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file . "." . end($ending))) {
-			$uploadStat = "Song uploaded successfully.";
-		} else {
-			$uploadStat = "Song not uploaded successfully, try again.";
-		}
-		$info_file = fopen($target_file . ".txt", "w");
-		fwrite($info_file, "Primary Artist: " . $_POST["primary"] . "\n");
-		fwrite($info_file, "Featured Artists: " . $_POST["feat"] . "\n");
-		fwrite($info_file, "Genre: " . $_POST["genre"] . "\n");
-		fwrite($info_file, "Subgenre: " . $_POST["subgenre"] . "\n");
-		if($_POST["isrcBool"] == "no") {
-			$isrc = "no-isrc";
-		} else {
-			$isrc = $_POST["isrcCode"];
-		}
-		fwrite($info_file, "ISRC: " . $isrc . "\n");
-		fwrite($info_file, "Explicit: " . $_POST["explicit"] . "\n");
-		if($_POST["language"] == "other") {
-			$lang = $_POST["otherLang"];
-		} else {
-			$lang = $_POST["language"];
-		}
-		fwrite($info_file, "Lyrics: " . $lang . "\n");
-		fwrite($info_file, "Copyright Owner: " . $_POST["cpOwner"] . "\n");
-		if($_POST["releasedBefore"] == "no") {
-			$releasedB4 = "not-released-before";
-		} else {
-			$releasedB4 = $_POST["releasedBeforeDate"];
-		}
-		fwrite($info_file, "Released Before: " . $releasedB4 . "(formatted yyyy-mm-dd)" . "\n");
-		if($_POST["releaseDate"] == "asap(2-4 days)") {
-			$releaseDate = "asap(2-4 days)";
-		} else {
-			$releaseDate = $_POST["specificReleaseDate"];
-		}
-		fwrite($info_file, "Release Date: " . $releaseDate . "\n");
-		fclose($info_file);
-		echo $uploadStat;
+		?>
 
-	?>
-
-	<div id="footer">
-		<img src="imgs/playline.png" style="height: 50px; width: 50px;">
-		<p id="cpr1">© 2018 PlayLine Records, All rights reserved.</p>
-		<p id="cpr2">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
+		<div id="footer">
+			<img src="imgs/playline.png" style="height: 50px; width: 50px;">
+			<p id="cpr1">© 2018 PlayLine Records, All rights reserved.</p>
+			<p id="cpr2">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
+		</div>
 	</div>
 <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 <script type="text/javascript" src="navbar.js"></script>

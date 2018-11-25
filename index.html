@@ -2,82 +2,153 @@
 <html>
 <head>
 	<meta http-equiv="pragma" content="no-cache" charset="utf-8">
-	<title>PlayLine Dash</title>
-	<link rel="icon" href="imgs/playlineicon.ico">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
+	<title>PlayLine Records</title>
+	<link rel="icon" href="imgs/PlayLineCoral.png">
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width">
 </head>
-<body>
+<body id="home">
 	<div id="navbar">
-		<div id="navbar-grid-container" class="grid-container">
-			<div class="grid-item"><img src="imgs/hamburger.png" id="menu-button"></div>
-			<div class="grid-item"><img src="imgs/playline.png" id="navbar-logo"></div>
-			<div class="grid-item"><a id="open-login">Log In</a></div>
+		<div>
+			<img src="imgs/PlayLineCoral.png" id="navbar-logo">
+			<p id="navbar-logo-text">PLAYLINE</p>
 		</div>
-		
-		<div id="dropdown" style="margin-left: -279px;">
-			<img src="imgs/X.png" id="menu-button2">
-			<hr id="dropdownhr">
-			<table id="table-menu">
-				<tr><td class="menu-item"><p class="menu-item-p"><a id="home-link">Home</a></p></td></tr>
-				<tr><td class="menu-item"><p class="menu-item-p"><a id="artists-link">Artists</a></p></td></tr>
-				<tr><td class="menu-item"><p class="menu-item-p"><a id="about-link">About</a></p></td></tr>
-				<tr><td class="menu-item"><p class="menu-item-p"><a id="dash-link" style="visibility: hidden;" href="dash.html">Dashboard</a></p></td></tr>
-			</table>
+		<div></div>
+		<div id="navbar-links">
+			<p class="navbar-p"><a href="index.html">Home</a></p>
+			<p class="navbar-p"><a href="artists.html">Artists</a></p>
+			<p class="navbar-p"><a href="about.html">About</a></p>
+			<div class="open-auth-form" id="open-login-form">Log In</div>
+			<div class="open-auth-form" id="open-signup-form">Sign Up</div>
+			
+			<div style="display: none;" id="profile-photo"></div>
+
+			<div style="display: none;" id="dropdown-arrow-container">
+				<svg version="1.1" id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
+					<polygon id="dropdown-arrow-poly" points="0,250 1000,250 500,750 "/>
+				</svg>
+			</div>
+			
+			<div style="display: none;" id="account-dropdown">
+				<p style="margin-top: 20px;"><a class="account-dropdown-links" href="dash.html">Dashboard</a><br></p>
+				<p><a class="account-dropdown-links">Account Settings</a><br></p>
+				<p id="logout"><a class="account-dropdown-links">Log Out</a></p>
+			</div>
+		</div>
+	</div>
+	<div  id="mobile-navbar">
+		<div id="menu-button">
+			<div class="third-of-hamburger" id="third-of-hamburger1"></div>
+			<div class="third-of-hamburger" id="third-of-hamburger2"></div>
+			<div class="third-of-hamburger" id="third-of-hamburger3"></div>
 		</div>
 
-		<div id="login-form" class="login-form" style="margin-top: -380px;">
-			<div class="top-container" id="top-container">
-				<p class="top-form-text" id="top-login-form-text">Log In With Email</p>
-				<img class="close-form" id="close-login-form" src="imgs/X.png">
+		<div id="dropdown" style="margin-left: -279px;">
+			<table id="table-menu">
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="home-link">Home</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="artists-link" href="http:/localhost//index2.html">Artists</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="about-link">About</a></p></td></tr>
+				<tr><td class="menu-item"><p class="menu-item-p"><a id="dash-link"style="visibility: hidden;">Dashboard</a></p></td></tr>
+			</table>
+		</div>
+	</div>
+
+	<div id="login-form" class="auth-form" style="top: -290px;">
+			<p class="top-form-text" id="top-login-form-text">Log In With Email</p>
+			<div>
+				<svg version="1.1" class="close-auth-form" id="close-login-form" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 864 864" style="enable-background:new 0 0 864 864;" xml:space="preserve">
+					<polygon points="0,107.43 110.04,0 432,324 756.16,0 864,107.56 540,432 864,756.11 756.16,864 432,540 105.67,864 0,746.4 324,432 "/>
+				</svg>
 			</div>
+
 			<form>
 				<input type="text" id="email" class="textbox" placeholder="Email"><br>
 				<input type="text" id="password" class="textbox" placeholder="Password"><br>
-				<button type="button" id="login">Log In</button><br>
+				<button type="button" id="login-button">Log In</button><br>
 			</form>
-			<p id="signup-text2">Don"t have an account? <a id="signup" class="alink">Sign Up</a></p>
+
+			<p class="bottom-auth-text">Don't have an account? <a id="switch-to-signup" class="alink" style="cursor: pointer;">Sign Up</a></p>
 		</div>
 
-		<div id="signup-form" class="signup-form" style="margin-top: -380px;">
-			<div class="top-container" id="top-container-signup">
-				<p class="top-form-text" id="top-signup-form-text">Sign Up With Email</p>
-				<img class="close-form" id="close-signup-form" src="imgs/X.png">
+		<div id="signup-form" class="auth-form" style="top: -290px;">
+			<p class="top-form-text" id="top-signup-form-text">Sign Up With Email</p>
+			<div>
+				<svg version="1.1" class="close-auth-form" id="close-signup-form" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 864 864" style="enable-background:new 0 0 864 864;" xml:space="preserve">
+					<polygon points="0,107.43 110.04,0 432,324 756.16,0 864,107.56 540,432 864,756.11 756.16,864 432,540 105.67,864 0,746.4 324,432 "/>
+				</svg>
 			</div>
+
 			<form>
 				<input id="newEmail" type="text" class="textbox" name="email" placeholder="Email"><br>
 				<input id="newPassword" type="text" class="textbox" name="password" placeholder="Password"><br>
 				<input id="first" type="text" class="textbox" name="first" placeholder="First Name"><br>
 				<input id="last" type="text" class="textbox" name="last" placeholder="Last Name"><br>
-				<button type="button" id="signupButton" name="login">Sign Up</button><br>
+				<button type="button" id="signup-button">Sign Up</button><br>
 			</form>
-			<p id="signup-text">Already have an account? <a id="alreadyHaveAcc" class="alink">Log In</a></p>
+
+			<p class="bottom-auth-text">Already have an account? <a id="switch-to-login" class="alink" style="cursor: pointer;">Log In</a></p>
 		</div>
 	</div>
 
-	<div style="height: 60px;" id="navbar-fill"></div>
+	<div style="height: 50px;" id="navbar-fill"></div>
 
 	<div id="graystuff" style="display: none;"></div>
+
 	<div id="main-grid">
-		<div id="home" class="main-content">
-			<p id="grabber-text">With over 125 million songs on SoundCloud® you want your music to<br>
-			stand out. But getting your music on major music platforms is hard right? Well<br>
-			with PlayLine you can get your music on major streaming services like<br>
-			Apple Music®, Spotify®, and Google Play® for less than 2 cups of coffee -<br>
-			and keep YOUR money.</p>
-			<a id="goNow">Sign Up Now!</a>
-			<table id="cool-things">
-				<tr class="cool-tr"><td class="cool-td"> - Keep 100% Royalties and Rights</td><td class="cool-td"> - Free UPC Codes</td></tr>
-				<tr class="cool-tr"><td class="cool-td"> - Unlimited Releases</td><td class="cool-td"> - One time fee of only $20</td></tr>
-				<tr class="cool-tr"><td class="cool-td"> - Professional Mastering for $5</td><td class="cool-td"> - 45+ Release Platforms</td></tr>
-				<tr class="cool-tr"><td class="cool-td"> - Free Promotion to Get Your Song Heard</td></tr>
-			</table>
+		<div id="hero-container">
+			<div id="home-title">UPLOAD YOUR MUSIC<br>AND WE'LL DO THE REST</div>
+			<div id="learn-more-container"><a>Learn More</a></div>
+		</div>
+
+		<div id="all-content">
+			<div id="main-content-for-page">
+				<div class="main-content-box" style="margin-top: -20px">
+					<h1 class="main-content-h1">EASY DISTRIBUTION</h1>
+					<p style="font-size: 20pt; padding: 0px 160px;">We distribute to more than 200 streaming services including Apple Music and Spotify. Your music is live in 2-3 days and you keep all royalties and rights.</p>
+					<div id="store-logos">
+						<img id="amazon" src="imgs/stores/amazon.svg">
+						<img id="deezer" src="imgs/stores/deezer.svg">
+						<img id="googleplay" src="imgs/stores/googleplay.svg">
+						<img id="iheartradio" src="imgs/stores/iheartradio.svg">
+						<img id="itunes-applemusic" src="imgs/stores/itunes-applemusic.svg" style="grid-row: 1 / span 2">
+						<img id="pandora" src="imgs/stores/pandora.svg">
+						<img id="spotify" src="imgs/stores/spotify.svg">
+						<img id="youtubemusic" src="imgs/stores/youtubemusic.svg">
+						<img id="tidal" src="imgs/stores/tidal.svg">
+					</div>
+					<p style="font-size: 16pt; margin-top: 50px;">Get your music heard on these services and many more.</p>
+				</div>
+
+				<div class="main-content-box">
+					<h1 class="main-content-h1">PRO MASTERING</h1>
+					<p style="font-size: 20pt; padding: 0px 150px 0px 150px;">Check one box and your music is sent through the air right into an advanced A.I system to master your music. A.I powered mastering is the future of music production - and it's yours to use on any track, completely free.</p>
+				</div>
+			</div>
+
+			<div id="second-main-div">
+				<div class="main-content-box-2">
+					<div>
+						<img src="imgs/chart.png" id="comparison-chart">
+					</div>
+					<div style="text-align: center; padding: 20px 40px;">
+						<h1 class="main-content-h1-2">WHY PLAYLINE?</h1>
+						<p id="why-choose-playline-text">PlayLine offers all of the services necessary to master, release, and promote your music on our platform. We also let you keep 100% of your rights and royalties, and only charge a one time fee of $20 to release unlimited music on our platform. We release your music fast, and can even provide a UPC codes for your songs. We offer the best parts of all of our competitors, on one platform.</p>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div id="footer">
-			<img src="imgs/playline.png" style="height: 50px; width: 50px;">
-			<p id="cpr1">© 2018 PlayLine Records, All rights reserved.</p>
-			<p id="cpr2">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
+			<div></div>
+			<div>
+				<img src="imgs/PlayLineCoral.png" style="height: 50px; width: 50px; margin-right: 30px;">
+			</div>
+			<div style="margin-top: 15px;">
+				<p style="color: white;" id="cpr1">© 2018 PlayLine Records, All rights reserved.</p>
+				<p style="color: white;" id="cpr2">Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries</p>
+			</div>
+			<div></div>
 		</div>
 	</div>
 <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>

@@ -1,4 +1,3 @@
-// Initialize Firebase
 var config = {
     apiKey: "AIzaSyAlPoBmT7p6M0XQp-DRWB9hgqLlxDBx3qY",
     authDomain: "rough-dash.firebaseapp.com",
@@ -20,98 +19,33 @@ function show(element) {
 	element.style.display = "block";
 }
 
-function getEl(name) {
-	return document.getElementById(name);
-}
-
 var openLogin = true;
 
+var loginFormDown = false;
+var signupFormDown = false
 
-var dash = document.getElementById("dashboard");
-var home = document.getElementById("home");
+var accountDropdownHidden = true;
 
-
-var dropButton = document.getElementById("menu-button");
-var dropButton2 = document.getElementById("menu-button2");
-var openLogin = document.getElementById("open-login");
+var openLogin = document.getElementById("open-login-form");
 var closeLogin = document.getElementById("close-login-form");
-var changeToSignup = document.getElementById("signup");
+var changeToSignup = document.getElementById("switch-to-signup");
+var openSignup = document.getElementById("open-signup-form");
 var closeSignup = document.getElementById("close-signup-form");
-var changeToLogin = document.getElementById("alreadyHaveAcc");
-var loginButton = document.getElementById("login");
-var goNow = document.getElementById("goNow");
-var homeLink = document.getElementById("home-link");
-var dashLink = document.getElementById("dash-link");
+var changeToLogin = document.getElementById("switch-to-login");
 
-//the side bar button on the taskbar
-dropButton.onclick = function() {
-	document.getElementById("dropdown").style.marginLeft = "0px";
-	document.getElementById("graystuff").style.display = "block";
-}
+var login = document.getElementById("login-button");
+var signup = document.getElementById("signup-button");
 
-//the side bar button on the side bar
-dropButton2.onclick = function() {
-	document.getElementById("dropdown").style.marginLeft = "-279px";
-	document.getElementById("graystuff").style.display = "none";
-}
+var learnMore = document.getElementById("learn-more-container");
 
-//this opens up the login
-openLogin.onclick = function() {
-	if(openLogin == true) {
-		document.getElementById("dashboard").style.filter = "blur(10px)";
-		document.getElementById("home").style.filter = "blur(10px)";
-		document.getElementById("footer").style.filter = "blur(10px)";
-		document.getElementById("login-form").style.marginTop = "0px";
-	} else {
-		show(dash);
-		hide(home);
+learnMore.onclick = function() {
+	scrollOptions = {
+		left: "0px",
+		top: "528px",
+		behavior: 'smooth'
 	}
-}
-
-//close the login form that drops down
-closeLogin.onclick = function() {
-	document.getElementById("login-form").style.marginTop = "-380px";
-	document.getElementById("dashboard").style.filter = "none";
-	document.getElementById("home").style.filter = "none";
-	document.getElementById("footer").style.filter = "none";
-}
-
-changeToSignup.onclick = function() {
-	document.getElementById("login-form").style.marginTop = "-380px";
-	document.getElementById("signup-form").style.marginTop = "0px";
-}
-
-closeSignup.onclick = function() {
-	document.getElementById("signup-form").style.marginTop = "-380px";
-	document.getElementById("dashboard").style.filter = "none";
-	document.getElementById("home").style.filter = "none";
-	document.getElementById("footer").style.filter = "none";
-}
-
-changeToLogin.onclick = function() {
-	document.getElementById("login-form").style.marginTop = "0px";
-	document.getElementById("signup-form").style.marginTop = "-380px";
-}
-
-homeLink.onclick = function() {
-	window.location.href = "index.html";
-}
-
-dashLink.onclick = function() {
-	window.location.href = "dash.html";
-}
-
-loginButton.onclick = function() {
-	var em = document.getElementById("email").value;
-	var pass = document.getElementById("password").value;
-	firebase.auth().signInWithEmailAndPassword(em,pass);
-}
-
-goNow.onclick = function() {
-	document.getElementById("dashboard").style.filter = "blur(10px)";
-	document.getElementById("home").style.filter = "blur(10px)";
-	document.getElementById("footer").style.filter = "blur(10px)";
-	document.getElementById("signup-form").style.marginTop = "0px";
+	var y = document.getElementById("main-content-for-page").offsetTop;
+	window.scrollTo(0,y-50, "smooth");
 }
 
 function forceDataUpdate() {
@@ -151,19 +85,8 @@ function displaySong(givenSongName, status) {
 	document.getElementById("releases-container").appendChild(songDiv);
 }
 
-
-
-
-
-
-
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
-		document.getElementById("footer").style.filter = "none";
-		document.getElementById("login-form").style.marginTop = "-380px";
-		document.getElementById("signup-form").style.marginTop = "-380px";
-
-		// User is signed in.
 		var displayName = user.displayName;
 		var email = user.email;
 		var emailVerified = user.emailVerified;
@@ -172,22 +95,33 @@ firebase.auth().onAuthStateChanged(function(user) {
 		var uid = user.uid;
 		var providerData = user.providerData;
 
-		getEl("open-login").innerHTML = "My Dash";
-		dashLink.style.visibility = "visible";
-		openLogin = false;
-
 	} else {
-		getEl("open-login").innerHTML = "Log In";
-		dashLink.style.visibility = "hidden";
-		openLogin = true;
+
 	}
 });
 
-// window.onload = function() {
-	// firebase.database().ref("users/"+firebase.auth().currentUser.uid+"/songs").once("value", function(snapshot) {
-	// 		document.getElementById("releases-container").innerHTML = "";
-	// 		for(key in snapshot.val()) {
-	// 			displaySong(key, snapshot.val()[key]);
-	// 		}
-	// });
-// }
+var sTop = 0;
+var alpha = 0;
+
+window.onload = function() {
+	document.getElementById("hero-container").style.backgroundPosition = "0px 0px";
+	updateParallax();
+}
+
+window.onscroll = function() {
+	updateParallax();
+}
+
+function updateParallax() {
+	sTop = document.documentElement.scrollTop;
+	document.getElementById("hero-container").style.backgroundPosition = "0px " + sTop/4.0 + "px";
+	if(sTop < 400) {
+		document.getElementById("navbar").style.backgroundColor = "rgba(0,0,0,0.55)";
+	} else if(sTop >= 400 && sTop <= 460) {
+		alpha = (sTop - 400)/200;
+		alpha += 0.55;
+		document.getElementById("navbar").style.backgroundColor = "rgba(0,0,0," + alpha + ")";
+	} else if(sTop > 460) {
+		document.getElementById("navbar").style.backgroundColor = "rgba(0,0,0,0.85)";
+	}
+}

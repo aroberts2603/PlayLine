@@ -20,6 +20,7 @@ function forceDataUpdate() {
 	firebase.database().ref().once("value").then(function(snapshot){
 		var total = snapshot.child("users/"+firebase.auth().currentUser.uid+"/money").val();
 		document.getElementById("moneyMade").innerHTML = "$"+total;
+		document.getElementById("main-grid").style.display = "grid";
 	});
 }
 
@@ -63,10 +64,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 		var isAnonymous = user.isAnonymous;
 		var uid = user.uid;
 		var providerData = user.providerData;
-
-		getEl("open-login").innerHTML = "My Dash";
-		openLogin = false;
-		getEl("dash-link").style.visibility = "visible";
 
 		forceDataUpdate();
 

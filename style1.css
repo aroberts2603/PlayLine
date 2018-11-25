@@ -1,0 +1,157 @@
+/*========================================================================*/
+/*============       End of Home  |||  Start of Dash        ==============*/
+/*========================================================================*/
+
+
+
+
+
+
+.top-container {
+	display: inline-block;
+	width: 100%;
+}
+
+.top-form-text {
+	float: left;
+}
+
+.close-form {
+	float: right;
+	height: 17px;
+	width: 17px;
+	cursor: pointer;
+}
+
+.close-form:hover {
+	background-color: #D1D1D1;
+	border-radius: 50%;
+	padding: 3px;
+	margin: -3px;
+}
+
+#grabber-text {
+	margin-bottom: 7px;
+	font-size: 20px;
+}
+
+.menu-item-p {
+	text-align: center;
+}
+
+#img1 {
+	height: 30px;
+	width: 30px;
+}
+
+#cool-things {
+	width: 60%;
+	margin-left: 20%;
+	color: var(--text);
+	margin-top: 15px;
+}
+
+.cool-tr {
+	padding: 0px;
+}
+
+.cool-td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 17px;
+}
+
+#first-form p {
+	display: inline;
+	margin-right: 8px;
+}
+
+#first-form {
+	text-align: right;
+	display: inline-grid;
+	grid-template-columns: 1fr;
+}
+
+@media (max-width: 800px) {
+	#first-form {
+		grid-template-columns: 1fr;
+	}
+}
+
+#explicits {
+	display: inline-block;
+	text-align: left;
+}
+
+#isrcs {
+	display: inline-block;
+	width: 156px;
+	text-align: left;
+}
+
+.form-element {
+	border: 2px solid var(--queen-blue);
+	padding: 12px;
+	margin: 5px;
+	font-size: 18px;
+	border-radius: 9px;
+	text-align: center;
+	font-weight: 400;
+	color: rgb(70,70,70);
+}
+
+#release-form {
+	display: flex;
+	justify-content: center;
+}
+
+#main-grid {
+	display: grid;
+	min-height: calc(100% - 60px);
+	grid-template-rows: 1fr auto;
+	grid-template-columns: 100%;
+	transition-property: filter;
+	transition-duration: 0.1s;
+}
+
+.file-upload {
+	width: 200px;
+}
+
+.required-asterisk {
+	color: var(--coral);
+	display: inline;
+	float: left;
+	margin-right: 7px;
+	margin-top: -4px;
+}
+
+#release {
+	background-image: url("imgs/record-background-with-rings1.png");
+	background-size: 110vh 110vh;
+	background-repeat: no-repeat;
+	background-position: 0px 50px;
+	background-attachment: fixed;
+}
+
+#menu-button {
+	width: 40px;
+	height: 40px;
+	margin-top: 12px;
+}
+
+.hamburger-filler {
+	height: 12px;
+}
+
+input[type="text"] {
+	background-color: rgba(0,0,0,0);
+	font-size: 18px;
+	border-radius: 8px;
+	border: 0.75px solid #C9C9C9;
+	padding-left: 6px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	outline: none;
+	font-family: 'Nunito Sans', sans-serif;
+}
