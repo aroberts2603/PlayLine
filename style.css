@@ -6,9 +6,30 @@
 
 #all-content {
 	background-color: white;
-	width: calc(100vw - 600px);
-	margin-left: 300px;
+	max-width: 1140px;
+	margin-left: calc(50vw - 610px);
 	padding: 0px 40px;
+}
+
+.main-content-h1-2 {
+	color: var(--coral);
+	font-family: "Vonique64", sans-serif;
+	font-size: 43pt;
+	font-weight: 900;
+	letter-spacing: 4px;
+	text-align: center;
+}
+
+#comparison-chart {
+	/*width: 650px;*/
+	/*height: 487.5px;*/
+	width: 500px;
+	height: 375px;
+}
+
+#why-choose-playline-text {
+	font-size: 20px;
+	margin-top: 12px;
 }
 
 #second-main-div {
@@ -21,26 +42,8 @@
 	padding: 15px 15px 10px 15px;
 }
 
-#comparison-chart {
-	width: 650px;
-	height: 487.5px;
-}
-
-.main-content-h1-2 {
-	color: var(--coral);
-	font-family: "Vonique64", sans-serif;
-	font-size: 50pt;
-	font-weight: 900;
-	letter-spacing: 4px;
-	text-align: center;
-}
-
 .main-content-box-2 > div {
 	text-align: center;
-}
-
-#why-choose-playline-text {
-	font-size: 22px;
 }
 
 #main-content-for-page {
@@ -53,6 +56,39 @@
 	font-weight: 900;
 	letter-spacing: 3px;
 	font-size: 45pt;
+}
+
+.main-content-p {
+	font-size: 20pt;
+	padding: 0px 150px;
+}
+
+@media only screen and (max-width: 1360px) {
+	#all-content {
+		max-width: 960px;
+		margin-left: calc(50vw - 520px);
+	}
+
+	#comparison-chart {
+		width: 450px;
+		height: 337.5px;
+	}
+
+	.main-content-h1-2 {
+		font-size: 34pt;
+	}
+
+	#why-choose-playline-text {
+		font-size: 18px;
+	}
+
+	.main-content-h1 {
+		font-size: 40pt;
+	}
+
+	.main-content-p {
+		padding: 0px 90px;
+	}
 }
 
 @media only screen and (max-width: 1000px) {
@@ -161,6 +197,7 @@
 	text-align: center;
 	margin-top: -50px;
 	height: 100vh;
+	max-height: 1440px;
 	background-image: url("imgs/faders1.png");
 	background-repeat: no-repeat;
 	background-size: cover;

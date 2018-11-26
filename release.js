@@ -49,3 +49,36 @@ el("language").onchange = function() {
 		el("language").style.marginBottom = "0px";
 	}
 }
+
+function trackClicked(event) {
+	var arr = document.getElementsByClassName("track");
+	var i = 0;
+	for(i = 0;i<arr.length;i++) {
+		arr[i].setAttribute("class", "track");
+	}
+	event.target.setAttribute("class", "track selected");
+
+	onTrackSwitch(event);
+}
+
+function addNewSongToRelease() {
+	var trackDiv = document.createElement("div");
+	trackDiv.setAttribute("class", "track");
+	trackDiv.setAttribute("onclick", "trackClicked(event)");
+	var trackNameText = document.createTextNode("Unnamed Track");
+	trackDiv.appendChild(trackNameText);
+	document.getElementById("track-list").appendChild(trackDiv);
+}
+
+document.getElementById("add-track").onclick = function() {
+	addNewSongToRelease();
+	document.getElementById("track-list").scrollTop = document.getElementById("track-list").scrollHeight;
+}
+
+function onTrackSwitch(event) {
+	document.getElementById("songName").value = event.target.innerHTML;
+}
+
+document.getElementById("songName").onchange = function() {
+	document.getElementsByClassName("selected")[0].innerHTML = document.getElementById("songName").value;
+}
