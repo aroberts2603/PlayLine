@@ -1,5 +1,22 @@
 @import url("global.css");
 
+#navbar {
+	background-color: rgba(0, 0, 0, 0.55);
+}
+
+body {
+	background-image: url("imgs/faders1.png");
+	background-position: 0px -50px;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#main-grid {
+	min-height: calc(100vh - 50px);
+	display: grid;
+	grid-template-rows: 1fr auto;
+}
+
 #dashboard-grid-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -18,9 +35,9 @@ button:hover {
 }
 
 .main-panel {
-	margin-top: 3%;
-	border-radius: 15px;
-	background-color: var(--panels);
+	margin-top: 8%;
+	border-radius: 13px;
+	background-color: #ffffff;
 	z-index: 1;
 }
 

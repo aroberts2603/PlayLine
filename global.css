@@ -165,6 +165,7 @@ html, body {
 	height: 0px;
 	transition-property: height;
 	transition-duration: 0.4s;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
 }
 
 #account-dropdown a {

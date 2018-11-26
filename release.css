@@ -1,0 +1,152 @@
+@import url("global.css");
+
+body {
+	background-color: #eee;
+}
+
+#final-wrapper {
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: 0.5fr 1fr;
+	padding: 35px;
+	grid-gap: 35px;
+}
+
+#track-container {
+	height: 500px;
+	background-color: white;
+	border-radius: 12px;
+	padding: 0px 20px;
+	width: 75%;
+}
+
+#tracks-added {
+	color: var(--coral);
+	padding: 4px 0px 3px 10px;
+	font-size: 26pt;
+}
+
+#track-list {
+	overflow: auto;
+	height: 380px;
+	background-color: #F4F4F4;
+}
+
+.track {
+	background-color: white;
+	font-size: 14pt;
+	border-radius: 8px;
+	padding: 6px 0px 6px 12px;
+	margin-bottom: 4px;
+}
+
+.incomplete {
+	background-color: #FFFFB4;
+}
+
+.complete {
+	background-color: #C0FCC0;
+}
+
+.track-name {
+	color: #333;
+}
+
+#add-track {
+	background-color: var(--coral);
+	color: white;
+	display: inline-block;
+	padding: 5px 10px 5px 10px;
+	border-radius: 6px;
+	cursor: pointer;
+	float: right;
+	margin-top: 10px;
+}
+
+#add-track:hover {
+	background-color: var(--coral-hover);
+}
+
+#hr {
+	height: 2px;
+	background-color: #333;
+	margin-bottom: 10px;
+}
+
+#first-form {
+	text-align: right;
+	display: inline-grid;
+	grid-template-columns: 1fr;
+	background-color: white;
+}
+
+#first-form p {
+	display: inline;
+	margin-right: 8px;
+}
+
+#explicits {
+	display: inline-block;
+	text-align: left;
+}
+
+#isrcs {
+	display: inline-block;
+	width: 156px;
+	text-align: left;
+}
+
+.form-element {
+	border: 2px solid var(--queen-blue);
+	padding: 12px;
+	margin: 5px;
+	font-size: 18px;
+	border-radius: 9px;
+	text-align: center;
+	font-weight: 400;
+	color: rgb(70,70,70);
+}
+
+#release-form {
+	display: flex;
+	justify-content: center;
+}
+
+#main-grid {
+	display: grid;
+	min-height: calc(100% - 60px);
+	grid-template-rows: 1fr auto;
+	grid-template-columns: 100%;
+	transition-property: filter;
+	transition-duration: 0.1s;
+}
+
+.file-upload {
+	width: 200px;
+}
+
+.required-asterisk {
+	color: var(--coral);
+	display: inline;
+	float: left;
+	margin-right: 7px;
+	margin-top: -4px;
+}
+
+#menu-button {
+	width: 40px;
+	height: 40px;
+	margin-top: 12px;
+}
+
+input[type="text"] {
+	background-color: rgba(0,0,0,0);
+	font-size: 18px;
+	border-radius: 8px;
+	border: 0.75px solid #C9C9C9;
+	padding-left: 6px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	outline: none;
+	font-family: 'Nunito Sans', sans-serif;
+}
