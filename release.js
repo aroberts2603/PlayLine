@@ -149,3 +149,38 @@ document.getElementById("first-form").onchange = function() {
 document.getElementById("songName").onchange = function() {
 	document.getElementsByClassName("selected")[0].innerHTML = document.getElementById("songName").value;
 }
+
+var fileUp = document.getElementById("file");
+
+fileUp.onchange = function() {
+	var reader = new FileReader();
+	var file = fileUp.files[0];
+	var preview = document.getElementById("preview");
+
+	reader.onload = function() {
+		preview.src = reader.result;
+	}
+
+	reader.readAsDataURL(file);
+}
+
+var form = document.getElementById("release-form");
+var trackName = document.getElementById("songName").value;
+
+form.onsubmit = function(event) {
+	event.preventDefault();
+	var files = fileUp.files;
+
+	
+
+	var i = 0;
+	for(i = 0;i<tracks.length;i++) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', 'agh.php', true);
+		var formData = new FormData();
+		formData.append("albumName", "album");
+		formData.append("fileToUpload", files[0], files[0].name);
+		formData.append("trackName", tracks[i].songName);
+		xhr.send(formData);
+	}
+}

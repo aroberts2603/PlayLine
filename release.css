@@ -56,6 +56,16 @@ body {
 	color: #333;
 }
 
+#preview {
+	float: left;
+	height: 40px;
+	width: 40px;
+}
+
+#file {
+	float: right;
+}
+
 #add-track {
 	background-color: var(--coral);
 	color: white;

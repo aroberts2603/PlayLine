@@ -106,7 +106,7 @@
 					<div id="add-track">+ Add Track</div>
 				</div>
 
-				<form id="release-form" action="upload.php" method="post" enctype="multipart/form-data">
+				<form id="release-form"method="post" enctype="multipart/form-data">
 					<div id="first-form">
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
@@ -170,7 +170,8 @@
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Song File</p>
-							<input class="file-upload" type="file" name="fileToUpload" accept="audio/*"><br><!--fileToUpload-->
+							<img id="preview">
+							<input id="file" class="file-upload" type="file" name="fileToUpload"><br><!--fileToUpload-->
 						</div>
 
 						<div class="form-element required">
