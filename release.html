@@ -138,29 +138,27 @@
 
 						<div class="form-element">
 							<p>Producer(s)</p>
-							<input type="text" name="producers" placeholder="Producers"><!--producers-->
+							<input id="producers" type="text" name="producers" placeholder="Producers"><!--producers-->
 						</div>
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Explicit Content?</p>
 							<div id="explicits">
-								<input type="radio" name="explicit" value="yes"> Yes<!--explicit-->
-								<input type="radio" name="explicit" value="no"> No
+								<input id="expTrue" checked="true" type="radio" name="explicit" value="yes"> Yes<!--explicit-->
+								<input id="expFalse" type="radio" name="explicit" value="no"> No
 							</div><br>
 						</div>
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Preview Start Time</p>
-							<input type="text" name="previewStart"><!--previewStart-->
+							<input id="startTime" type="text" name="previewStart" placeholder="Preview Start Time"><!--previewStart-->
 						</div>
 
 						<div class="form-element">
-							<p>I have an ISRC</p>
-							<input id="haveISRC" type="checkbox" name="haveISRC" style="margin-right: 10px;"><!--haveISRC-->
-
-							<input type="text" name="isrcCode" id="isrc" placeholder="ISRC Code" disabled="true"><!--isrcCode-->
+							<p>ISRC Code</p>
+							<input type="text" name="isrcCode" id="isrc" placeholder="ISRC Code"><!--isrcCode-->
 						</div>
 						
 						<!-- <div class="form-element required">
@@ -216,7 +214,7 @@
 							<input type="text" name="contributors" value="" style="display: none;">
 
 							<p>Name of Contributor</p>
-							<input id="contributorName" type="textbox" name="contributorName" placeholder="Name"><!--contributorName-->
+							<input id="contributorName" type="text" name="contributorName" placeholder="Name"><!--contributorName-->
 						</div>
 
 						<div class="form-element" style="border: none;">

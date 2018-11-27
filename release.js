@@ -2,15 +2,6 @@ function el(ele) {
 	return document.getElementById(ele);
 }
 
-el("haveISRC").onclick = function() {
-	if(el("haveISRC").checked == true) {
-		el("isrc").disabled = false;
-	} else {
-		el("isrc").disabled = true;
-		el("isrc").value = "";
-	}
-}
-
 el("contributorTitle").onchange = function() {
 	indexToUse = el("contributorTitle").value.split(":");
 	el("contributorName").value = indexToUse[1];
@@ -40,19 +31,34 @@ el("contributorName").onchange = function() {
 // 	document.getElementById("specificReleaseDateDiv").style.display = "inline";
 // }
 
+var tracks = [];
+
 class Track {
 	constructor(trackID) {
 		this.trackID = trackID;
-		this.songName = "";
-		this.producers = [];
-		this.contributors = [];
-		this.genre = "";
-		this.subgenre = "";
-		this.primaryArtists = "";
-		this.featuredArtists = "";
+		this.songName = ""; //done
+		this.producers = ""; //done
+		this.contributors = {
+			Actor: "",
+			Arranger: "",
+			Choir: "",
+			Composer: "",
+			Conductor: "",
+			Engineer: "",
+			Ensemble: "",
+			Lyricist: "",
+			Mixer: "",
+			Orchestra: "",
+			Remixer: "",
+			Soloist: ""
+		};
+		this.genre = ""; //done
+		this.subgenre = ""; //done
+		this.primaryArtists = ""; //done
+		this.featuredArtists = ""; //done
 		this.songWriterName = "";
-		this.previewStartTime = 0;  //integer
-		this.explicitContent = false;  //boolean
+		this.previewStartTime = ""; //done
+		this.explicitContent = false; //done
 		this.lyrics = "";
 		this.isrc = "";
 	}
@@ -63,6 +69,15 @@ class Track {
 		document.getElementById("subgenre").value = this.subgenre;
 		document.getElementById("primaryArtists").value = this.primaryArtists;
 		document.getElementById("featuredArtists").value = this.featuredArtists;
+		document.getElementById("producers").value = this.producers;
+		if(this.explicitContent) {
+			document.getElementById("expTrue").checked = true;
+			document.getElementById("expFalse").checked = false;
+		} else {
+			document.getElementById("expTrue").checked = false;
+			document.getElementById("expFalse").checked = true;
+		}
+		document.getElementById("startTime").value = this.previewStartTime;
 	}
 
 	pullInfo() {
@@ -71,6 +86,13 @@ class Track {
 		this.subgenre = document.getElementById("subgenre").value;
 		this.primaryArtists = document.getElementById("primaryArtists").value;
 		this.featuredArtists = document.getElementById("featuredArtists").value;
+		this.producers = document.getElementById("producers").value;
+		if(document.getElementById("expFalse").checked) {
+			this.explicitContent = false;
+		} else if(document.getElementById("expTrue").checked) {
+			this.explicitContent = true;
+		}
+		this.previewStartTime = document.getElementById("startTime").value;
 	}
 }
 
@@ -101,10 +123,12 @@ function addNewSongToRelease() {
 	var trackDiv = document.createElement("div");
 	trackDiv.setAttribute("class", "track");
 	trackDiv.setAttribute("onclick", "trackClicked(event)");
+	trackDiv.setAttribute("id", "track-"+tracks.length);
 	var trackNameText = document.createTextNode("Unnamed Track");
 	trackDiv.appendChild(trackNameText);
 	document.getElementById("track-list").appendChild(trackDiv);
-	
+	let newTrack = new Track(tracks.length);
+	tracks.push(newTrack);
 }
 
 document.getElementById("add-track").onclick = function() {
@@ -114,6 +138,12 @@ document.getElementById("add-track").onclick = function() {
 
 function onTrackSwitch(event) {
 	document.getElementById("songName").value = event.target.innerHTML;
+	var trackID = event.target.getAttribute("id")[6];
+	tracks[trackID].pushInfo();	
+}
+
+document.getElementById("first-form").onchange = function() {
+	tracks[document.getElementsByClassName("selected")[0].getAttribute("id")[6]].pullInfo();
 }
 
 document.getElementById("songName").onchange = function() {
