@@ -22,6 +22,8 @@ var signupFormDown = false
 
 var accountDropdownHidden = true;
 
+var newAcc = false;
+
 var openLogin = document.getElementById("open-login-form");
 var closeLogin = document.getElementById("close-login-form");
 var changeToSignup = document.getElementById("switch-to-signup");
@@ -99,11 +101,26 @@ changeToLogin.onclick = function() {
 }
 
 login.onclick = function() {
-	firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value,document.getElementById("password").value)
+	firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value,document.getElementById("password").value);
+	newAcc = false;
 }
 
 signup.onclick = function() {
-	firebase.auth().createUserWithEmailAndPassword(document.getElementById("email").value,document.getElementById("password").value);
+	firebase.auth().createUserWithEmailAndPassword(document.getElementById("newEmail").value,document.getElementById("newPassword").value);
+	newAcc = true;
+}
+
+function finishSignup() {
+	var email = document.getElementById("newEmail").value;
+	var first = document.getElementById("first").value;
+	var last = document.getElementById("last").value;
+	var money = 0;
+	firebase.database().ref("users/"+firebase.auth().currentUser.uid).set({
+		"email": email,
+		"first": first,
+		"last": last,
+		"money": money
+	});
 }
 
 document.getElementById("logout").onclick = function() {
@@ -127,6 +144,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 		closeLogin.onclick();
 		closeSignup.onclick();
+
+		if(newAcc) {
+			finishSignup();
+		}
 
 		var displayName = user.displayName;
 		var email = user.email;
