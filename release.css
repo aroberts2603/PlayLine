@@ -106,7 +106,7 @@ body {
 	border: 2px solid #DDDDDD;
 	padding: 10px;
 	margin: 5px;
-	font-size: 18px;
+	font-size: 17px;
 	border-radius: 9px;
 	text-align: center;
 	font-weight: 400;
@@ -147,7 +147,8 @@ body {
 
 input[type="text"] {
 	background-color: rgba(0,0,0,0);
-	font-size: 18px;
+	min-width: 220px;
+	font-size: 17px;
 	border-radius: 8px;
 	border: 0.75px solid #C9C9C9;
 	padding-left: 6px;

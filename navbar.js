@@ -102,6 +102,10 @@ login.onclick = function() {
 	firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value,document.getElementById("password").value)
 }
 
+signup.onclick = function() {
+	firebase.auth().createUserWithEmailAndPassword(document.getElementById("email").value,document.getElementById("password").value);
+}
+
 document.getElementById("logout").onclick = function() {
 	firebase.auth().signOut();
 	document.getElementById("dropdown-arrow").onclick();

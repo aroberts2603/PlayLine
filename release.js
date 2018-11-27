@@ -40,6 +40,42 @@ el("contributorName").onchange = function() {
 // 	document.getElementById("specificReleaseDateDiv").style.display = "inline";
 // }
 
+class Track {
+	constructor(trackID) {
+		this.trackID = trackID;
+		this.songName = "";
+		this.producers = [];
+		this.contributors = [];
+		this.genre = "";
+		this.subgenre = "";
+		this.primaryArtists = "";
+		this.featuredArtists = "";
+		this.songWriterName = "";
+		this.previewStartTime = 0;  //integer
+		this.explicitContent = false;  //boolean
+		this.lyrics = "";
+		this.isrc = "";
+	}
+
+	pushInfo() {
+		document.getElementById("songName").value = this.songName;
+		document.getElementById("genre").value = this.genre;
+		document.getElementById("subgenre").value = this.subgenre;
+		document.getElementById("primaryArtists").value = this.primaryArtists;
+		document.getElementById("featuredArtists").value = this.featuredArtists;
+	}
+
+	pullInfo() {
+		this.songName = document.getElementById("songName").value;
+		this.genre = document.getElementById("genre").value;
+		this.subgenre = document.getElementById("subgenre").value;
+		this.primaryArtists = document.getElementById("primaryArtists").value;
+		this.featuredArtists = document.getElementById("featuredArtists").value;
+	}
+}
+
+
+
 el("language").onchange = function() {
 	if(el("language").value == "other") {
 		el("otherLangDiv").style.display = "inline";
@@ -68,6 +104,7 @@ function addNewSongToRelease() {
 	var trackNameText = document.createTextNode("Unnamed Track");
 	trackDiv.appendChild(trackNameText);
 	document.getElementById("track-list").appendChild(trackDiv);
+	
 }
 
 document.getElementById("add-track").onclick = function() {
