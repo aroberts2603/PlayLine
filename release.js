@@ -58,7 +58,7 @@ class Track {
 		this.featuredArtists = ""; //done
 		this.songWriterName = "";
 		this.previewStartTime = ""; //done
-		this.explicitContent = false; //done
+		this.explicitContent = null; //done
 		this.lyrics = "";
 		this.isrc = "";
 	}
@@ -73,7 +73,7 @@ class Track {
 		if(this.explicitContent) {
 			document.getElementById("expTrue").checked = true;
 			document.getElementById("expFalse").checked = false;
-		} else {
+		} else if(this.explicitContent == false) {
 			document.getElementById("expTrue").checked = false;
 			document.getElementById("expFalse").checked = true;
 		}

@@ -204,6 +204,12 @@
 	background-position: 0px 0px;
 }
 
+@media only screen and (max-width: 768px) {
+	#hero-container {
+		background-size: 100%;
+	}
+}
+
 #home-title {
 	color: var(--coral);
 	font-size: 50pt;
