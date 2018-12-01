@@ -208,7 +208,7 @@ html, body {
 	color: white;
 	display: grid;
 	grid-template-columns: 1fr auto auto 1fr;
-	background-color: rgba(0,0,0,0.85);
+	background-color: rgba(0,0,0,0.55);
 	padding: 0px 0px 8px 0px;
 }
 

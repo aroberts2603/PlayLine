@@ -37,7 +37,7 @@ var signup = document.getElementById("signup-button");
 var dropButton = document.getElementById("menu-button");
 var dropButton2 = document.getElementById("menu-button2");
 
-function getElm(name) {
+function getLm(name) {
 	return document.getElementById(name);
 }
 
@@ -47,23 +47,23 @@ function getElm(name) {
 // 		document.getElementById("dropdown").style.marginLeft = "0px";
 // 		document.getElementById("graystuff").style.display = "block";
 // 		setTimeout(function() {
-// 			getElm("third-of-hamburger1").style.transform = "rotate(45deg)";
-// 			getElm("third-of-hamburger2").style.transform = "rotate(45deg)";
-// 			getElm("third-of-hamburger3").style.transform = "rotate(-45deg)";
+// 			getLm("third-of-hamburger1").style.transform = "rotate(45deg)";
+// 			getLm("third-of-hamburger2").style.transform = "rotate(45deg)";
+// 			getLm("third-of-hamburger3").style.transform = "rotate(-45deg)";
 // 		}, 150);
-// 		getElm("third-of-hamburger1").style.top = "28px";
-// 		getElm("third-of-hamburger3").style.top = "28px";
+// 		getLm("third-of-hamburger1").style.top = "28px";
+// 		getLm("third-of-hamburger3").style.top = "28px";
 // 		menuOpen = true;
 // 	} else {
 // 		document.getElementById("dropdown").style.marginLeft = "-279px";
 // 		document.getElementById("graystuff").style.display = "none";
 // 		setTimeout(function() {
-// 			getElm("third-of-hamburger1").style.top = "12px";
-// 			getElm("third-of-hamburger3").style.top = "44px";
+// 			getLm("third-of-hamburger1").style.top = "12px";
+// 			getLm("third-of-hamburger3").style.top = "44px";
 // 		}, 150);
-// 		getElm("third-of-hamburger1").style.transform = "rotate(0deg)";
-// 		getElm("third-of-hamburger2").style.transform = "rotate(0deg)";
-// 		getElm("third-of-hamburger3").style.transform = "rotate(0deg)";
+// 		getLm("third-of-hamburger1").style.transform = "rotate(0deg)";
+// 		getLm("third-of-hamburger2").style.transform = "rotate(0deg)";
+// 		getLm("third-of-hamburger3").style.transform = "rotate(0deg)";
 // 		menuOpen = false;
 // 	}
 // }
@@ -72,6 +72,7 @@ openLogin.onclick = function() {
 	document.getElementById("signup-form").style.top = "-290px";
 	document.getElementById("login-form").style.top = "calc(50% - 200px)";
 	document.getElementById("graystuff").style.display = "block";
+	document.getElementById("email").focus();
 }
 
 closeLogin.onclick = function() {
@@ -88,6 +89,7 @@ openSignup.onclick = function() {
 	document.getElementById("login-form").style.top = "-290px";
 	document.getElementById("signup-form").style.top = "calc(50% - 200px)";
 	document.getElementById("graystuff").style.display = "block";
+	document.getElementById("newEmail").focus();
 }
 
 closeSignup.onclick = function() {
@@ -138,6 +140,22 @@ document.getElementById("dropdown-arrow").onclick = function() {
 		accountDropdownHidden = true;
 	}
 }
+
+document.getElementById("email").addEventListener("keyup", function(event) {
+	event.preventDefault();
+
+	if(event.keyCode === 13) {
+		document.getElementById("password").focus();
+	}
+});
+
+document.getElementById("password").addEventListener("keyup", function(event) {
+	event.preventDefault();
+
+	if(event.keyCode === 13) {
+		document.getElementById("login-button").click();
+	}
+});
 
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {

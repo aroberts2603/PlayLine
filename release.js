@@ -59,7 +59,7 @@ class Track {
 		this.songWriterName = "";
 		this.previewStartTime = ""; //done
 		this.explicitContent = null; //done
-		this.lyrics = "";
+		this.language = "";
 		this.isrc = "";
 	}
 
@@ -70,6 +70,7 @@ class Track {
 		document.getElementById("primaryArtists").value = this.primaryArtists;
 		document.getElementById("featuredArtists").value = this.featuredArtists;
 		document.getElementById("producers").value = this.producers;
+		document.getElementById("isrc").value = this.isrc;
 		if(this.explicitContent) {
 			document.getElementById("expTrue").checked = true;
 			document.getElementById("expFalse").checked = false;
@@ -78,6 +79,12 @@ class Track {
 			document.getElementById("expFalse").checked = true;
 		}
 		document.getElementById("startTime").value = this.previewStartTime;
+		if(this.language != "nolyrics" && this.language != "english" && this.language != "spanish" && this.language != "french" && this.language != "mandarin") {
+			document.getElementById("otherLang").value = this.language;
+			document.getElementById("language").value = "other";
+		} else {
+			document.getElementById("language").value = this.language;
+		}
 	}
 
 	pullInfo() {
@@ -87,16 +94,20 @@ class Track {
 		this.primaryArtists = document.getElementById("primaryArtists").value;
 		this.featuredArtists = document.getElementById("featuredArtists").value;
 		this.producers = document.getElementById("producers").value;
+		this.isrc = document.getElementById("isrc").value;
 		if(document.getElementById("expFalse").checked) {
 			this.explicitContent = false;
 		} else if(document.getElementById("expTrue").checked) {
 			this.explicitContent = true;
 		}
 		this.previewStartTime = document.getElementById("startTime").value;
+		if(document.getElementById("language").value == "other") {
+			this.language = document.getElementById("otherLang");
+		} else {
+			this.language = document.getElementById("language");
+		}
 	}
 }
-
-
 
 el("language").onchange = function() {
 	if(el("language").value == "other") {
@@ -152,18 +163,6 @@ document.getElementById("songName").onchange = function() {
 
 var fileUp = document.getElementById("file");
 
-fileUp.onchange = function() {
-	var reader = new FileReader();
-	var file = fileUp.files[0];
-	var preview = document.getElementById("preview");
-
-	reader.onload = function() {
-		preview.src = reader.result;
-	}
-
-	reader.readAsDataURL(file);
-}
-
 var form = document.getElementById("release-form");
 var trackName = document.getElementById("songName").value;
 
@@ -171,7 +170,10 @@ form.onsubmit = function(event) {
 	event.preventDefault();
 	var files = fileUp.files;
 
-	
+	//the for loop iterates through the array of Track instances (track is a class) in the tracks array
+	//for each track it makes a "formData" variable, uploading the song file
+	//then it appends all of the song information stored in instance variables to the form data
+	//it finally sends the formData as a POST http request, this acts the same as an HTML form submit
 
 	var i = 0;
 	for(i = 0;i<tracks.length;i++) {
@@ -180,7 +182,16 @@ form.onsubmit = function(event) {
 		var formData = new FormData();
 		formData.append("albumName", "album");
 		formData.append("fileToUpload", files[0], files[0].name);
-		formData.append("trackName", tracks[i].songName);
+		formData.append("trackName", tracks[i].songName);				//
+		formData.append("genre", tracks[i].genre);						//
+		formData.append("subgenre", tracks[i].subgenre);				//
+		formData.append("primary", tracks[i].primaryArtists);			//
+		formData.append("feat", tracks[i].featuredArtists);				//
+		formData.append("isrcCode", tracks[i].isrc);					//
+		formData.append("explicit", tracks[i].explicitContent);			//
+		formData.append("producers", tracks[i].producers);				//
+		formData.append("previewStart", tracks[i].previewStartTime);	//
+		formData.append("language", tracks[i].language);	//
 		xhr.send(formData);
 	}
 }

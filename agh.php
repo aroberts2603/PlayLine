@@ -114,6 +114,19 @@
 			$ending = explode(".", $_FILES["fileToUpload"]["name"]);
 			move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file . "." . end($ending));
 
+			$info_file = fopen($target_file . ".txt", "w");
+			fwrite($info_file, "Track Name: " . $_POST["trackName"] . "\n");
+			fwrite($info_file, "Primary Artist: " . $_POST["primary"] . "\n");
+			fwrite($info_file, "Featured Artists: " . $_POST["feat"] . "\n");
+			fwrite($info_file, "Genre: " . $_POST["genre"] . "\n");
+			fwrite($info_file, "Subgenre: " . $_POST["subgenre"] . "\n");
+			fwrite($info_file, "ISRC: " . $_POST["isrcCode"] . "\n");
+			fwrite($info_file, "Explicit: " . $_POST["explicit"] . "\n");
+			fwrite($info_file, "Producers: " . $_POST["producers"] . "\n");
+			fwrite($info_file, "Preview Start: " . $_POST["previewStart"] . "\n");
+			fwrite($info_file, "Lyrics: " . $_POST["language"] . "\n");
+			fclose($info_file);
+
 		?>		
 
 		<div id="footer">

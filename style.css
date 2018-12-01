@@ -265,3 +265,12 @@ a {
 	font-weight: 400;
 }
 
+#main-grid {
+	width: 100%;
+}
+
+@media only screen and (max-width: ) {
+	#main-grid {
+		width: 110%;
+	}
+}
