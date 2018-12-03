@@ -101,15 +101,19 @@
 
 			echo $_POST["trackName"];
 
-			if(file_exists("uploads/" . $_POST["albumName"]) == false) {
-				mkdir("uploads/" . $_POST["albumName"]);
+			if(file_exists("uploads/" . $_POST["artistName"]) == false) {
+				mkdir("uploads/" . $_POST["artistName"]);
 			}
 
-			if(file_exists("uploads/" . $_POST["albumName"] . "/" . $_POST["trackName"]) == false) {
-				mkdir("uploads/" . $_POST["albumName"] . "/" . $_POST["trackName"]);
+			if(file_exists("uploads/" . $_POST["artistName"] . "/" . $_POST["albumName"]) == false) {
+				mkdir("uploads/" . $_POST["artistName"] . "/" . $_POST["albumName"]);
 			}
 
-			$target_dir = "uploads/" . $_POST["albumName"] . "/" . $_POST["trackName"] . "/";
+			if(file_exists("uploads/" . $_POST["artistName"] . "/" . $_POST["albumName"] . "/" . $_POST["trackName"]) == false) {
+				mkdir("uploads/" . $_POST["artistName"] . "/" . $_POST["albumName"] . "/" . $_POST["trackName"]);
+			}
+
+			$target_dir = "uploads/" . $_POST["artistName"] . "/" . $_POST["albumName"] . "/" . $_POST["trackName"] . "/";
 			$target_file = $target_dir . $_POST["trackName"];
 			$ending = explode(".", $_FILES["fileToUpload"]["name"]);
 			move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file . "." . end($ending));

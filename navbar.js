@@ -163,6 +163,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 		closeLogin.onclick();
 		closeSignup.onclick();
 
+		console.log(firebase.database().ref("users/" + firebase.auth().currentUser.uid));
+
 		if(newAcc) {
 			finishSignup();
 		}
@@ -174,6 +176,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 		var isAnonymous = user.isAnonymous;
 		var uid = user.uid;
 		var providerData = user.providerData;
+
+		firebase.database().ref().once("value").then(function(snapshot) {
+			firebase.auth().currentUser.last = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/last").val());
+			firebase.auth().currentUser.first = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/first").val());
+			firebase.auth().currentUser.artistName = firebase.auth().currentUser.first + "_" + firebase.auth().currentUser.last;
+		});
 
 		openLogin = false;
 

@@ -59,8 +59,10 @@ class Track {
 		this.songWriterName = "";
 		this.previewStartTime = ""; //done
 		this.explicitContent = null; //done
-		this.language = "";
+		this.language = "select";
 		this.isrc = "";
+		this.file;
+		this.fileName = null;
 	}
 
 	pushInfo() {
@@ -79,11 +81,16 @@ class Track {
 			document.getElementById("expFalse").checked = true;
 		}
 		document.getElementById("startTime").value = this.previewStartTime;
-		if(this.language != "nolyrics" && this.language != "english" && this.language != "spanish" && this.language != "french" && this.language != "mandarin") {
+		if(this.language != "nolyrics" && this.language != "english" && this.language != "spanish" && 
+			this.language != "french" && this.language != "mandarin" && this.language != "select") {
 			document.getElementById("otherLang").value = this.language;
 			document.getElementById("language").value = "other";
 		} else {
 			document.getElementById("language").value = this.language;
+		}
+		document.getElementById("file").files = this.file;
+		if(this.filename != null) {
+			document.getElementById("file").value = this.fileName;
 		}
 	}
 
@@ -102,10 +109,12 @@ class Track {
 		}
 		this.previewStartTime = document.getElementById("startTime").value;
 		if(document.getElementById("language").value == "other") {
-			this.language = document.getElementById("otherLang");
+			this.language = document.getElementById("otherLang").value;
 		} else {
-			this.language = document.getElementById("language");
+			this.language = document.getElementById("language").value;
 		}
+		this.file = document.getElementById("file").files;
+		this.fileName = document.getElementById("file").value;
 	}
 }
 
@@ -170,6 +179,7 @@ form.onsubmit = function(event) {
 	event.preventDefault();
 	var files = fileUp.files;
 
+
 	//the for loop iterates through the array of Track instances (track is a class) in the tracks array
 	//for each track it makes a "formData" variable, uploading the song file
 	//then it appends all of the song information stored in instance variables to the form data
@@ -181,7 +191,8 @@ form.onsubmit = function(event) {
 		xhr.open('POST', 'agh.php', true);
 		var formData = new FormData();
 		formData.append("albumName", "album");
-		formData.append("fileToUpload", files[0], files[0].name);
+		formData.append("artistName", firebase.auth().currentUser.artistName);
+		formData.append("fileToUpload", tracks[i].file[0], tracks[i].file[0].name);
 		formData.append("trackName", tracks[i].songName);				//
 		formData.append("genre", tracks[i].genre);						//
 		formData.append("subgenre", tracks[i].subgenre);				//
@@ -191,7 +202,7 @@ form.onsubmit = function(event) {
 		formData.append("explicit", tracks[i].explicitContent);			//
 		formData.append("producers", tracks[i].producers);				//
 		formData.append("previewStart", tracks[i].previewStartTime);	//
-		formData.append("language", tracks[i].language);	//
+		formData.append("language", tracks[i].language);				//
 		xhr.send(formData);
 	}
 }
