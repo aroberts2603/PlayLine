@@ -4,6 +4,10 @@
 	background-color:  rgba(0, 0, 0, 0.55);
 }
 
+#footer {
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
 #all-content {
 	background-color: white;
 	max-width: 1140px;
@@ -20,16 +24,25 @@
 	text-align: center;
 }
 
+.main-content-h1-3 {
+	color: var(--coral);
+	font-family: "Vonique64", sans-serif;
+	font-size: 55pt;
+	font-weight: 900;
+	letter-spacing: 4px;
+	text-align: center;
+}
+
 #comparison-chart {
-	/*width: 650px;*/
-	/*height: 487.5px;*/
-	width: 500px;
-	height: 375px;
+	width: 750px;
+	height: 451px;
 }
 
 #why-choose-playline-text {
-	font-size: 20px;
-	margin-top: 12px;
+	font-size: 22px;
+	margin-top: 6px;
+	margin-bottom: 20px;
+	text-align: center;
 }
 
 #second-main-div {
@@ -38,7 +51,8 @@
 
 .main-content-box-2 {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto auto;
 	padding: 15px 15px 10px 15px;
 }
 
@@ -47,7 +61,7 @@
 }
 
 #main-content-for-page {
-	padding: 20px 0px;
+	padding: 16px 0px;
 }
 
 .main-content-h1 {
@@ -69,17 +83,17 @@
 		margin-left: calc(50vw - 520px);
 	}
 
-	#comparison-chart {
+/*	#comparison-chart {
 		width: 450px;
 		height: 337.5px;
-	}
+	}*/
 
 	.main-content-h1-2 {
 		font-size: 34pt;
 	}
 
 	#why-choose-playline-text {
-		font-size: 18px;
+		font-size: 20px;
 	}
 
 	.main-content-h1 {
@@ -101,6 +115,10 @@
 	#main-content-for-page {
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr 1fr;
+	}
+
+	#comparison-chart {
+		display: none;
 	}
 }
 

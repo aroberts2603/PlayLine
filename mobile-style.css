@@ -1,0 +1,20 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	width: 100vw;
+	height: 100%;
+}
+
+#mobile-navbar {
+	width: 100%;
+	height: 50px;
+	display: block;
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
+#navbar {
+	display: none;
+}
