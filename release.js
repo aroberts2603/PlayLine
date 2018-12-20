@@ -61,8 +61,8 @@ class Track {
 		this.explicitContent = null; //done
 		this.language = "select";
 		this.isrc = "";
-		this.file;
-		this.fileName = null;
+		this.file = null;
+		this.fileName = "";
 	}
 
 	pushInfo() {
@@ -89,7 +89,7 @@ class Track {
 			document.getElementById("language").value = this.language;
 		}
 		document.getElementById("file").files = this.file;
-		if(this.filename != null) {
+		if(this.filename != "") {
 			document.getElementById("file").value = this.fileName;
 		}
 	}
@@ -116,6 +116,15 @@ class Track {
 		this.file = document.getElementById("file").files;
 		this.fileName = document.getElementById("file").value;
 	}
+
+	checkRequired() {
+		if(this.songName == "" || this.genre == "" || this.primaryArtists == "" || this.explicitContent == null || this.previewStartTime == "" 
+			|| this.language == "select" || this.file.length == 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }
 
 el("language").onchange = function() {
@@ -129,6 +138,8 @@ el("language").onchange = function() {
 }
 
 function trackClicked(event) {
+	document.getElementById("add-song-text").style.display = "none";
+	document.getElementById("first-form").style.display = "inline-grid";
 	var arr = document.getElementsByClassName("track");
 	var i = 0;
 	for(i = 0;i<arr.length;i++) {
@@ -157,7 +168,6 @@ document.getElementById("add-track").onclick = function() {
 }
 
 function onTrackSwitch(event) {
-	document.getElementById("songName").value = event.target.innerHTML;
 	var trackID = event.target.getAttribute("id")[6];
 	tracks[trackID].pushInfo();	
 }
