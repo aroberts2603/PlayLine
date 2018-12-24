@@ -88,9 +88,10 @@ class Track {
 		} else {
 			document.getElementById("language").value = this.language;
 		}
-		document.getElementById("file").files = this.file;
-		if(this.filename != "") {
-			document.getElementById("file").value = this.fileName;
+		if(this.fileName == "") {
+			document.getElementById("file-upload-name").innerHTML = "No File Uploaded";
+		} else {
+			document.getElementById("file-upload-name").innerHTML = this.fileName;
 		}
 	}
 
@@ -113,8 +114,8 @@ class Track {
 		} else {
 			this.language = document.getElementById("language").value;
 		}
-		this.file = document.getElementById("file").files;
-		this.fileName = document.getElementById("file").value;
+		this.file = document.getElementById("file").files[0];
+		this.fileName = document.getElementById("file").files[0].name;
 	}
 
 	checkRequired() {
@@ -176,8 +177,17 @@ document.getElementById("first-form").onchange = function() {
 	tracks[document.getElementsByClassName("selected")[0].getAttribute("id")[6]].pullInfo();
 }
 
+document.getElementById("file").onchange = function() {
+	tracks[document.getElementsByClassName("selected")[0].getAttribute("id")[6]].pullInfo();
+	tracks[document.getElementsByClassName("selected")[0].getAttribute("id")[6]].pushInfo();
+}
+
 document.getElementById("songName").onchange = function() {
 	document.getElementsByClassName("selected")[0].innerHTML = document.getElementById("songName").value;
+}
+
+document.getElementById("file-upload-button").onclick = function() {
+	document.getElementById("file").click();
 }
 
 var fileUp = document.getElementById("file");

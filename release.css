@@ -4,6 +4,10 @@ body {
 	background-color: #eee;
 }
 
+#mobile-navbar {
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
 #footer {
 	background-color: rgba(0, 0, 0, 0.85);
 }
@@ -38,7 +42,6 @@ body {
 	overflow: auto;
 	height: 380px;
 	max-height: calc(100vh - 238px);
-	/*background-color: #F4F4F4;*/
 }
 
 .track {
@@ -171,4 +174,55 @@ input[type="text"] {
 	padding-bottom: 3px;
 	outline: none;
 	font-family: 'Nunito Sans', sans-serif;
+}
+
+#file-upload-button {
+	display: inline-block;
+	background-color: var(--coral);
+	border-radius: 8px;
+	color: white;
+	padding: 5px;
+	padding: 3px 8px;
+	margin-right: 8px;
+}
+
+#file-upload-button:hover, #file-upload-button:active {
+	background-color: var(--coral-hover);
+}
+
+#file-upload-name {
+	display: inline;
+}
+
+@media only screen and (max-width: 600px) {
+	#final-wrapper {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+		padding: 20px;
+	}
+
+	#track-container {
+		min-width: 0px;
+		width: calc(100vw - 80px);
+		position: initial;
+		max-height: 400px;
+		height: 400px;
+	}
+
+	#track-list {
+		height: 280px;
+	}
+
+	#first-form {
+		padding: 20px 10px 20px 10px;
+	}
+
+	.form-element {
+		margin: 5px 0px;
+		border-radius: 15px;
+	}
+
+	input[type="text"] {
+		width: calc(100% - 10px);
+	}
 }
