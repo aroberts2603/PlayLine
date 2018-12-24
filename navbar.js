@@ -41,32 +41,29 @@ function getLm(name) {
 	return document.getElementById(name);
 }
 
-//the side bar button on the taskbar
-// dropButton.onclick = function() {
-// 	if(menuOpen == false) {
-// 		document.getElementById("dropdown").style.marginLeft = "0px";
-// 		document.getElementById("graystuff").style.display = "block";
-// 		setTimeout(function() {
-// 			getLm("third-of-hamburger1").style.transform = "rotate(45deg)";
-// 			getLm("third-of-hamburger2").style.transform = "rotate(45deg)";
-// 			getLm("third-of-hamburger3").style.transform = "rotate(-45deg)";
-// 		}, 150);
-// 		getLm("third-of-hamburger1").style.top = "28px";
-// 		getLm("third-of-hamburger3").style.top = "28px";
-// 		menuOpen = true;
-// 	} else {
-// 		document.getElementById("dropdown").style.marginLeft = "-279px";
-// 		document.getElementById("graystuff").style.display = "none";
-// 		setTimeout(function() {
-// 			getLm("third-of-hamburger1").style.top = "12px";
-// 			getLm("third-of-hamburger3").style.top = "44px";
-// 		}, 150);
-// 		getLm("third-of-hamburger1").style.transform = "rotate(0deg)";
-// 		getLm("third-of-hamburger2").style.transform = "rotate(0deg)";
-// 		getLm("third-of-hamburger3").style.transform = "rotate(0deg)";
-// 		menuOpen = false;
-// 	}
-// }
+dropButton.onclick = function() {
+	if(menuOpen == false) {
+		document.getElementById("dropdown").style.marginLeft = "0px";
+		setTimeout(function() {
+			getLm("third-of-hamburger1").style.transform = "rotate(45deg)";
+			getLm("third-of-hamburger2").style.transform = "rotate(45deg)";
+			getLm("third-of-hamburger3").style.transform = "rotate(-45deg)";
+		}, 150);
+		getLm("third-of-hamburger1").style.top = "28px";
+		getLm("third-of-hamburger3").style.top = "28px";
+		menuOpen = true;
+	} else {
+		document.getElementById("dropdown").style.marginLeft = "-279px";
+		setTimeout(function() {
+			getLm("third-of-hamburger1").style.top = "10px";
+			getLm("third-of-hamburger3").style.top = "46px";
+		}, 150);
+		getLm("third-of-hamburger1").style.transform = "rotate(0deg)";
+		getLm("third-of-hamburger2").style.transform = "rotate(0deg)";
+		getLm("third-of-hamburger3").style.transform = "rotate(0deg)";
+		menuOpen = false;
+	}
+}
 
 openLogin.onclick = function() {
 	document.getElementById("signup-form").style.top = "-290px";
@@ -192,6 +189,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 		document.getElementById("open-login-form").style.display = "none";
 		document.getElementById("open-signup-form").style.display = "none";
 
+		document.getElementById("dash-link").style.visibility = "visible";
+
 	} else {
 		openLogin = true;
 
@@ -201,5 +200,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 		document.getElementById("open-login-form").style.display = "inline-block";
 		document.getElementById("open-signup-form").style.display = "inline-block";
+
+		document.getElementById("dash-link").style.visibility = "hidden";
 	}
 });

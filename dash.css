@@ -6,7 +6,7 @@
 
 body {
 	background-image: url("imgs/faders1.png");
-	background-position: 0px -50px;
+	background-position: 0px 0px;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -84,6 +84,21 @@ h5 {
 	margin-left: 0%;
 	text-align: center;
 	padding-bottom: 56px;
+}
+
+@media only screen and (max-width: 720px) {
+	#dashboard-grid-container {
+		grid-template-columns: 1fr;
+		grid-gap: 0px;
+	}
+
+	#left-panel {
+		margin-right: var(--div-padding);
+	}
+
+	#right-panel {
+		margin-left: var(--div-padding);
+	}
 }
 
 hr {
