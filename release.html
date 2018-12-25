@@ -102,18 +102,36 @@
 		<div id="release-form-div">		
 			<div id="final-wrapper">
 				<div id="track-container">
-					<h1 id="tracks-added">Add Tracks</h1>
+					<h1 id="tracks-added">Track List</h1>
 					<div id="hr"></div>
+					<div id="album-info" class="album-info">Overall Release Information</div>
 					<div id="track-list"></div>
+					<div id="submit-redirect">Submit Release</div>
 					<div id="add-track">+ Add Track</div>
 				</div>
 
 				<form id="release-form"method="post" enctype="multipart/form-data">
 					<div id="add-song-text">
-						<p>In order to add a song for release, click the "+ Add Track" button to the left, then select the track in the sidebar.</p>
+						<p>In order to add a song for release, click the "+ Add Track" button to the left, then select the track in the Track List.</p>
+					</div>
+
+					<div id="album-info-form" style="display: none;">
+						<p>Required fields have a <span class="coral">*</span></p>
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
+							<p>Album/Single Name</p>
+							<input id="releaseName" type="text" name="releaseName" placeholder="Release Name"><br>
+						</div>
+
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
+							<p>Copyright Owner Name</p>
+							<input id="releaseName" type="text" name="releaseName" placeholder="Release Name"><br>
+						</div>
 					</div>
 
 					<div id="first-form" style="display: none;">
+						<p>Required fields have a <span class="coral">*</span></p>
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Song Name</p>
@@ -166,18 +184,26 @@
 							<p>ISRC Code</p>
 							<input type="text" name="isrcCode" id="isrc" placeholder="ISRC Code"><!--isrcCode-->
 						</div>
-						
-						<!-- <div class="form-element required">
+
+						<div class="form-element required">
 							<div class="required-asterisk">*</div>
-							<p>Album Art</p>
-							<input class="file-upload" type="file" name="albumArt" accept="image/*"><br>
-						</div> -->
+							<p>Songwriter Name</p>
+							<input type="text" name="songwriter" id="songwriter" placeholder="Songwriter Name"><!--isrcCode-->
+						</div>
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Song File</p>
-							<input id="file" class="file-upload" type="file" hidden="hidden" name="fileToUpload"><br><!--fileToUpload-->
-							<div class="file-input"><div id="file-upload-button">Choose File</div><p id="file-upload-name">No File Uploaded</p></div>
+							<input id="file" class="file-upload" type="file" hidden="hidden" name="fileToUpload" accept=".wav"><br><!--fileToUpload-->
+							<div class="file-input"><p>Track File</p><div class="file-upload-button" id="file-upload-button">Pick File</div><p class="file-uploaded-name" id="file-upload-name">No File</p></div>
+						</div>
+
+						<div class="form-element">
+							<p>If you purchased a beat</p><br>
+							<input id="beat-licence" class="file-upload" type="file" hidden="hidden">
+							<div class="file-input" style="margin-bottom: 3px;"><p>Beat Licence</p><div class="file-upload-button" id="beat-licence-upload-button">Pick File</div><p class="file-uploaded-name" id="beat-licence-upload-name">No File</p></div>
+							<input id="beat-proof" class="file-upload" type="file" hidden="hidden">
+							<div class="file-input"><p>Proof of Purchase</p><div class="file-upload-button" id="beat-proof-upload-button">Pick File</div><p class="file-uploaded-name" id="beat-proof-upload-name">No File</p></div>
 						</div>
 
 						<div class="form-element required">
@@ -204,18 +230,18 @@
 						<div class="form-element">
 							<p>Contributors</p>
 							<select name="contributorTitle" id="contributorTitle" size="1" style="margin-bottom: 5px;"><!--contributorTitle-->
-									<option name="contributor0" id="contributor0" value="0:">Actor</option>
-									<option name="contributor1" id="contributor1" value="1:">Arranger</option>
-									<option name="contributor2" id="contributor2" value="2:">Choir</option>
-									<option name="contributor3" id="contributor3" value="3:">Composer</option>
-									<option name="contributor4" id="contributor4" value="4:">Conductor</option>
-									<option name="contributor5" id="contributor5" value="5:">Engineer</option>
-									<option name="contributor6" id="contributor6" value="6:">Ensamble</option>
-									<option name="contributor7" id="contributor7" value="7:">Lyricist</option>
-									<option name="contributor8" id="contributor8" value="8:">Mixer</option>
-									<option name="contributor9" id="contributor9" value="9:">Orchestra</option>
-									<option name="contributor10" id="contributor10" value="10:">Remixer</option>
-									<option name="contributor11" id="contributor11" value="11:">Soloist</option>
+									<option name="contributor0" id="contributor0" value="Actor">Actor</option>
+									<option name="contributor1" id="contributor1" value="Arranger">Arranger</option>
+									<option name="contributor2" id="contributor2" value="Choir">Choir</option>
+									<option name="contributor3" id="contributor3" value="Composer">Composer</option>
+									<option name="contributor4" id="contributor4" value="Conductor">Conductor</option>
+									<option name="contributor5" id="contributor5" value="Engineer">Engineer</option>
+									<option name="contributor6" id="contributor6" value="Ensemble">Ensemble</option>
+									<option name="contributor7" id="contributor7" value="Lyricist">Lyricist</option>
+									<option name="contributor8" id="contributor8" value="Mixer">Mixer</option>
+									<option name="contributor9" id="contributor9" value="Orchestra">Orchestra</option>
+									<option name="contributor10" id="contributor10" value="Remixer">Remixer</option>
+									<option name="contributor11" id="contributor11" value="Soloist">Soloist</option>
 							</select><br>
 
 							<input type="text" name="contributors" value="" style="display: none;">
@@ -224,23 +250,15 @@
 							<input id="contributorName" type="text" name="contributorName" placeholder="Name"><!--contributorName-->
 						</div>
 
-						<div class="form-element" style="border: none;">
+						<div class="form-element">
+							<p>Possible Previous Release Date</p>
+							<input type="date" id="prevRelease">
+						</div>
+
+						<div style="display: none;" class="form-element" style="border: none;">
 							<input type="submit" id="release-submit">
 						</div>
 					</div>
-					
-					
-					<!-- Name of Copyright Owner: <input type="text" name="cpOwner" id="cpOwner"><br>
-					Has the song been released before?: <input type="radio" name="releasedBefore" value="yes" id="releasedBeforeYes"> Yes
-					<input type="radio" name="releasedBefore" value="no" id="releasedBeforeNo"> No<br>
-					<div id="releasedBeforeDateDiv" style="display: none;">
-						What Date?: <input type="date" name="releasedBeforeDate" id="releasedBeforeDate"><br>
-					</div>
-					When do you want the song released?: <input type="radio" name="releaseDate" value="asap(2-4 days)" id="releaseDateASAP"> As soon as possible (2-4 Business days)
-					<input type="radio" name="releaseDate" value="specificDate" id="releaseDateSpecific"> A specific date<br>
-					<div id="specificReleaseDateDiv" style="display: none;">
-						Specific Date: <input type="date" name="specificReleaseDate"><br>
-					</div> -->
 				</form>
 			</div>
 		</div>

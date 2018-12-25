@@ -41,7 +41,17 @@ body {
 #track-list {
 	overflow: auto;
 	height: 380px;
-	max-height: calc(100vh - 238px);
+	max-height: calc(100vh - 288px);
+}
+
+.album-info {
+	background-color: white;
+	font-size: 14pt;
+	border-radius: 8px;
+	padding: 6px 0px 6px 12px;
+	margin-bottom: 4px;
+	border: 2px solid #DDDDDD;
+	cursor: pointer;
 }
 
 .track {
@@ -88,6 +98,21 @@ body {
 	background-color: var(--coral-hover);
 }
 
+#submit-redirect {
+	background-color: var(--coral);
+	color: white;
+	display: inline-block;
+	padding: 5px 10px 5px 10px;
+	border-radius: 6px;
+	cursor: pointer;
+	float: left;
+	margin-top: 10px;
+}
+
+#submit-redirect:hover {
+	background-color: var(--coral-hover);
+}
+
 #hr {
 	height: 2px;
 	background-color: #333;
@@ -106,6 +131,26 @@ body {
 #first-form p {
 	display: inline;
 	margin-right: 8px;
+}
+
+#album-info-form p {
+	display: inline;
+	margin-right: 8px;
+}
+
+#album-info-form {
+	text-align: right;
+	display: inline-grid;
+	grid-template-columns: 1fr;
+	background-color: white;
+	padding: 20px;
+	border-radius: 12px;
+}
+
+#add-song-text {
+	background-color: white;
+	padding: 15px;
+	border-radius: 12px;
 }
 
 #explicits {
@@ -176,7 +221,7 @@ input[type="text"] {
 	font-family: 'Nunito Sans', sans-serif;
 }
 
-#file-upload-button {
+.file-upload-button {
 	display: inline-block;
 	background-color: var(--coral);
 	border-radius: 8px;
@@ -184,14 +229,11 @@ input[type="text"] {
 	padding: 5px;
 	padding: 3px 8px;
 	margin-right: 8px;
+	cursor: pointer;
 }
 
-#file-upload-button:hover, #file-upload-button:active {
+.file-upload-button:hover, .file-upload-button:active {
 	background-color: var(--coral-hover);
-}
-
-#file-upload-name {
-	display: inline;
 }
 
 @media only screen and (max-width: 600px) {
@@ -210,11 +252,23 @@ input[type="text"] {
 	}
 
 	#track-list {
-		height: 280px;
+		height: 235px;
 	}
 
 	#first-form {
 		padding: 20px 10px 20px 10px;
+	}
+
+	#first-form > p {
+		font-size: 18px;
+	}
+
+	#album-info-form {
+		padding: 20px 10px 20px 10px;
+	}
+
+	#album-info-form > p {
+		font-size: 18px;
 	}
 
 	.form-element {
@@ -222,7 +276,12 @@ input[type="text"] {
 		border-radius: 15px;
 	}
 
+	.form-element > p {
+		font-size: 19px;
+	}
+
 	input[type="text"] {
 		width: calc(100% - 10px);
+		font-size: 19px;
 	}
 }

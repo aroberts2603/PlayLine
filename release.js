@@ -2,17 +2,17 @@ function el(ele) {
 	return document.getElementById(ele);
 }
 
-el("contributorTitle").onchange = function() {
-	indexToUse = el("contributorTitle").value.split(":");
-	el("contributorName").value = indexToUse[1];
-}
+// el("contributorTitle").onchange = function() {
+// 	indexToUse = el("contributorTitle").value.split(":");
+// 	el("contributorName").value = indexToUse[1];
+// }
 
-el("contributorName").onchange = function() {
-	indexToUse = el("contributorTitle").value.split(":");
-	indexToUse[1] = el("contributorName").value;
-	var selectOptionToEditValueOf = "contributor" + indexToUse[0];
-	el(selectOptionToEditValueOf).value = indexToUse.join(":");
-}
+// el("contributorName").onchange = function() {
+// 	indexToUse = el("contributorTitle").value.split(":");
+// 	indexToUse[1] = el("contributorName").value;
+// 	var IDofContributorToEdit = "contributor" + indexToUse[0];
+// 	el(IDofContributorToEdit).value = indexToUse.join(":");
+// }
 
 
 // document.getElementById("releasedBeforeYes").onclick = function() {
@@ -35,10 +35,10 @@ var tracks = [];
 
 class Track {
 	constructor(trackID) {
-		this.trackID = trackID;
-		this.songName = ""; //done
-		this.producers = ""; //done
-		this.contributors = {
+		this.trackID = trackID;		//done
+		this.songName = "New Track";			//done
+		this.producers = "";		//done
+		this.contributors = {		//done
 			Actor: "",
 			Arranger: "",
 			Choir: "",
@@ -51,18 +51,23 @@ class Track {
 			Orchestra: "",
 			Remixer: "",
 			Soloist: ""
-		};
-		this.genre = ""; //done
-		this.subgenre = ""; //done
-		this.primaryArtists = ""; //done
-		this.featuredArtists = ""; //done
-		this.songWriterName = "";
-		this.previewStartTime = ""; //done
-		this.explicitContent = null; //done
-		this.language = "select";
-		this.isrc = "";
-		this.file = null;
-		this.fileName = "";
+		};							//done
+		this.genre = "";			//done
+		this.subgenre = "";			//done
+		this.primaryArtists = "";	//done
+		this.featuredArtists = "";	//done
+		this.songWriterName = "";	//done
+		this.previewStartTime = "";	//done
+		this.explicitContent = null;//done
+		this.language = "select";	//done
+		this.isrc = "";				//done
+		this.file = null;			//done
+		this.fileName = "";			//done
+		this.beatLicence = null;	//done
+		this.beatLicenceName = "";	//done
+		this.beatProof = null;		//done
+		this.beatProofName = "";	//done
+		this.prevRelease = "";		//done
 	}
 
 	pushInfo() {
@@ -89,10 +94,22 @@ class Track {
 			document.getElementById("language").value = this.language;
 		}
 		if(this.fileName == "") {
-			document.getElementById("file-upload-name").innerHTML = "No File Uploaded";
+			document.getElementById("file-upload-name").innerHTML = "No File";
 		} else {
 			document.getElementById("file-upload-name").innerHTML = this.fileName;
 		}
+		if(this.beatLicenceName == "") {
+			document.getElementById("beat-licence-upload-name").innerHTML = "No File";
+		} else {
+			document.getElementById("beat-licence-upload-name").innerHTML = this.beatLicenceName;
+		}
+		if(this.beatProofName == "") {
+			document.getElementById("beat-proof-upload-name").innerHTML = "No File";
+		} else {
+			document.getElementById("beat-proof-upload-name").innerHTML = this.beatProofName;
+		}
+		document.getElementById("songwriter").value = this.songWriterName;
+		document.getElementById("prevRelease").value = this.prevRelease;
 	}
 
 	pullInfo() {
@@ -115,12 +132,24 @@ class Track {
 			this.language = document.getElementById("language").value;
 		}
 		this.file = document.getElementById("file").files[0];
-		this.fileName = document.getElementById("file").files[0].name;
+		if(document.getElementById("file").files[0] != null) {
+			this.fileName = document.getElementById("file").files[0].name;
+		}
+		this.songWriterName = document.getElementById("songwriter").value;
+		this.beatLicence = document.getElementById("beat-licence").files[0];
+		if(document.getElementById("beat-licence").files[0] != null) {
+			this.beatLicenceName = document.getElementById("beat-licence").files[0].name;
+		}
+		this.beatProof = document.getElementById("beat-proof").files[0];
+		if(document.getElementById("beat-proof").files[0] != null) {
+			this.beatProofName = document.getElementById("beat-proof").files[0].name;
+		}
+		this.prevRelease = document.getElementById("prevRelease").value;
 	}
 
 	checkRequired() {
-		if(this.songName == "" || this.genre == "" || this.primaryArtists == "" || this.explicitContent == null || this.previewStartTime == "" 
-			|| this.language == "select" || this.file.length == 0) {
+		if(this.songName == "New Track" || this.genre == "" || this.primaryArtists == "" || this.explicitContent == null || this.previewStartTime == "" 
+			|| this.language == "select" || this.file.length == 0 || this.songWriterName == "") {
 			return false;
 		} else {
 			return true;
@@ -138,9 +167,21 @@ el("language").onchange = function() {
 	}
 }
 
+document.getElementById("contributorTitle").onchange = function() {
+	var contIndex = document.getElementById("contributorTitle").value;
+	document.getElementById("contributorName").value = tracks[document.getElementsByClassName("selected")[0].getAttribute("id")[6]].contributors[contIndex];
+}
+
+document.getElementById("contributorName").onchange = function() {
+	var contIndex = document.getElementById("contributorTitle").value;
+	tracks[document.getElementsByClassName("selected")[0].getAttribute("id")[6]].contributors[contIndex] = document.getElementById("contributorName").value; 
+}
+
 function trackClicked(event) {
 	document.getElementById("add-song-text").style.display = "none";
 	document.getElementById("first-form").style.display = "inline-grid";
+	document.getElementById("album-info-form").style.display = "none";
+	document.getElementById("album-info").setAttribute("class", "album-info");
 	var arr = document.getElementsByClassName("track");
 	var i = 0;
 	for(i = 0;i<arr.length;i++) {
@@ -156,7 +197,7 @@ function addNewSongToRelease() {
 	trackDiv.setAttribute("class", "track");
 	trackDiv.setAttribute("onclick", "trackClicked(event)");
 	trackDiv.setAttribute("id", "track-"+tracks.length);
-	var trackNameText = document.createTextNode("Unnamed Track");
+	var trackNameText = document.createTextNode((tracks.length+1) + " - New Track");
 	trackDiv.appendChild(trackNameText);
 	document.getElementById("track-list").appendChild(trackDiv);
 	let newTrack = new Track(tracks.length);
@@ -173,6 +214,16 @@ function onTrackSwitch(event) {
 	tracks[trackID].pushInfo();	
 }
 
+document.getElementById("album-info").onclick = function() {
+	if(document.getElementsByClassName("selected")[0] != null) {
+		document.getElementsByClassName("selected")[0].setAttribute("class", "track");
+	}
+	document.getElementById("album-info").setAttribute("class", "album-info selected");
+	document.getElementById("first-form").style.display = "none";
+	document.getElementById("add-song-text").style.display = "none";
+	document.getElementById("album-info-form").style.display = "inline-grid";
+}
+
 document.getElementById("first-form").onchange = function() {
 	tracks[document.getElementsByClassName("selected")[0].getAttribute("id")[6]].pullInfo();
 }
@@ -182,18 +233,42 @@ document.getElementById("file").onchange = function() {
 	tracks[document.getElementsByClassName("selected")[0].getAttribute("id")[6]].pushInfo();
 }
 
+document.getElementById("beat-licence").onchange = function() {
+	tracks[document.getElementsByClassName("selected")[0].getAttribute("id")[6]].pullInfo();
+	tracks[document.getElementsByClassName("selected")[0].getAttribute("id")[6]].pushInfo();
+}
+
+document.getElementById("beat-proof").onchange = function() {
+	tracks[document.getElementsByClassName("selected")[0].getAttribute("id")[6]].pullInfo();
+	tracks[document.getElementsByClassName("selected")[0].getAttribute("id")[6]].pushInfo();
+}
+
 document.getElementById("songName").onchange = function() {
-	document.getElementsByClassName("selected")[0].innerHTML = document.getElementById("songName").value;
+	var id = document.getElementsByClassName("selected")[0].getAttribute("id").split("-")[1];
+	tracks[id].pullInfo();
+	document.getElementsByClassName("selected")[0].innerHTML = parseInt(id) + 1 + " - " + tracks[id].songName;
 }
 
 document.getElementById("file-upload-button").onclick = function() {
 	document.getElementById("file").click();
 }
 
+document.getElementById("beat-licence-upload-button").onclick = function() {
+	document.getElementById("beat-licence").click();
+}
+
+document.getElementById("beat-proof-upload-button").onclick = function() {
+	document.getElementById("beat-proof").click();
+}
+
 var fileUp = document.getElementById("file");
 
 var form = document.getElementById("release-form");
 var trackName = document.getElementById("songName").value;
+
+document.getElementById("submit-redirect").onclick = function() {
+	document.getElementById("release-submit").click();
+}
 
 form.onsubmit = function(event) {
 	event.preventDefault();
@@ -212,17 +287,25 @@ form.onsubmit = function(event) {
 		var formData = new FormData();
 		formData.append("albumName", "album");
 		formData.append("artistName", firebase.auth().currentUser.artistName);
-		formData.append("fileToUpload", tracks[i].file[0], tracks[i].file[0].name);
-		formData.append("trackName", tracks[i].songName);				//
-		formData.append("genre", tracks[i].genre);						//
-		formData.append("subgenre", tracks[i].subgenre);				//
-		formData.append("primary", tracks[i].primaryArtists);			//
-		formData.append("feat", tracks[i].featuredArtists);				//
-		formData.append("isrcCode", tracks[i].isrc);					//
-		formData.append("explicit", tracks[i].explicitContent);			//
-		formData.append("producers", tracks[i].producers);				//
-		formData.append("previewStart", tracks[i].previewStartTime);	//
-		formData.append("language", tracks[i].language);				//
+		formData.append("fileToUpload", tracks[i].file, tracks[i].fileName);
+		formData.append("trackName", tracks[i].songName);									//
+		formData.append("genre", tracks[i].genre);											//
+		formData.append("subgenre", tracks[i].subgenre);									//
+		formData.append("primary", tracks[i].primaryArtists);								//
+		formData.append("feat", tracks[i].featuredArtists);									//
+		formData.append("isrcCode", tracks[i].isrc);										//
+		formData.append("explicit", tracks[i].explicitContent);								//
+		formData.append("producers", tracks[i].producers);									//
+		formData.append("previewStart", tracks[i].previewStartTime);						//
+		formData.append("language", tracks[i].language);									//
+		formData.append("songwriter", tracks[i].songWriterName)								//
+		formData.append("prevRelease", tracks[i].prevRelease)								//
+
+		formData.append("beatLicence", tracks[i].beatLicence, tracks[i].beatLicenceName)	//
+		formData.append("beatProof", tracks[i].beatProof, tracks[i].beatProofName)			//
+		for(var key in tracks[i].contributors) {
+			formData.append(key, tracks[i].contributors[key]);								//
+		}
 		xhr.send(formData);
 	}
 }

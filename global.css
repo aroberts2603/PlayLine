@@ -380,3 +380,11 @@ html, body {
 	position: fixed;
 	overflow: hidden;
 }
+
+.file-uploaded-name {
+	font-size: 14px;
+}
+
+.coral {
+	color: var(--coral);
+}
