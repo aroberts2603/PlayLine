@@ -2,41 +2,12 @@ function el(ele) {
 	return document.getElementById(ele);
 }
 
-// el("contributorTitle").onchange = function() {
-// 	indexToUse = el("contributorTitle").value.split(":");
-// 	el("contributorName").value = indexToUse[1];
-// }
-
-// el("contributorName").onchange = function() {
-// 	indexToUse = el("contributorTitle").value.split(":");
-// 	indexToUse[1] = el("contributorName").value;
-// 	var IDofContributorToEdit = "contributor" + indexToUse[0];
-// 	el(IDofContributorToEdit).value = indexToUse.join(":");
-// }
-
-
-// document.getElementById("releasedBeforeYes").onclick = function() {
-// 	document.getElementById("releasedBeforeDateDiv").style.display = "inline";
-// }
-
-// document.getElementById("releasedBeforeNo").onclick = function() {
-// 	document.getElementById("releasedBeforeDateDiv").style.display = "none";
-// }
-
-// document.getElementById("releaseDateASAP").onclick = function() {
-// 	document.getElementById("specificReleaseDateDiv").style.display = "none";
-// }
-
-// document.getElementById("releaseDateSpecific").onclick = function() {
-// 	document.getElementById("specificReleaseDateDiv").style.display = "inline";
-// }
-
 var tracks = [];
 
 class Track {
 	constructor(trackID) {
 		this.trackID = trackID;		//done
-		this.songName = "New Track";			//done
+		this.songName = "";			//done
 		this.producers = "";		//done
 		this.contributors = {		//done
 			Actor: "",
@@ -148,7 +119,7 @@ class Track {
 	}
 
 	checkRequired() {
-		if(this.songName == "New Track" || this.genre == "" || this.primaryArtists == "" || this.explicitContent == null || this.previewStartTime == "" 
+		if(this.songName == "" || this.genre == "" || this.primaryArtists == "" || this.explicitContent == null || this.previewStartTime == "" 
 			|| this.language == "select" || this.file.length == 0 || this.songWriterName == "") {
 			return false;
 		} else {
@@ -249,6 +220,20 @@ document.getElementById("songName").onchange = function() {
 	document.getElementsByClassName("selected")[0].innerHTML = parseInt(id) + 1 + " - " + tracks[id].songName;
 }
 
+document.getElementById("specificDate").onclick = function() {
+	if(document.getElementById("specificDate").checked) {
+		document.getElementById("releaseDateText").style.display = "inline-block";
+		document.getElementById("specificReleaseDate").style.display = "inline-block";
+	}
+}
+
+document.getElementById("asap").onclick = function() {
+	if(!document.getElementById("specificDate").checked) {
+		document.getElementById("releaseDateText").style.display = "none";
+		document.getElementById("specificReleaseDate").style.display = "none";
+	}
+}
+
 document.getElementById("file-upload-button").onclick = function() {
 	document.getElementById("file").click();
 }
@@ -259,6 +244,10 @@ document.getElementById("beat-licence-upload-button").onclick = function() {
 
 document.getElementById("beat-proof-upload-button").onclick = function() {
 	document.getElementById("beat-proof").click();
+}
+
+document.getElementById("album-art-upload-button").onclick = function() {
+	document.getElementById("albumArt").click();
 }
 
 var fileUp = document.getElementById("file");

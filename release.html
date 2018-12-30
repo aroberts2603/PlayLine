@@ -94,7 +94,7 @@
 		<p class="bottom-auth-text">Already have an account? <a id="switch-to-login" class="alink" style="cursor: pointer;">Log In</a></p>
 	</div>
 
-	<div style="height: 60px;" id="navbar-fill"></div>
+	<div style="height: 50px;" id="navbar-fill"></div>
 
 	<div id="graystuff" style="display: none;"></div>
 
@@ -120,13 +120,34 @@
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Album/Single Name</p>
-							<input id="releaseName" type="text" name="releaseName" placeholder="Release Name"><br>
+							<input id="releaseName" type="text" placeholder="Release Name"><br>
 						</div>
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Copyright Owner Name</p>
-							<input id="releaseName" type="text" name="releaseName" placeholder="Release Name"><br>
+							<input id="copyrightOwner" type="text" placeholder="Copyright Owner Name"><br>
+						</div>
+
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
+							<p>Album/Single Art</p><br>
+							<p style="margin-right: 2px; color: var(--coral); font-size: 14px;">Must be 3000 by 3000 pixels or larger</p>
+							<input id="albumArt" type="file" hidden="hidden" accept="image/*"><br>
+							<div class="file-input"><p>Album/Single Art</p><div class="file-upload-button" id="album-art-upload-button">Pick File</div><p class="file-uploaded-name" id="album-art-upload-name">No File</p></div>
+						</div>
+
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
+							<input type="checkbox" value="master-it"> <a target="_blank" href="index.html#pro-mastering-div">Master</a> my Release
+						</div>
+
+						<div class="form-element required">
+							<div class="required-asterisk">*</div>
+							<p>Album/Single Release Date</p><br>
+							<input id="asap" type="radio" name="dates" value="asap"> ASAP 1-5 Days<br>
+							<input id="specificDate" type="radio" name="dates" value="specificDate"> Specific Date<br>
+							<p id="releaseDateText" style="display: none;">Release Date </p><input type="date" id="specificReleaseDate" style="display: none;">
 						</div>
 					</div>
 
@@ -135,24 +156,24 @@
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Song Name</p>
-							<input id="songName" type="text" name="songName" placeholder="Song Name"><br><!--songName-->
+							<input id="songName" type="text" placeholder="Song Name"><br><!--songName-->
 						</div>
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Genre</p>
-							<input id="genre" type="text" name="genre" placeholder="Genre"><br><!--genre-->
+							<input id="genre" type="text" placeholder="Genre"><br><!--genre-->
 						</div>
 
 						<div class="form-element">
 							<p>Subgenre</p>
-							<input id="subgenre" type="text" name="subgenre" placeholder="Subgenre"><br><!--subgenre-->
+							<input id="subgenre" type="text" placeholder="Subgenre"><br><!--subgenre-->
 						</div>
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
 							<p>Primary Artists</p>
-							<input id="primaryArtists" type="text" name="primary" placeholder="Primary Artists"><br><!--primary-->
+							<input id="primaryArtists" type="text" placeholder="Primary Artists"><br><!--primary-->
 						</div>
 
 						<div class="form-element">

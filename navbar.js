@@ -49,14 +49,14 @@ dropButton.onclick = function() {
 			getLm("third-of-hamburger2").style.transform = "rotate(45deg)";
 			getLm("third-of-hamburger3").style.transform = "rotate(-45deg)";
 		}, 150);
-		getLm("third-of-hamburger1").style.top = "28px";
-		getLm("third-of-hamburger3").style.top = "28px";
+		getLm("third-of-hamburger1").style.top = "23px";
+		getLm("third-of-hamburger3").style.top = "23px";
 		menuOpen = true;
 	} else {
 		document.getElementById("dropdown").style.marginLeft = "-279px";
 		setTimeout(function() {
-			getLm("third-of-hamburger1").style.top = "10px";
-			getLm("third-of-hamburger3").style.top = "46px";
+			getLm("third-of-hamburger1").style.top = "8px";
+			getLm("third-of-hamburger3").style.top = "38px";
 		}, 150);
 		getLm("third-of-hamburger1").style.transform = "rotate(0deg)";
 		getLm("third-of-hamburger2").style.transform = "rotate(0deg)";
