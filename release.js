@@ -272,7 +272,7 @@ form.onsubmit = function(event) {
 	var i = 0;
 	for(i = 0;i<tracks.length;i++) {
 		var xhr = new XMLHttpRequest();
-		xhr.open('POST', 'agh.php', true);
+		xhr.open('POST', 'song-info-upload.php', true);
 		var formData = new FormData();
 		formData.append("albumName", "album");
 		formData.append("artistName", firebase.auth().currentUser.artistName);
