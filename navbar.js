@@ -68,13 +68,11 @@ dropButton.onclick = function() {
 openLogin.onclick = function() {
 	document.getElementById("signup-form").style.top = "-390px";
 	document.getElementById("login-form").style.top = "calc(50% - 200px)";
-	document.getElementById("graystuff").style.display = "block";
 	document.getElementById("email").focus();
 }
 
 closeLogin.onclick = function() {
 	document.getElementById("login-form").style.top = "-290px";
-	document.getElementById("graystuff").style.display = "none";
 }
 
 changeToSignup.onclick = function() {
@@ -85,13 +83,11 @@ changeToSignup.onclick = function() {
 openSignup.onclick = function() {
 	document.getElementById("login-form").style.top = "-290px";
 	document.getElementById("signup-form").style.top = "calc(50% - 200px)";
-	document.getElementById("graystuff").style.display = "block";
 	document.getElementById("newEmail").focus();
 }
 
 closeSignup.onclick = function() {
 	document.getElementById("signup-form").style.top = "-390px";
-	document.getElementById("graystuff").style.display = "none";
 }
 
 changeToLogin.onclick = function() {

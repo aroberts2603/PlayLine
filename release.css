@@ -165,7 +165,6 @@ body {
 }
 
 .form-element {
-	/*border: 2px solid var(--queen-blue);*/
 	border: 2px solid #DDDDDD;
 	padding: 10px;
 	margin: 5px;
