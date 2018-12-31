@@ -66,7 +66,7 @@ dropButton.onclick = function() {
 }
 
 openLogin.onclick = function() {
-	document.getElementById("signup-form").style.top = "-290px";
+	document.getElementById("signup-form").style.top = "-390px";
 	document.getElementById("login-form").style.top = "calc(50% - 200px)";
 	document.getElementById("graystuff").style.display = "block";
 	document.getElementById("email").focus();
@@ -90,23 +90,30 @@ openSignup.onclick = function() {
 }
 
 closeSignup.onclick = function() {
-	document.getElementById("signup-form").style.top = "-290px";
+	document.getElementById("signup-form").style.top = "-390px";
 	document.getElementById("graystuff").style.display = "none";
 }
 
 changeToLogin.onclick = function() {
 	document.getElementById("login-form").style.top = "calc(50% - 200px)";
-	document.getElementById("signup-form").style.top = "-290px";
+	document.getElementById("signup-form").style.top = "-390px";
 }
 
 login.onclick = function() {
-	firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value,document.getElementById("password").value);
+	firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value,document.getElementById("password").value).catch(function(error) {
+		document.getElementById("loginError").style.display = "inline-block";
+		document.getElementById("loginError").innerHTML = "Invalid Email or Password";
+	});
 	newAcc = false;
 }
 
 signup.onclick = function() {
-	firebase.auth().createUserWithEmailAndPassword(document.getElementById("newEmail").value,document.getElementById("newPassword").value);
-	newAcc = true;
+	if(checkSignupRequired()) {
+		firebase.auth().createUserWithEmailAndPassword(document.getElementById("newEmail").value,document.getElementById("newPassword").value);
+		newAcc = true;
+	} else {
+		document.getElementById("not-all-complete").style.display = "inline-block";
+	}
 }
 
 function finishSignup() {
@@ -120,6 +127,15 @@ function finishSignup() {
 		"last": last,
 		"money": money
 	});
+}
+
+function checkSignupRequired() {
+	if(document.getElementById("newEmail").value == "" || document.getElementById("first").value == "" || document.getElementById("last").value == "" 
+		|| document.getElementById("newPassword").value == "" || !document.getElementById("TOS").checked) {
+		return false;
+	} else {
+		return true;
+	}
 }
 
 document.getElementById("logout").onclick = function() {

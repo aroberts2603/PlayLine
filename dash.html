@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="pragma" content="no-cache" charset="utf-8">
-	<title>PlayLine Records</title>
+	<title>Dashboard</title>
 	<link rel="icon" href="imgs/PlayLineCoral.png">
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="dash.css">
@@ -17,11 +17,11 @@
 		<div></div>
 		<div id="navbar-links">
 			<p class="navbar-p"><a href="index.html">Home</a></p>
-			<p class="navbar-p"><a href="artists.html">Artists</a></p>
-			<p class="navbar-p"><a href="about.html">About</a></p>
+			<!-- <p class="navbar-p"><a href="artists.html">Artists</a></p> -->
+			<!-- <p class="navbar-p"><a href="about.html">About</a></p> -->
 			<div class="open-auth-form" id="open-login-form">Log In</div>
 			<div class="open-auth-form" id="open-signup-form">Sign Up</div>
-			
+
 			<div style="display: none;" id="profile-photo"></div>
 
 			<div style="display: none;" id="dropdown-arrow-container">
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 	</div>
-	<div  id="mobile-navbar">
+	<div id="mobile-navbar">
 		<div id="menu-button">
 			<div class="third-of-hamburger" id="third-of-hamburger1"></div>
 			<div class="third-of-hamburger" id="third-of-hamburger2"></div>
@@ -51,48 +51,52 @@
 		<div id="dropdown" style="margin-left: -279px;">
 			<table id="table-menu">
 				<tr><td class="menu-item"><p class="menu-item-p"><a id="home-link" href="index.html">Home</a></p></td></tr>
-				<tr><td class="menu-item"><p class="menu-item-p"><a id="artists-link" href="">Artists</a></p></td></tr>
-				<tr><td class="menu-item"><p class="menu-item-p"><a id="about-link" href="">About</a></p></td></tr>
+				<!-- <tr><td class="menu-item"><p class="menu-item-p"><a id="artists-link" href="">Artists</a></p></td></tr> -->
+				<!-- <tr><td class="menu-item"><p class="menu-item-p"><a id="about-link" href="">About</a></p></td></tr> -->
 				<tr><td class="menu-item"><p class="menu-item-p"><a id="dash-link" href="dash.html" style="visibility: hidden;">Dashboard</a></p></td></tr>
 			</table>
 		</div>
 	</div>
 
 	<div id="login-form" class="auth-form" style="top: -290px;">
-			<p class="top-form-text" id="top-login-form-text">Log In With Email</p>
-			<div>
-				<svg version="1.1" class="close-auth-form" id="close-login-form" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 864 864" style="enable-background:new 0 0 864 864;" xml:space="preserve">
-					<polygon points="0,107.43 110.04,0 432,324 756.16,0 864,107.56 540,432 864,756.11 756.16,864 432,540 105.67,864 0,746.4 324,432 "/>
-				</svg>
-			</div>
-
-			<form>
-				<input type="text" id="email" class="textbox" placeholder="Email"><br>
-				<input type="password" id="password" class="textbox" placeholder="Password"><br>
-				<button type="button" id="login-button">Log In</button><br>
-			</form>
-
-			<p class="bottom-auth-text">Don't have an account? <a id="switch-to-signup" class="alink" style="cursor: pointer;">Sign Up</a></p>
+		<p class="top-form-text" id="top-login-form-text">Log In With Email</p>
+		<div>
+			<svg version="1.1" class="close-auth-form" id="close-login-form" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 864 864" style="enable-background:new 0 0 864 864;" xml:space="preserve">
+				<polygon points="0,107.43 110.04,0 432,324 756.16,0 864,107.56 540,432 864,756.11 756.16,864 432,540 105.67,864 0,746.4 324,432 "/>
+			</svg>
 		</div>
 
-		<div id="signup-form" class="auth-form" style="top: -290px;">
-			<p class="top-form-text" id="top-signup-form-text">Sign Up With Email</p>
-			<div>
-				<svg version="1.1" class="close-auth-form" id="close-signup-form" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 864 864" style="enable-background:new 0 0 864 864;" xml:space="preserve">
-					<polygon points="0,107.43 110.04,0 432,324 756.16,0 864,107.56 540,432 864,756.11 756.16,864 432,540 105.67,864 0,746.4 324,432 "/>
-				</svg>
-			</div>
+		<p style="color: var(--coral); display: none; margin-bottom: 4px;" id="loginError"></p>
 
-			<form>
-				<input id="newEmail" type="text" class="textbox" name="email" placeholder="Email"><br>
-				<input id="newPassword" type="password" class="textbox" name="password" placeholder="Password"><br>
-				<input id="first" type="text" class="textbox" name="first" placeholder="First Name"><br>
-				<input id="last" type="text" class="textbox" name="last" placeholder="Last Name"><br>
-				<button type="button" id="signup-button">Sign Up</button><br>
-			</form>
+		<form>
+			<input type="text" id="email" class="textbox" placeholder="Email"><br>
+			<input type="password" id="password" class="textbox" placeholder="Password"><br>
+			<button type="button" id="login-button">Log In</button><br>
+		</form>
 
-			<p class="bottom-auth-text">Already have an account? <a id="switch-to-login" class="alink" style="cursor: pointer;">Log In</a></p>
+		<p class="bottom-auth-text">Don't have an account? <a id="switch-to-signup" class="alink" style="cursor: pointer;">Sign Up</a></p>
+	</div>
+
+	<div id="signup-form" class="auth-form" style="top: -390px;">
+		<p class="top-form-text" id="top-signup-form-text">Sign Up With Email</p>
+		<div>
+			<svg version="1.1" class="close-auth-form" id="close-signup-form" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 864 864" style="enable-background:new 0 0 864 864;" xml:space="preserve">
+				<polygon points="0,107.43 110.04,0 432,324 756.16,0 864,107.56 540,432 864,756.11 756.16,864 432,540 105.67,864 0,746.4 324,432 "/>
+			</svg>
 		</div>
+
+		<p style="color: var(--coral); display: none; margin-bottom: 4px;" id="not-all-complete">Not all forms have been filled.</p>
+
+		<form>
+			<input id="newEmail" type="text" class="textbox" name="email" placeholder="Email"><br>
+			<input id="newPassword" type="password" class="textbox" name="password" placeholder="Password"><br>
+			<input id="first" type="text" class="textbox" name="first" placeholder="First Name"><br>
+			<input id="last" type="text" class="textbox" name="last" placeholder="Last Name"><br>
+			<div id="tosDiv"><input type="checkbox" id="TOS"> I have read and accept the <a href="legal.html" target="_blank" id="tosLink">Terms of Service</a></div><br>
+			<button type="button" id="signup-button">Sign Up</button><br>
+		</form>
+
+		<p class="bottom-auth-text">Already have an account? <a id="switch-to-login" class="alink" style="cursor: pointer;">Log In</a></p>
 	</div>
 
 	<div style="height: 50px;" id="navbar-fill"></div>

@@ -388,3 +388,14 @@ html, body {
 .coral {
 	color: var(--coral);
 }
+
+#tosLink {
+	color: #333;
+	text-decoration: underline;
+}
+
+#tosDiv {
+	display: inline-block;
+	max-width: 242px;
+	margin-bottom: 4px;
+}
