@@ -55,6 +55,18 @@ class Track {
 		} else if(this.explicitContent == false) {
 			document.getElementById("expTrue").checked = false;
 			document.getElementById("expFalse").checked = true;
+		} else if(this.explicitContent == null) {
+			document.getElementById("expTrue").checked = false;
+			document.getElementById("expFalse").checked = false;
+		}
+		if(this.file == null) {
+			document.getElementById("file").value = null;
+		}
+		if(this.beatLicence == null) {
+			document.getElementById("beat-licence").value = null;
+		}
+		if(this.beatProof == null) {
+			document.getElementById("beat-proof").value = null;
 		}
 		document.getElementById("startTime").value = this.previewStartTime;
 		if(this.language != "nolyrics" && this.language != "english" && this.language != "spanish" && 
@@ -80,7 +92,11 @@ class Track {
 			document.getElementById("beat-proof-upload-name").innerHTML = this.beatProofName;
 		}
 		document.getElementById("songwriter").value = this.songWriterName;
-		document.getElementById("prevRelease").value = this.prevRelease;
+		if(this.prevRelease != "none-given") {
+			document.getElementById("prevRelease").value = this.prevRelease;
+		} else {
+			document.getElementById("prevRelease").value = "";
+		}
 	}
 
 	pullInfo() {
@@ -115,7 +131,11 @@ class Track {
 		if(document.getElementById("beat-proof").files[0] != null) {
 			this.beatProofName = document.getElementById("beat-proof").files[0].name;
 		}
-		this.prevRelease = document.getElementById("prevRelease").value;
+		if(document.getElementById("prevRelease") != "") {
+			this.prevRelease = document.getElementById("prevRelease").value;
+		} else {
+			this.prevRelease = "none-given";
+		}
 	}
 
 	checkRequired() {
@@ -250,33 +270,92 @@ document.getElementById("album-art-upload-button").onclick = function() {
 	document.getElementById("albumArt").click();
 }
 
-var fileUp = document.getElementById("file");
+document.getElementById("albumArt").onchange = function() {
+	document.getElementById("album-art-upload-name").innerHTML = document.getElementById("albumArt").files[0].name;
+}
 
 var form = document.getElementById("release-form");
 var trackName = document.getElementById("songName").value;
 
 document.getElementById("submit-redirect").onclick = function() {
-	document.getElementById("release-submit").click();
+	var r = [];
+	var allFinished = true;
+	for(var i = 0;i<tracks.length;i++) {
+		if(!tracks[i].checkRequired()) {
+			allFinished = false;
+			r.push(i+1);
+		}
+	}
+	if(!allFinished) {
+		window.scrollTo(0,0);
+		if(r.length > 1) {
+			var neededTracks = r.slice(0,-1).join(", ") + " and "+ r.slice(-1);
+			var m = "You still have not completed all required fields on tracks ";
+		} else {
+			var neededTracks = r;
+			var m = "You still have not completed all required fields on track ";
+		}
+		document.getElementById("unfinishedTracks").style.display = "block";
+		document.getElementById("unfinishedTracks").innerHTML = m + neededTracks;
+	}
+	if(allFinished) {
+		document.getElementById("release-submit").click();
+	}
+}
+
+var albumInfo = {
+	albumName: "",
+	cprOwner: "",
+	mastering: null,
+	asapRadio: false,
+	specRadio: false,
+	releaseDate: null,
+	file: null,
+};
+
+document.getElementById("album-info-form").onchange = function() {
+	albumInfo.albumName = document.getElementById("releaseName").value;
+	albumInfo.cprOwner = document.getElementById("copyrightOwner").value;
+	albumInfo.mastering = document.getElementById("master").checked;
+	albumInfo.asapRadio = document.getElementById("asap").checked;
+	albumInfo.specRadio = document.getElementById("specificDate").checked;
+	if(albumInfo.asapRadio && !albumInfo.specRadio) {
+		albumInfo.releaseDate = "asap";
+	} else if(!albumInfo.asapRadio && albumInfo.specRadio) {
+		albumInfo.releaseDate = document.getElementById("specificReleaseDate").value;
+	}
+	if(document.getElementById("albumArt").files[0] != null) {
+		albumInfo.file = document.getElementById("albumArt").files[0];
+	}
 }
 
 form.onsubmit = function(event) {
 	event.preventDefault();
-	var files = fileUp.files;
 
 
 	//the for loop iterates through the array of Track instances (track is a class) in the tracks array
 	//for each track it makes a "formData" variable, uploading the song file
 	//then it appends all of the song information stored in instance variables to the form data
 	//it finally sends the formData as a POST http request, this acts the same as an HTML form submit
+	var albumXHR = new XMLHttpRequest();
+	albumXHR.open('POST', 'album-info-upload.php', true);
+	var albumData = new FormData();
+	albumData.append("albumName", albumInfo.albumName);
+	albumData.append("cprOwner", albumInfo.cprOwner);
+	albumData.append("albumArt", albumInfo.file);
+	albumData.append("mastering", albumInfo.mastering);
+	albumData.append("releaseDate", albumInfo.releaseDate);
+	albumData.append("artistName", firebase.auth().currentUser.artistName);
+	albumXHR.send(albumData);
 
 	var i = 0;
 	for(i = 0;i<tracks.length;i++) {
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', 'song-info-upload.php', true);
 		var formData = new FormData();
-		formData.append("albumName", "album");
+		formData.append("albumName", albumInfo.albumName);
 		formData.append("artistName", firebase.auth().currentUser.artistName);
-		formData.append("fileToUpload", tracks[i].file, tracks[i].fileName);
+		formData.append("fileToUpload", tracks[i].file, tracks[i].fileName);				//
 		formData.append("trackName", tracks[i].songName);									//
 		formData.append("genre", tracks[i].genre);											//
 		formData.append("subgenre", tracks[i].subgenre);									//

@@ -98,6 +98,8 @@
 
 	<div id="graystuff" style="display: none;"></div>
 
+	<div id="unfinishedTracks" style="display: none;"></div>
+
 	<div id="main-grid">
 		<div id="release-form-div">		
 			<div id="final-wrapper">
@@ -110,7 +112,7 @@
 					<div id="add-track">+ Add Track</div>
 				</div>
 
-				<form id="release-form"method="post" enctype="multipart/form-data">
+				<form id="release-form" method="post" enctype="multipart/form-data">
 					<div id="add-song-text">
 						<p>In order to add a song for release, click the "+ Add Track" button to the left, then select the track in the Track List.</p>
 					</div>
@@ -139,7 +141,7 @@
 
 						<div class="form-element required">
 							<div class="required-asterisk">*</div>
-							<input type="checkbox" value="master-it"> <a target="_blank" href="index.html#pro-mastering-div">Master</a> my Release
+							<input id="master" type="checkbox" value="master-it"> <a target="_blank" href="index.html#pro-mastering-div">Master</a> my Release
 						</div>
 
 						<div class="form-element required">
@@ -243,7 +245,7 @@
 							<div id="otherLangDiv" style="display: none;">
 								<br>
 								<p>Other Langauge</p>
-								<input type="text" id="otherLang" name="otherLang" size="20"><!--otherLang-->
+								<input type="text" id="otherLang" name="otherLang" placeholder="Other Language" size="20"><!--otherLang-->
 							</div><br>
 
 						</div>

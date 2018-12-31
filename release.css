@@ -236,7 +236,20 @@ input[type="text"] {
 	background-color: var(--coral-hover);
 }
 
+#unfinishedTracks {
+	background-color: white;
+    margin: 35px 35px 0px 35px;
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--coral);
+    font-size: 18px;
+}
+
 @media only screen and (max-width: 600px) {
+	#unfinishedTracks {
+		margin: 20px 20px 0px 20px;
+	}
+
 	#final-wrapper {
 		grid-template-columns: 1fr;
 		grid-template-rows: auto auto;
