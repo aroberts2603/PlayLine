@@ -280,25 +280,36 @@ var trackName = document.getElementById("songName").value;
 document.getElementById("submit-redirect").onclick = function() {
 	var r = [];
 	var allFinished = true;
+	var albumInfo = checkReleaseRequired();
 	for(var i = 0;i<tracks.length;i++) {
 		if(!tracks[i].checkRequired()) {
 			allFinished = false;
 			r.push(i+1);
 		}
 	}
+	var m = "";
 	if(!allFinished) {
 		window.scrollTo(0,0);
 		if(r.length > 1) {
-			var neededTracks = r.slice(0,-1).join(", ") + " and "+ r.slice(-1);
-			var m = "You still have not completed all required fields on tracks ";
+			var neededTracks = r.slice(0,-1).join(", ") + " and "+ r.slice(-1) + ".";
+			m = "You have not completed all required fields on tracks ";
 		} else {
-			var neededTracks = r;
-			var m = "You still have not completed all required fields on track ";
+			var neededTracks = r + ".";
+			m = "You have not completed all required fields on track ";
 		}
-		document.getElementById("unfinishedTracks").style.display = "block";
-		document.getElementById("unfinishedTracks").innerHTML = m + neededTracks;
+		m += neededTracks;
 	}
-	if(allFinished) {
+
+	if(!albumInfo) {
+		m += " You have not completed all required fileds in your Overall Release Information.";
+	}
+
+	if(!allFinished || !albumInfo) {
+		document.getElementById("unfinishedTracks").style.display = "block";
+		document.getElementById("unfinishedTracks").innerHTML = m;
+	}
+
+	if(allFinished && albumInfo) {
 		document.getElementById("release-submit").click();
 	}
 }
@@ -306,7 +317,7 @@ document.getElementById("submit-redirect").onclick = function() {
 var albumInfo = {
 	albumName: "",
 	cprOwner: "",
-	mastering: null,
+	mastering: false,
 	asapRadio: false,
 	specRadio: false,
 	releaseDate: null,
@@ -326,6 +337,15 @@ document.getElementById("album-info-form").onchange = function() {
 	}
 	if(document.getElementById("albumArt").files[0] != null) {
 		albumInfo.file = document.getElementById("albumArt").files[0];
+	}
+}
+
+function checkReleaseRequired() {
+	if(albumInfo.albumName == "" || albumInfo.cprOwner == "" || (!albumInfo.asapRadio && !albumInfo.specRadio) || 
+		(albumInfo.specRadio && (albumInfo.releaseDate == null || albumInfo.releaseDate == "")) || albumInfo.file == null) {
+		return false;
+	} else {
+		return true;
 	}
 }
 
