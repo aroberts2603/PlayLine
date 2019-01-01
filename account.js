@@ -31,3 +31,54 @@ confSH.onclick = function() {
 		confSH.innerHTML = "show";
 	}
 }
+
+document.getElementById("profile-photo-upload-button").onclick = function() {
+	document.getElementById("profile-photo-upload").click();
+}
+
+var artistButton = document.getElementById("update-artist-info");
+var accButton = document.getElementById("update-acc-info");
+var miscButton = document.getElementById("update-misc-info");
+
+function checkArtistName() {
+	firebase.database().ref().once("value").then(function(snapshot) {
+		if((snapshot.child("users/"+firebase.auth().currentUser.uid+"/artistName").val()) != "") {
+			document.getElementById("artist-name").value = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/artistName").val());
+			document.getElementById("artist-name").disabled = true;
+			document.getElementById("artist-name").style.backgroundColor = "#ddd";
+		}
+	});
+}
+
+checkArtistName();
+
+artistButton.onclick = function() {
+	firebase.database().ref("users/"+firebase.auth().currentUser.uid).update({
+		"artistName": document.getElementById("artist-name").value
+	});
+	if(document.getElementById("profile-photo-upload").files[0] != null) {
+		firebase.database().ref().once("value").then(function(snapshot) {
+			if((snapshot.child("users/"+firebase.auth().currentUser.uid+"/artistName").val()) != "") {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+		    		var data = this.result;
+		    		firebase.database().ref("users/"+firebase.auth().currentUser.uid).update({
+		    			"photo": data
+		    		});
+				}
+				reader.readAsDataURL(document.getElementById("profile-photo-upload").files[0]);
+				firebase.database().ref().once("value").then(function(snapshot) {
+					document.getElementById("profile-photo-image").src = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/photo").val());
+				});
+			} else {
+				document.getElementById("You must have an Artist Name to upload a profile photo.");
+			}
+		});
+	}
+}
+
+document.getElementById("profile-photo-upload").onchange = function() {
+	if(document.getElementById("profile-photo-upload").files[0] != null) {
+		document.getElementById("profile-photo-upload-name").innerHTML = document.getElementById("profile-photo-upload").files[0].name;
+	}
+}

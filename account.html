@@ -22,7 +22,7 @@
 			<div class="open-auth-form" id="open-login-form">Log In</div>
 			<div class="open-auth-form" id="open-signup-form">Sign Up</div>
 
-			<div style="display: none;" id="profile-photo"></div>
+			<div style="display: none;" id="profile-photo"><img id="profile-photo-image" style="width: 38px; height: 38px;"></div>
 
 			<div style="display: none;" id="dropdown-arrow-container">
 				<svg version="1.1" id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
@@ -32,7 +32,7 @@
 			
 			<div style="display: none;" id="account-dropdown">
 				<p style="margin-top: 20px;"><a class="account-dropdown-links" href="dash.html">Dashboard</a><br></p>
-				<p><a class="account-dropdown-links">Account Settings</a><br></p>
+				<p><a class="account-dropdown-links" href="account.html">Account Settings</a><br></p>
 				<p id="logout"><a class="account-dropdown-links">Log Out</a></p>
 			</div>
 		</div>
@@ -114,10 +114,11 @@
 					<hr>
 					<div class="container">
 						<p class="label">Artist Name (not changeable after picked)</p>
-						<input id="artist-name" type="text" placeholder="Artist Name">
-						<input id="profile-photo-upload" type="file" hidden="hidden" accept="image/*"><br>
+						<input id="artist-name" name="artist" type="text" placeholder="Artist Name">
+						<input id="profile-photo-upload" type="file" hidden="hidden" accept="image/png"><br>
+						<p style="color: var(--coral);" id="no-artist-name"></p>
 						<div class="file-input">
-							<p class="label">Profile Photo</p>
+							<p class="label">Profile Photo (must be in png format)</p>
 							<div class="file-upload-button" id="profile-photo-upload-button">Pick File</div>
 							<p class="file-uploaded-name" id="profile-photo-upload-name">No File</p>
 						</div>
@@ -174,7 +175,8 @@
 		</div>
 	</div>
 <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
-<script type="text/javascript" src="account.js"></script>
 <script type="text/javascript" src="navbar.js"></script>
+<script type="text/javascript" src="account.js"></script>
+
 </body>
 </html>

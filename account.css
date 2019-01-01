@@ -46,6 +46,7 @@ h6 {
 input[type="text"] {
 	background-color: rgba(0,0,0,0);
 	min-width: 220px;
+	width: 300px;
 	font-size: 17px;
 	border-radius: 8px;
 	border: 0.75px solid #C9C9C9;
@@ -60,6 +61,7 @@ input[type="text"] {
 input[type="password"] {
 	background-color: rgba(0,0,0,0);
 	min-width: 220px;
+	width: 300px;
 	font-size: 17px;
 	border-radius: 8px;
 	border: 0.75px solid #C9C9C9;
@@ -125,4 +127,8 @@ input[type="password"] {
 
 .file-uploaded-name {
 	display: inline-block;
+}
+
+.disabled {
+	background-color: #999;
 }

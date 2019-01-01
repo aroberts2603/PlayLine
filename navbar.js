@@ -121,7 +121,9 @@ function finishSignup() {
 		"email": email,
 		"first": first,
 		"last": last,
-		"money": money
+		"money": money,
+		"artistName": "",
+		"photo": ""
 	});
 }
 
@@ -172,7 +174,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 		closeLogin.onclick();
 		closeSignup.onclick();
 
-		console.log(firebase.database().ref("users/" + firebase.auth().currentUser.uid));
 
 		if(newAcc) {
 			finishSignup();
@@ -189,12 +190,16 @@ firebase.auth().onAuthStateChanged(function(user) {
 		firebase.database().ref().once("value").then(function(snapshot) {
 			firebase.auth().currentUser.last = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/last").val());
 			firebase.auth().currentUser.first = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/first").val());
-			firebase.auth().currentUser.artistName = firebase.auth().currentUser.first + "_" + firebase.auth().currentUser.last;
+			firebase.auth().currentUser.artistName = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/artistName").val());
 		});
 
 		openLogin = false;
 
 		document.getElementById("profile-photo").style.display = "inline";
+		firebase.database().ref().once("value").then(function(snapshot) {
+			document.getElementById("profile-photo-image").src = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/photo").val());
+		});
+
 		document.getElementById("dropdown-arrow-container").style.display = "inline";
 		document.getElementById("account-dropdown").style.display = "block";
 
