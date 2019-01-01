@@ -168,6 +168,16 @@ document.getElementById("password").addEventListener("keyup", function(event) {
 	}
 });
 
+document.getElementById("log-out-link").onclick = function() {
+	firebase.auth().signOut();
+}
+
+document.getElementById("sign-in-link").onclick = function() {
+	document.getElementById("signup-form").style.top = "-390px";
+	document.getElementById("login-form").style.top = "calc(50% - 200px)";
+	document.getElementById("email").focus();
+}
+
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
 
@@ -190,7 +200,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 		try {
 			document.getElementById("curr-email").innerHTML = firebase.auth().currentUser.email;
 		} catch(error) {
-			
+
 		}
 
 		firebase.database().ref().once("value").then(function(snapshot) {
@@ -215,8 +225,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 		document.getElementById("open-signup-form").style.display = "none";
 
 		document.getElementById("dash-link").style.visibility = "visible";
+		document.getElementById("acc-settings").style.visibility = "visible";
+
+		document.getElementById("upper-sign-in-link").style.display = "none";
+		document.getElementById("log-out-link").style.display = "inline-block";
 
 	} else {
+		window.location.href = "index.html";
 		openLogin = true;
 
 		document.getElementById("profile-photo").style.display = "none";
@@ -227,5 +242,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 		document.getElementById("open-signup-form").style.display = "inline-block";
 
 		document.getElementById("dash-link").style.visibility = "hidden";
+		document.getElementById("acc-settings").style.visibility = "hidden";
+
+		document.getElementById("upper-sign-in-link").style.display = "inline-block";
+		document.getElementById("log-out-link").style.display = "none";
 	}
 });

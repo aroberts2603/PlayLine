@@ -132,3 +132,34 @@ input[type="password"] {
 .disabled {
 	background-color: #999;
 }
+
+@media only screen and (max-width: 600px) {
+	#main-content {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto auto;
+	}
+
+	#wrapper {
+		min-width: 0px;
+		padding: 0px 20px;
+		min-height: calc(100vh - 158.67px);
+	}
+
+	input[type="text"] {
+		width: calc(100% - 60px);
+		min-width: 120px;
+	}
+
+	input[type="password"] {
+		width: calc(100% - 60px);
+		min-width: 120px;
+	}
+
+	#artist-name {
+		width: 100%;
+	}
+
+	#mobile-navbar {
+		background-color: rgba(0, 0, 0, 0.85);
+	}
+}

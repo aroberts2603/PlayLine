@@ -105,7 +105,7 @@ accButton.onclick = function() {
 	// 	} else {
 	// 		document.getElementById("pass-error").innerHTML = "New Passwords Do Not Match";
 	// 	}
-	}
+	// }
 
 	if(oldP != "" || newP != "" || confP != "") {
 		if(newP == confP) {
