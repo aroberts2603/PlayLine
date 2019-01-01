@@ -187,6 +187,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 		var uid = user.uid;
 		var providerData = user.providerData;
 
+		try {
+			document.getElementById("curr-email").innerHTML = firebase.auth().currentUser.email;
+		} catch(error) {
+			
+		}
+
 		firebase.database().ref().once("value").then(function(snapshot) {
 			firebase.auth().currentUser.last = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/last").val());
 			firebase.auth().currentUser.first = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/first").val());
@@ -197,7 +203,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 		document.getElementById("profile-photo").style.display = "inline";
 		firebase.database().ref().once("value").then(function(snapshot) {
-			document.getElementById("profile-photo-image").src = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/photo").val());
+			if((snapshot.child("users/"+firebase.auth().currentUser.uid+"/photo").val()) != "") {
+				document.getElementById("profile-photo-image").src = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/photo").val());
+			}
 		});
 
 		document.getElementById("dropdown-arrow-container").style.display = "inline";
