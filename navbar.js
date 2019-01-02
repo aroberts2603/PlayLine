@@ -231,7 +231,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 		document.getElementById("log-out-link").style.display = "inline-block";
 
 	} else {
-		window.location.href = "index.html";
+		// window.location.href = "index.html";
 		openLogin = true;
 
 		document.getElementById("profile-photo").style.display = "none";

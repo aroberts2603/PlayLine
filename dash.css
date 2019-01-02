@@ -13,11 +13,13 @@ body {
 
 #main-grid {
 	min-height: calc(100vh - 50px);
+	display: -ms-grid;
 	display: grid;
 	grid-template-rows: 1fr auto;
 }
 
 #dashboard-grid-container {
+	display: -ms-grid;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: var(--div-padding);
