@@ -105,11 +105,15 @@ var alpha = 0;
 
 window.onload = function() {
 	document.getElementById("hero-container").style.backgroundPosition = "0px 0px";
-	updateParallax();
+	if(window.width < 900) {
+		updateParallax();
+	}
 }
 
 window.onscroll = function() {
-	updateParallax();
+	if(window.width < 900) {
+		updateParallax();
+	}
 }
 
 function updateParallax() {

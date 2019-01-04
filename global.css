@@ -1,15 +1,11 @@
 :root {
-	--queen-blue: #456990;
 	--panels: #E6E6E6;
-	--buttons: #5998ff;
-	--buttons-hover: #7CAEFF;
 	--text: #585A5D;
 	--orange: #F69982;
 	--div-padding: 5%;
 	--persian-red: #cc3333;
 	--coral: #FF3F3F;
 	--coral-hover: #FF5F5F;
-	--queen-blue: #456990;
 }
 
 @font-face {
