@@ -90,7 +90,7 @@ html, body {
 
 .menu-item {
 	cursor: pointer;
-	font-size: 32px;
+	font-size: 28px;
 	padding: 10px 0 10px 0;
 	text-align: center;
 }
@@ -98,7 +98,7 @@ html, body {
 #table-menu {
 	margin-top: 10px;
 	text-align: center;
-	margin-left: calc(50% - 80px);
+	margin-left: calc(50% - 71px);
 }
 
 .third-of-hamburger {
@@ -405,5 +405,9 @@ html, body {
 @media only screen and (max-width: 600px) {
 	.auth-form {
 		transform: scale(1.2);
+	}
+
+	#main-grid {
+		overflow-x: hidden;
 	}
 }
