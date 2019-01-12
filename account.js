@@ -59,23 +59,31 @@ artistButton.onclick = function() {
 	document.getElementById("artist-name").disabled = true;
 	document.getElementById("artist-name").style.backgroundColor = "#ddd";
 	if(document.getElementById("profile-photo-upload").files[0] != null) {
-		firebase.database().ref().once("value").then(function(snapshot) {
-			if((snapshot.child("users/"+firebase.auth().currentUser.uid+"/artistName").val()) != "") {
-				var reader = new FileReader();
-				reader.onload = function (e) {
-		    		var data = this.result;
-		    		firebase.database().ref("users/"+firebase.auth().currentUser.uid).update({
-		    			"photo": data
-		    		});
-				}
-				reader.readAsDataURL(document.getElementById("profile-photo-upload").files[0]);
-				firebase.database().ref().once("value").then(function(snapshot) {
-					document.getElementById("profile-photo-image").src = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/photo").val());
-				});
-			} else {
-				document.getElementById("You must have an Artist Name to upload a profile photo.");
-			}
-		});
+		var request = new XMLHttpRequest();
+		request.open("POST", "profile-photo-upload.php");
+		var formData = new FormData();
+		formData.append("profilePhoto", document.getElementById("profile-photo-upload").files[0]);
+		formData.append("uid", firebase.auth().currentUser.uid);
+		request.send(formData);
+		// firebase.database().ref().once("value").then(function(snapshot) {
+		// 	if((snapshot.child("users/"+firebase.auth().currentUser.uid+"/artistName").val()) != "") {
+		// 		var reader = new FileReader();
+		// 		reader.onload = function (e) {
+
+
+		//     		var data = this.result;
+		//     		firebase.database().ref("users/"+firebase.auth().currentUser.uid).update({
+		//     			"photo": data
+		//     		});
+		// 		}
+		// 		reader.readAsDataURL(document.getElementById("profile-photo-upload").files[0]);
+		// 		firebase.database().ref().once("value").then(function(snapshot) {
+		// 			document.getElementById("profile-photo-image").src = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/photo").val());
+		// 		});
+		// 	} else {
+		// 		document.getElementById("You must have an Artist Name to upload a profile photo.");
+		// 	}
+		// });
 	}
 }
 

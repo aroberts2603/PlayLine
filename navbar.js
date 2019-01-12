@@ -212,10 +212,14 @@ firebase.auth().onAuthStateChanged(function(user) {
 		openLogin = false;
 
 		document.getElementById("profile-photo").style.display = "inline";
-		firebase.database().ref().once("value").then(function(snapshot) {
-			if((snapshot.child("users/"+firebase.auth().currentUser.uid+"/photo").val()) != "") {
-				document.getElementById("profile-photo-image").src = (snapshot.child("users/"+firebase.auth().currentUser.uid+"/photo").val());
-			}
+		fetch("/playline/users/" + uid + "/profilePhoto.png").then(function(response) {
+		    response.blob().then(function(blob) {
+		        var reader = new FileReader();
+				reader.onload = function() {
+					document.getElementById("profile-photo-image").src = reader.result;
+		        }
+				reader.readAsDataURL(blob);
+		    });
 		});
 
 		document.getElementById("dropdown-arrow-container").style.display = "inline";
