@@ -212,7 +212,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 		openLogin = false;
 
 		document.getElementById("profile-photo").style.display = "inline";
-		fetch("/playline/users/" + uid + "/profilePhoto.png").then(function(response) {
+		fetch("/users/" + uid + "/profilePhoto.png").then(function(response) {
 		    response.blob().then(function(blob) {
 		        var reader = new FileReader();
 				reader.onload = function() {
